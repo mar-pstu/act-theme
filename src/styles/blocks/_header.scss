@@ -1,0 +1,40 @@
+//
+//
+//  Шапка сайта
+//
+//
+
+
+.header {
+
+	.container {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+	}
+
+	.custom-logo-link {
+		margin-right: auto;
+		max-width: 5em;
+	}
+
+	.custom-logo {
+		display: block;
+		height: auto;
+	}
+
+	.nav {
+		margin-left: auto;
+	}
+
+	.nav ~ .languages {
+		margin-left: 2em;
+	}
+
+	.languages {
+		font-size: 85%;
+		margin-left: auto;
+	}
+
+
+}

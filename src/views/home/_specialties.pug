@@ -1,0 +1,17 @@
+//-
+	Главная страница
+	Секция "Специальности"
+
+mixin specialties_entry( args )
+	.col-xs-12.col-sm-4
+		a.specialties__entry.entry( href="#", role="listitem" )
+			img.wp-post-thumbnail.lazy( src="#", data-src=args.thumbnail, alt=args.title )
+			.title #{args.title}
+
+section.section.specialties#specialties: .container
+	h2 Специальности
+	p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex sequi ut harum, labore nemo rem excepturi blanditiis reprehenderit. Unde beatae cumque dolor voluptas et sunt suscipit, alias mollitia nobis laborum!
+	.row( role="list" )
+		+specialties_entry( { thumbnail: src.img+'specialties/.jpg', title: 'Автоматизация и компьютерно-интегрированные технологии' } )
+		+specialties_entry( { thumbnail: src.img+'specialties/.jpg', title: 'Компьютерно-интегрированные технологические процессы и производства' } )
+		+specialties_entry( { thumbnail: src.img+'specialties/.jpg', title: 'Автоматизированное управление технологическими процессами' } )

@@ -1,0 +1,19 @@
+.languages {
+
+	list-style-type: none;
+	padding-left: 0;
+	
+	li {
+		display: inline-block;
+	}
+
+	.current {
+		font-weight: bold;
+		padding: 0 .5em;
+	}
+
+	a {
+		padding: 0 .5em;
+	}
+
+}

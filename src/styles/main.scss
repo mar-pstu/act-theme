@@ -1,0 +1,54 @@
+@import "helpers/variables";
+@import "helpers/functions";
+@import "helpers/flex";
+@import "helpers/mixins";
+@import "helpers/extends.button";
+@import "helpers/extends.icons";
+@import "helpers/extends";
+
+
+@import "base/normalize";
+@import "base/type";
+@import "base/wrapper";
+@import "base/flexboxgrid";
+
+
+@import "widgets/tagcloud";
+@import "widgets/calendar";
+
+
+
+@import "navs/mobile";
+@import "navs/main";
+@import "navs/languages";
+
+
+
+
+@import "blocks/aside";
+@import "blocks/content";
+@import "blocks/pager";
+@import "blocks/section";
+@import "blocks/burger";
+@import "blocks/breadcrumbs";
+@import "blocks/pagination";
+@import "blocks/form";
+@import "blocks/buttons";
+@import "blocks/breadcrumbs";    // "хлебные крошки"
+@import "blocks/to-top-button";  // кнопка наверх
+@import "blocks/header";         // Шапка сайта
+@import "blocks/footer";         // Подвал сайта
+
+
+
+@import "home/jumbotron";        // главная страница - первый экран
+@import "home/about";            // главная страница - секция "О нас"
+@import "home/directions";       // главная странциа - секция "Направления работы"
+@import "home/advertising";      // главная странциа - блок с рекламным видео
+@import "home/specialties";
+
+
+
+@import "pages/home";            // главная сраница
+@import "pages/archive";         // страница блога / архива
+@import "pages/error404";        // страница ошибки 404

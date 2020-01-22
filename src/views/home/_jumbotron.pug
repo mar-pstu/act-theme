@@ -1,0 +1,21 @@
+//-
+	Главная страница
+	"Первый экран"
+
+
+
+mixin features( args )
+	li.features__item.item
+		img.icon.lazy( src="#", data-src=args.icon, alt=args.title )
+		.title #{args.title}
+
+
+
+section.jumbotron#jumbotron
+	h1.title #{blog.name}
+	p.description #{blog.description}
+	a.permalink( href="#" ) Поступление 2020
+	ul.features
+		+features( { icon: src.img+'features/01.png', title: 'Fixed price projects' } )
+		+features( { icon: src.img+'features/02.png', title: 'Receive on time' } )
+		+features( { icon: src.img+'features/03.png', title: 'Satisfaction guranteed' } )

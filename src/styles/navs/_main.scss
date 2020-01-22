@@ -1,0 +1,33 @@
+.nav {
+
+
+	.list {
+
+	}
+
+
+	&__list {
+
+		.sub-menu {
+			display: none;
+		}
+
+		> li {
+			display: inline-block;
+		}
+
+		> li + li {
+			margin-left: 1em;
+		}
+
+		a {
+			display: block;
+		}
+
+	}
+
+	.burger {
+		
+	}
+
+}

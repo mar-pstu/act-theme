@@ -1,0 +1,24 @@
+.specialties {
+
+	.entry {
+		display: block;
+		position: relative;
+		max-width: 35em;
+		margin: 1em auto;
+	}
+
+	&__entry {
+
+		.wp-post-thumbnail {
+			display: block;
+			width: 100%;
+			height: auto;
+		}
+
+		.title {
+
+		}
+
+	}
+
+}

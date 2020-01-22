@@ -1,0 +1,60 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+.about {
+
+	margin: 5em;
+
+	.thumbnail {
+		display: block;
+		box-shadow: 0 0 0em .5em rgba( 0, 0, 0, .2 )
+	}
+
+	.overlay {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		position: relative;
+		min-height: 20em;
+		padding: 5em;
+		margin-left: -10em;
+		background-color: #f2f2f2;
+		box-shadow: 0 .5em 1em rgba( 0, 0, 0, .2 );
+	}
+
+	.overlay::after {
+		content: '';
+		display: block;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: .2em;
+		background-image: linear-gradient(
+			90deg,
+			$brand-primary 0%,
+			$brand-primary 25%,
+			$brand-success 25%,
+			$brand-success 50%,
+			$brand-warning 50%,
+			$brand-warning 75%,
+			$brand-info 75%,
+			$brand-info 100%
+		);
+	}
+
+	.permalink {
+		margin-top: auto;
+	}
+
+}

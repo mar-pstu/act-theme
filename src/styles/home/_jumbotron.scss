@@ -1,0 +1,62 @@
+.jumbotron {
+
+	background-color: #43444b;
+	text-align: center;
+	min-height: 85vh;
+	padding: 5em 0;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	.title {
+		margin: 0;
+		color: #fff;
+	}
+
+	.description {
+		margin: 2em auto;
+		color: #fff;
+	}
+
+	.permalink {
+		@extend %button;
+		@extend %button-primary;
+		@extend %button-large;
+		margin-top: 2em;
+		margin-bottom: 1em;
+	}
+
+	.features {
+		list-style-type: none;
+		padding-left: 0;
+		margin: 2em auto;
+		max-width: 50em;
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		align-items: center;
+	}
+
+	.features .item {
+		padding: 1em;
+		margin: 1em; 
+	}
+
+	.features .icon {
+		display: block;
+		width: 4em;
+		height: 4em;
+		margin: 1em auto;
+	}
+
+	.features .title {
+		@extend %lead;
+	}
+
+	.features .item:nth-of-type( 1 ) .title { color: $brand-success; }
+	.features .item:nth-of-type( 2 ) .title { color: $brand-info; }
+	.features .item:nth-of-type( 3 ) .title { color: $brand-warning; }
+
+}
