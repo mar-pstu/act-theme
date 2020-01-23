@@ -1,0 +1,21 @@
+//-
+	Макет секции главной страницы
+
+
+-
+	var section_class = '';
+	var section_id = '';
+	var section_style = '';
+	var section_title = 'Заголовок секции';
+	var section_excerpt = 'Текстовое описание секции Reiciendis quos possimus dignissimos nihil obcaecati quod dolorem culpa unde, illo.';
+
+block variables
+
+section( class = "section " + section_class, id = section_id, style = section_style )
+	.container
+		block section
+			block heading
+				h2 #{section_title}
+				p #{section_excerpt}
+			block body
+				p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi illo ipsa eos perspiciatis dolorum pariatur omnis ad sed cum? Alias odit aspernatur doloremque dolorem aut fugiat, quo corrupti, assumenda et?

@@ -1,0 +1,18 @@
+excend ../layout/_section
+
+mixin teacher( args )
+	.col-xs-12.col-sm-4.col-md-3
+		.teachers__item.item
+
+block variables
+	-
+		section_title = 'Преподаватели';
+		section_class = 'teachers';
+		section_id = 'teachers';
+
+block body
+	.row.center-xs
+		+teacher( { foto: src.img+'user.png', name: '', excerpt: '' } )
+		+teacher( { foto: src.img+'user.png', name: '', excerpt: '' } )
+		+teacher( { foto: src.img+'user.png', name: '', excerpt: '' } )
+		+teacher( { foto: src.img+'user.png', name: '', excerpt: '' } )

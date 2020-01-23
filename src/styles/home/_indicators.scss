@@ -1,0 +1,46 @@
+.indicators {
+
+	background-color: rgba( 0, 0, 0, .5 );
+	position: relative;
+	padding: 5em 0;
+
+	.bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: -1;
+		background-size: cover;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+	}
+
+	.item {
+		color: #fff;
+		text-align: center; 
+		margin: 1em auto;
+		max-width: 20em;
+	}
+
+	&__item {
+
+		.logo {
+			display: block;
+			margin: 0.5em auto;
+			width: 5em;
+			height: 5em;
+		}
+
+		.value {
+			font-size: 2em;
+		}
+
+		.label {
+			font-weight: bold;
+		}
+
+	}
+
+}

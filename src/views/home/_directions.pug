@@ -1,3 +1,5 @@
+extend ../layout/_section
+
 //-
 	Главная страница
 	Секция "Направления работы"
@@ -9,11 +11,15 @@ mixin direction( args )
 			h3.title #{args.title}
 			p.excerpt #{args.excerpt}
 
-section.section.directions#directions: .container
-	h2 Направления работы
-	p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse tempore ipsam iusto omnis, reiciendis, libero sapiente labore, unde non, illo fugit voluptate laboriosam sit? Eum voluptates voluptatum quasi vel quaerat?
+block variables
+	-
+		section_class = 'directions';
+		section_id = 'directions';
+		section_title = 'Направления работы';
+
+block body
 	.row.center-xs.stratch-xs
-		+direction( { icon: src.img+'directions/01.png', title: 'Web Design', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum dolor, aperiam ex sapiente expedita omnis! Ipsum maxime, sit porro. Totam laudantium incidunt nostrum numquam dignissimos labore atque soluta assumenda vitae.' } )
+		+direction( { icon: src.img+'directions/01.png', title: 'Web Design2', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum dolor, aperiam ex sapiente expedita omnis! Ipsum maxime, sit porro. Totam laudantium incidunt nostrum numquam dignissimos labore atque soluta assumenda vitae.' } )
 		+direction( { icon: src.img+'directions/02.png', title: 'UX Design', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt, blanditiis, quasi! Itaque earum adipisci totam debitis! Qui natus aliquam corporis, saepe accusantium labore magnam! Alias excepturi vitae tenetur doloremque consectetur?' } )
 		+direction( { icon: src.img+'directions/03.png', title: 'Photogrpahy', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate corporis perferendis dicta! Et numquam rerum sint tenetur ea dolor nisi officia accusamus earum voluptatibus dignissimos molestiae sapiente cumque, perferendis obcaecati.' } )
 		+direction( { icon: src.img+'directions/04.png', title: 'App Development', excerpt: ' Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde odio, consectetur at ipsa repellat necessitatibus autem eaque temporibus quibusdam, dolores esse accusamus laborum amet, sunt perferendis illum. Error, at, libero!' } )

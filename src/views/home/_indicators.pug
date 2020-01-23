@@ -1,0 +1,18 @@
+//-
+	Главная странциа
+	блок с "показателями" работы
+
+mixin indicators_item( args )
+	.col-xs-12.col-sm-4.col-md-3
+		.indicators__item.item( role="listitem" )
+			img.icon.lazy( src="#", data-src=args.logo, alt=args.label )
+			.value #{args.value}
+			.label #{args.label}
+
+#indicators.indicators( role="list" )
+	.bg.lazy( data-src=src.img+'indicators/bg.jpg' )
+	.container: .row
+		+indicators_item( { logo: src.img+'indicators/01.png', value: '12 458+', label: 'Projects Completed' } )
+		+indicators_item( { logo: src.img+'indicators/02.png', value: '1 796+', label: 'Satisfied Clients' } )
+		+indicators_item( { logo: src.img+'indicators/03.png', value: '1 000+', label: 'Positive Feedbacks' } )
+		+indicators_item( { logo: src.img+'indicators/04.png', value: '1 500+', label: 'Freebies Released' } )

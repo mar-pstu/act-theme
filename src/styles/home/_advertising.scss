@@ -1,7 +1,8 @@
 .advertising {
 
 	position: relative;
-	background-color: rgba( #43444b, 5 );
+	// background-color: rgba( #43444b, 5 );
+	background-color: rgba( 0, 0, 0, .5 );
 	text-align: center;
 	color: #fff;
 	padding: 5em 0;
@@ -17,6 +18,7 @@
 		background-position: center center;
 		background-size: cover;
 		background-repeat: no-repeat;
+		background-attachment: fixed;
 	}
 
 	.title {
