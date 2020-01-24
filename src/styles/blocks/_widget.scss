@@ -1,0 +1,10 @@
+.widget {
+
+	margin: 1em auto;
+
+	&__title {
+		margin-bottom: .5em;
+		& + p { margin-top: 0; }
+	}
+
+}

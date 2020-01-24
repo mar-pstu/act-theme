@@ -1,0 +1,27 @@
+extend ../layout/_section
+
+//-
+	Главная страница
+	Секця "Курсы"
+
+mixin cources_entry( args )
+	.col-xs-12.col-sm-7.col-md-4: .wrap
+		.cources__entry.entry( role="listitem" )
+			h3.title #{args.title}
+			a.thumbnail( href="#" ): img.wp-post-thumbnail.lazy( src="#", data-src=args.thumbnail, alt=args.title )
+			.excerpt #{args.excerpt}
+			a.permalink( href="#" ) Подробней
+
+
+
+block variables
+	-
+		section_title = 'Курсы';
+		section_class = 'cources';
+		section_id = 'cources';
+
+block body
+	.row.center-xs.stratch-xs( role="list" )
+		+cources_entry( { thumbnail: src.img+'cources/user.png', title: 'Пользователь ПК', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione ea, repudiandae odit, eius officia neque aperiam velit earum consectetur illo. Dolorem tenetur obcaecati, consequatur voluptates corporis veniam atque eaque, nam. Ratione voluptatibus suscipit expedita pariatur odio, ad impedit sapiente aut rem aliquid, autem explicabo unde quasi sit ipsam molestiae, quisquam accusamus. Voluptatibus.' } )
+		+cources_entry( { thumbnail: src.img+'cources/coding.png', title: 'Основы программирования', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione voluptatibus suscipit expedita pariatur odio, ad impedit sapiente aut rem aliquid, autem explicabo unde quasi sit ipsam molestiae, quisquam accusamus. Voluptatibus.' } )
+		+cources_entry( { thumbnail: src.img+'cources/design.png', title: 'Компьютерный дизайн', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis ut ad totam consectetur ea ex suscipit, doloribus possimus nisi saepe. Porro reprehenderit dignissimos perspiciatis cum error aut, aliquam magnam similique.' } )

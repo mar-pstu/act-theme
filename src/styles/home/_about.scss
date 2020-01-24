@@ -1,19 +1,8 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
 .about {
 
-	margin: 5em;
+	@include min-width( $screen-lg ) {
+		margin: 5em;
+	}
 
 	.thumbnail {
 		display: block;
@@ -21,15 +10,25 @@
 	}
 
 	.overlay {
+		margin-top: 1em;
+		margin-bottom: 1em;
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
 		position: relative;
 		min-height: 20em;
-		padding: 5em;
-		margin-left: -10em;
+		padding: 1em;
 		background-color: #f2f2f2;
 		box-shadow: 0 .5em 1em rgba( 0, 0, 0, .2 );
+		@include min-width( $screen-md ) {
+			margin-left: -10em;
+		}
+		@include min-width( $screen-md ) {
+			padding: 2em;
+		}
+		@include min-width( $screen-lg ) {
+			padding: 5em;
+		}
 	}
 
 	.overlay::after {
@@ -54,6 +53,9 @@
 	}
 
 	.permalink {
+		@extend %button;
+		@extend %button-primary;
+		@extend %button-large;
 		margin-top: auto;
 	}
 

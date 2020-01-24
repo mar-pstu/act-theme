@@ -1,0 +1,26 @@
+.advantages {
+
+	.item {
+		padding: 1em;
+		margin-top: 1em;
+		margin-bottom: 1em;
+	}
+
+	&__item {
+
+		.icon {
+			display: block;
+			width: 4em;
+			height: 4em;
+		}
+
+	}
+
+	.permalink {
+		@extend %button;
+		@extend %button-large;
+		@extend %button-success;
+		margin: 2em auto 0 auto;
+	}
+
+}

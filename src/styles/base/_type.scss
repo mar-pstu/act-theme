@@ -13,7 +13,7 @@
 .text-capitalize     { text-transform: capitalize; }
 
 
-.small { font-size: 85%; }
+.small { @extend %small; }
 .lead { @extend %lead; }
 .normal { font-size: 1.00em; font-weight: normal;	font-style: normal; text-transform: none; }
 

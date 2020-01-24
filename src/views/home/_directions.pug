@@ -5,7 +5,7 @@ extend ../layout/_section
 	Секция "Направления работы"
 
 mixin direction( args )
-	.col-xs-12.col-sm-4.col-md-3
+	.col-xs-12.col-sm-5.col-md-5.col-lg-3.col-lg-offset-0: .wrap
 		.directions__item.item
 			.icon: img.lazy( src="#", data-src=args.icon, alt=args.title )
 			h3.title #{args.title}
@@ -19,7 +19,7 @@ block variables
 
 block body
 	.row.center-xs.stratch-xs
-		+direction( { icon: src.img+'directions/01.png', title: 'Web Design2', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum dolor, aperiam ex sapiente expedita omnis! Ipsum maxime, sit porro. Totam laudantium incidunt nostrum numquam dignissimos labore atque soluta assumenda vitae.' } )
-		+direction( { icon: src.img+'directions/02.png', title: 'UX Design', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt, blanditiis, quasi! Itaque earum adipisci totam debitis! Qui natus aliquam corporis, saepe accusantium labore magnam! Alias excepturi vitae tenetur doloremque consectetur?' } )
-		+direction( { icon: src.img+'directions/03.png', title: 'Photogrpahy', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate corporis perferendis dicta! Et numquam rerum sint tenetur ea dolor nisi officia accusamus earum voluptatibus dignissimos molestiae sapiente cumque, perferendis obcaecati.' } )
-		+direction( { icon: src.img+'directions/04.png', title: 'App Development', excerpt: ' Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde odio, consectetur at ipsa repellat necessitatibus autem eaque temporibus quibusdam, dolores esse accusamus laborum amet, sunt perferendis illum. Error, at, libero!' } )
+		+direction( { icon: src.img+'directions/programming.png', title: 'Программирование систем упровления технологически и процессами', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum dolor, aperiam ex sapiente expedita omnis! Ipsum maxime, sit porro. Totam laudantium incidunt nostrum numquam dignissimos labore atque soluta assumenda vitae.' } )
+		+direction( { icon: src.img+'directions/network.png', title: 'Компьютерные системы и сети', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt, blanditiis, quasi! Itaque earum adipisci totam debitis! Qui natus aliquam corporis, saepe accusantium labore magnam! Alias excepturi vitae tenetur doloremque consectetur?' } )
+		+direction( { icon: src.img+'directions/automation.png', title: 'Проектирование систем автоматизации технологических процессов', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate corporis perferendis dicta! Et numquam rerum sint tenetur ea dolor nisi officia accusamus earum voluptatibus dignissimos molestiae sapiente cumque, perferendis obcaecati.' } )
+		+direction( { icon: src.img+'directions/controller.png', title: 'Микропроцессорная техника', excerpt: ' Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde odio, consectetur at ipsa repellat necessitatibus autem eaque temporibus quibusdam, dolores esse accusamus laborum amet, sunt perferendis illum. Error, at, libero!' } )

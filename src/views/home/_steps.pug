@@ -1,0 +1,21 @@
+extend ../layout/_section
+
+//-
+	Главная страница
+	Секция "Шаги к поступлению"
+
+mixin step( args )
+	.steps__item.item( role="listitem" ): .row
+
+block variables
+	-
+		section_name = 'Шаги к поступлению';
+		section_class = 'steps';
+		section_id = 'steps';
+
+block body
+	div( role="list" )
+		+step( { thumbnail: '', title: '', excerpt: '' } )
+		+step( { thumbnail: '', title: '', excerpt: '' } )
+		+step( { thumbnail: '', title: '', excerpt: '' } )
+		+step( { thumbnail: '', title: '', excerpt: '' } )

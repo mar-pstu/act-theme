@@ -1,0 +1,29 @@
+extend ../layout/_section
+
+//-
+	Главная страница
+	Секци "Пому именно наша кафедра"
+
+mixin advantages_item( args )
+	.col-xs-12.col-sm-5.col-md-4
+		.advantages__item.item( role="listitem" )
+			.row.middle-xs
+				.col-xs-3.col-sm-3.col-md-3.col-md-2: img.icon.lazy( src="#", data-src=args.icon, alt=args.title )
+				.col-xs-9.col-sm-9.col-md-6.col-md-6: h3 #{args.title}
+			p.excerpt #{args.excerpt}
+
+block variables
+	-
+		section_title = 'Пому именно наша кафедра';
+		section_class = 'advantages';
+		section_id = 'advantages';
+
+block body
+	.row.center-xs( role="list" )
+		+advantages_item( { icon: src.img+'advantages/01.png', title: 'Ultimate Perfection', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus aut obcaecati accusantium eum, tempora, enim vel voluptate velit iste eius neque dolore, laborum dignissimos a minus repellendus reiciendis quos at!' } )
+		+advantages_item( { icon: src.img+'advantages/02.png', title: 'Unlimited Revisions', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi rem, blanditiis alias. Similique ea culpa ratione corrupti id sit impedit, quod natus possimus soluta quaerat distinctio dolores vero autem, ut.' } )
+		+advantages_item( { icon: src.img+'advantages/03.png', title: 'Business Growth', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur veritatis aperiam facere in dolorum perspiciatis atque accusantium ullam recusandae, tenetur odit nemo eum architecto consequuntur hic saepe, enim tempore, nulla.' } )
+		+advantages_item( { icon: src.img+'advantages/04.png', title: 'Smart Experience', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse placeat perferendis minus iusto, excepturi quo id provident assumenda reprehenderit mollitia dolor corrupti tempora ex corporis culpa quis totam commodi quos?' } )
+		+advantages_item( { icon: src.img+'advantages/05.png', title: 'Strict Deadline', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate maiores et eum. Dignissimos unde accusantium, in earum modi dolorem nesciunt minus rem. Impedit a recusandae esse, sequi vel unde, blanditiis.' } )
+		+advantages_item( { icon: src.img+'advantages/06.png', title: 'Award-winning Company', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae nemo quia ea illum voluptatibus accusantium, blanditiis ipsum, architecto saepe expedita quos ipsa, fugiat aut minus fuga? Dolorem provident deleniti id.' } )
+	p.text-center: a.permalink( href="#" ) Как к нам поступить

@@ -1,0 +1,18 @@
+.aside--basement {
+
+	background-color: #cacaca;
+	color: #fff;
+	text-shadow: .2em .2em 1em rgba( 0, 0, 0, .5 );
+
+	h3, h4, a {
+		color: #fff;
+	}
+
+	.wrap {
+		background-color: darken( #cacaca, 50% );
+		padding: 1em 2em;
+		margin-left: -$flexboxgrid-outer-margin;
+		margin-right: -$flexboxgrid-outer-margin;
+	}
+
+}

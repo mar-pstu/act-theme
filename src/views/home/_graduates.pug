@@ -1,0 +1,27 @@
+extend ../layout/_section
+
+//-
+	Главная странциа
+	Секци "Наши выпускники"
+
+mixin grauate( args )
+	.graduates__item.item: .row.middle-xs
+		.col-xs-12.col-sm-4
+			img.foto( src="#", data-lazy=args.foto, alt=args.name )
+		.col-xs-12.col-sm-8
+			h3.name #{args.name}
+			p.excerpt #{args.excerpt}
+
+block variables
+	-
+		section_title = 'Наши выпускники';
+		section_class = 'graduates';
+		section_id = 'graduates';
+
+block body
+	.slider#graduates-slider
+		+grauate( { foto: src.img+'user.png', name: 'Иванов Иван', excerpt: 'Inventore magnam necessitatibus ipsam dicta amet ipsum sequi accusantium officia, vel et aspernatur excepturi explicabo quae suscipit accusamus blanditiis, placeat laboriosam asperiores?' } )
+		+grauate( { foto: src.img+'user.png', name: 'Иванов Иван', excerpt: 'Amet voluptas sed quaerat commodi ea beatae quae mollitia accusamus odio rem a, nulla suscipit soluta quasi, laudantium, ipsum eum unde sequi!' } )
+		+grauate( { foto: src.img+'user.png', name: 'Иванов Иван', excerpt: 'Voluptatibus labore dicta porro ullam quia rerum beatae voluptas placeat aspernatur ea vero pariatur impedit aut accusantium, illum quos dolore ratione delectus.' } )
+		+grauate( { foto: src.img+'user.png', name: 'Иванов Иван', excerpt: 'Impedit sunt et expedita vitae, molestiae suscipit totam explicabo sint consequuntur provident esse aliquam autem omnis architecto pariatur cumque iste porro dignissimos?' } )
+		+grauate( { foto: src.img+'user.png', name: 'Иванов Иван', excerpt: 'Ut reprehenderit consectetur, eaque ipsa adipisci eos nobis laboriosam consequatur et recusandae nihil, eius cumque aspernatur dolor, assumenda magnam sit eveniet esse?' } )

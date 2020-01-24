@@ -1,0 +1,13 @@
+//-
+	Сайдбар подвала страницы
+
+mixin basement_widget( args )
+	.col-xs-12.col-sm-6.col-md-3: +widget( args )
+
+aside.aside.aside--basement
+	.container: .wrap
+		.row
+			+basement_widget( { title: 'Заголовок виджета' } )
+			+basement_widget( { title: 'Заголовок виджета' } )
+			+basement_widget( { title: 'Заголовок виджета' } )
+			+basement_widget( { title: 'Заголовок виджета' } )
