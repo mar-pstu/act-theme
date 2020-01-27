@@ -1,0 +1,78 @@
+
+.slider-controls {
+	margin-top: 1em;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+}
+
+
+.slider-arrow {
+
+	@extend %xy-center;
+	background-color: transparent;
+	border: none;
+	padding: 0;
+	margin: $font-size-base;
+
+	&::before {
+		@extend %background-icon;
+		content: '';
+		width: 1em;
+		height: 1em;
+		transform-origin: center center;
+		background-image: url( 'data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDQ5Mi4wMDQgNDkyLjAwNCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDkyLjAwNCA0OTIuMDA0OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiPjxnIHRyYW5zZm9ybT0ibWF0cml4KC0xLjgzNjk3ZS0xNiwgMSwgLTEsIC0xLjgzNjk3ZS0xNiwgNDkyLjAwNCwgOC41MjY1MWUtMTQpIj48Zz4KCTxnPgoJCTxwYXRoIGQ9Ik0zODIuNjc4LDIyNi44MDRMMTYzLjczLDcuODZDMTU4LjY2NiwyLjc5MiwxNTEuOTA2LDAsMTQ0LjY5OCwwcy0xMy45NjgsMi43OTItMTkuMDMyLDcuODZsLTE2LjEyNCwxNi4xMiAgICBjLTEwLjQ5MiwxMC41MDQtMTAuNDkyLDI3LjU3NiwwLDM4LjA2NEwyOTMuMzk4LDI0NS45bC0xODQuMDYsMTg0LjA2Yy01LjA2NCw1LjA2OC03Ljg2LDExLjgyNC03Ljg2LDE5LjAyOCAgICBjMCw3LjIxMiwyLjc5NiwxMy45NjgsNy44NiwxOS4wNGwxNi4xMjQsMTYuMTE2YzUuMDY4LDUuMDY4LDExLjgyNCw3Ljg2LDE5LjAzMiw3Ljg2czEzLjk2OC0yLjc5MiwxOS4wMzItNy44NkwzODIuNjc4LDI2NSAgICBjNS4wNzYtNS4wODQsNy44NjQtMTEuODcyLDcuODQ4LTE5LjA4OEMzOTAuNTQyLDIzOC42NjgsMzg3Ljc1NCwyMzEuODg0LDM4Mi42NzgsMjI2LjgwNHoiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSJhY3RpdmUtcGF0aCIgc3R5bGU9ImZpbGw6I0RENUY0OCIgZGF0YS1vbGRfY29sb3I9IiMwMDAwMDAiPjwvcGF0aD4KCTwvZz4KPC9nPjwvZz4gPC9zdmc+' );
+	}
+
+
+	&.arrow-prev { order: -1; }
+	&.arrow-prev::before { transform: rotate( 90deg ); }
+
+	&.arrow-next { order: 1; }
+	&.arrow-next::before { transform: rotate( -90deg ); }
+
+}
+
+
+
+.slider-dots {
+
+	display: block;
+	list-style-type: none;
+	padding-left: 0;
+	margin-top: $font-size-base;
+	margin-bottom: $font-size-base;
+	text-align: center;
+	font-size: 0;
+
+	li {
+		display: inline-block;
+		margin-left: $font-size-base / 4;
+		margin-right: $font-size-base / 4;
+	}
+
+	button {
+		@extend %xy-center;
+		line-height: 0;
+		width: 20px;
+		height: 20px;
+		padding: 0;
+		border-radius: 50%;
+		background-color: #43444b;
+		border: 2px solid #fff;
+	}
+
+	button::before {
+		content: '';
+		width: 12px;
+		height: 12px;
+		background-color: $brand-primary;
+		border-radius: 50%;
+		opacity: 0;
+	}
+
+	.slick-active button::before {
+		opacity: 1;
+	}
+
+}

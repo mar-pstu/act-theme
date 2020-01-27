@@ -1,5 +1,83 @@
 .steps {
 
+	counter-reset: steps;
+
+	.item {
+		position: relative;
+		counter-increment: steps;
+	}
+
+
+	// .item + .item {
+	// 	margin-bottom: 1em;
+	// }
+
+
+	.item:nth-of-type( odd ) .overlay .row {
+		@extend .reverse;
+	}
+
+
+	&__item {
+
+		.bg {
+			@include min-width( $screen-md ) {
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+			}
+		}
+
+		.overlay {
+			min-height: 20em;
+		}
+
+		.thumbnail {
+			width: 100%;
+			height: auto;
+			margin-bottom: 1em;
+			box-shadow: .5em .5em 1em rgba( 0, 0, 0, .5 );
+			@include min-width( $screen-md ) {
+				margin-bottom: 0;
+				box-shadow: none;
+			}
+		}
+
+		.box {
+			background-color: #fff;
+			padding: 1em 1em 1em 4em;
+			border-bottom: .2em solid $brand-primary;
+			position: relative;
+			box-shadow: .5em .5em 1em rgba( 0, 0, 0, .5 );
+			@include min-width( $screen-md ) {
+				top: -2em;
+			}
+		}
+
+		.box::before {
+			content: counter( steps );
+			position: absolute;
+			top: 0em;
+			left: 0em;
+			font-weight: bold;
+			font-size: 4em;
+			line-height: 1em;
+			margin-top: .25em;
+			margin-left: .25em;
+			color: lighten( $text-color, 50% );
+			// transform: scale( 5 );
+			// transform-origin: top center;
+		}
+
+		.permalink {
+			@extend %button;
+			@extend %button-primary;
+			@extend %button-small;
+		}
+
+	}
 	
 
 }

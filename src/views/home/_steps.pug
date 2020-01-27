@@ -5,7 +5,15 @@ extend ../layout/_section
 	Секция "Шаги к поступлению"
 
 mixin step( args )
-	.steps__item.item( role="listitem" ): .row
+	.steps__item.item( role="listitem" )
+		.bg: .row.center-xs: .col-xs-12.col-md-6
+			img.lazy.thumbnail( src="#", data-src=args.thumbnail, alt=args.title )
+		.overlay: .row: .col-xs-12.col-md-5
+			.box
+				h3.title #{args.title}
+				p.excerpt #{args.excerpt}
+				p: a.permalink( href="#" ) Подробней
+
 
 block variables
 	-
@@ -15,7 +23,7 @@ block variables
 
 block body
 	div( role="list" )
-		+step( { thumbnail: '', title: '', excerpt: '' } )
-		+step( { thumbnail: '', title: '', excerpt: '' } )
-		+step( { thumbnail: '', title: '', excerpt: '' } )
-		+step( { thumbnail: '', title: '', excerpt: '' } )
+		+step( { thumbnail: src.img+'thumbnail.png', title: 'Project Understanding', excerpt: 'Molestias reiciendis enim, esse aliquam praesentium laborum libero adipisci, fugiat a, ad, quae velit. Vitae neque nesciunt architecto vero error, tenetur id.' } )
+		+step( { thumbnail: src.img+'thumbnail.png', title: 'Research & Planning', excerpt: 'Ad explicabo tempore nostrum voluptatem dicta facere eos similique vel quasi dolores vero debitis, voluptas maiores voluptate quaerat id nihil reiciendis eius!' } )
+		+step( { thumbnail: src.img+'thumbnail.png', title: 'Wireframe & Design', excerpt: 'Neque iusto eligendi, quod labore cumque, voluptas nam consequatur vel sint numquam itaque voluptatibus reiciendis impedit incidunt ullam enim quaerat, inventore est?' } )
+		+step( { thumbnail: src.img+'thumbnail.png', title: 'Development', excerpt: 'Enim aliquam assumenda harum accusantium delectus ullam cumque veniam ut temporibus! Itaque officiis fuga incidunt quisquam quae, sed cumque ut nemo voluptate.' } )

@@ -1,17 +1,25 @@
 .about {
 
+	margin: 1em 0;
+
 	@include min-width( $screen-lg ) {
-		margin: 5em;
+		margin: 5em 0;
 	}
 
 	.thumbnail {
 		display: block;
-		box-shadow: 0 0 0em .5em rgba( 0, 0, 0, .2 )
+		max-width: 25em;
+		box-shadow: .5em .5em 1em rgba( 0, 0, 0, .2 );
+		@include min-width( $screen-sm ) {
+			max-width: none;
+			box-shadow: none;
+		}
 	}
 
 	.overlay {
 		margin-top: 1em;
 		margin-bottom: 1em;
+		margin-left: 0;
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
@@ -21,13 +29,12 @@
 		background-color: #f2f2f2;
 		box-shadow: 0 .5em 1em rgba( 0, 0, 0, .2 );
 		@include min-width( $screen-md ) {
-			margin-left: -10em;
-		}
-		@include min-width( $screen-md ) {
 			padding: 2em;
+			// margin-left: -5em;
 		}
 		@include min-width( $screen-lg ) {
-			padding: 5em;
+			padding: 3em;
+			margin-left: -10em;
 		}
 	}
 
@@ -52,10 +59,14 @@
 		);
 	}
 
+	.title {
+		max-width: 20em;
+	}
+
 	.permalink {
 		@extend %button;
 		@extend %button-primary;
-		@extend %button-large;
+		// @extend %button-large;
 		margin-top: auto;
 	}
 
