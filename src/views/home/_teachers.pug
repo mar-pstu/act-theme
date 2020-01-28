@@ -20,25 +20,27 @@ block variables
 
 block body
 	#teachers-list
-		+teacher( { foto: src.img+'user.png', name: 'Иванов Иван 1', excerpt: 'Excepturi, atque eligendi molestiae fugit vero, perferendis fuga doloremque id eveniet saepe accusamus eos iure non, quis voluptatem neque assumenda inventore facere.' } )
-		+teacher( { foto: src.img+'user.png', name: 'Иванов Иван 2', excerpt: 'Nam perferendis, exercitationem labore inventore dicta iste dolorum maiores voluptatibus temporibus molestiae corrupti perspiciatis tempore blanditiis quidem, voluptatum aut hic distinctio provident!' } )
-		+teacher( { foto: src.img+'user.png', name: 'Иванов Иван 3', excerpt: 'Dignissimos quia adipisci est quam incidunt nam corporis odio sequi quis vel! Quae quidem eveniet nihil ducimus sequi, corporis laudantium facilis, quis.' } )
-		+teacher( { foto: src.img+'user.png', name: 'Иванов Иван 4', excerpt: 'Ipsam laborum perspiciatis quia aspernatur optio, veritatis, dolorem culpa animi ut ab consectetur quod illum, necessitatibus maxime minima totam corrupti aut. Quos.' } )
-		+teacher( { foto: src.img+'user.png', name: 'Иванов Иван 5', excerpt: 'Hic architecto consequatur fugit, quidem magnam? Ullam doloribus voluptates at, itaque dicta dolore totam hic fugit quod autem id fuga maiores facilis!' } )
-		+teacher( { foto: src.img+'user.png', name: 'Иванов Иван 6', excerpt: 'Error velit, labore voluptate ratione voluptatum fugiat quia soluta doloremque incidunt sint tempora, enim voluptatem voluptas consectetur veritatis vitae reprehenderit itaque nostrum!' } )
-		+teacher( { foto: src.img+'user.png', name: 'Иванов Иван 7', excerpt: 'Nam officiis ratione, eos magni optio unde sequi. Accusamus obcaecati quas non facere modi earum mollitia, saepe ad, quisquam aliquid! Quia, cum?' } )
-		+teacher( { foto: src.img+'user.png', name: 'Иванов Иван 8', excerpt: 'Eligendi, cupiditate excepturi? Nam incidunt fuga dolorum ab quod, vero facere, temporibus officiis aut quidem excepturi dicta voluptates corporis! Officiis, nihil dolores.' } )
+		+teacher( { foto: src.img+'teachers/simkin_a_i.jpg', name: 'Симкин Александр Исаакович', excerpt: 'Завідувач кафедри автоматизації і комп’ютерних технологій, доцент ' } )
+		+teacher( { foto: src.img+'teachers/scherbakov_s_v.jpg', name: 'Щербаков Сергей Владимирович', excerpt: ' Доцент кафедри автоматизації і комп’ютерних технологій ' } )
+		+teacher( { foto: src.img+'teachers/teacher.png', name: 'Иванов Иван Иванович', excerpt: 'Dignissimos quia adipisci est quam incidunt nam corporis odio sequi quis vel! Quae quidem eveniet nihil ducimus sequi, corporis laudantium facilis, quis.' } )
+		+teacher( { foto: src.img+'teachers/teacher.png', name: 'Иванов Иван Иванович', excerpt: 'Ipsam laborum perspiciatis quia aspernatur optio, veritatis, dolorem culpa animi ut ab consectetur quod illum, necessitatibus maxime minima totam corrupti aut. Quos.' } )
+		+teacher( { foto: src.img+'teachers/teacher.png', name: 'Иванов Иван Иванович', excerpt: 'Hic architecto consequatur fugit, quidem magnam? Ullam doloribus voluptates at, itaque dicta dolore totam hic fugit quod autem id fuga maiores facilis!' } )
+		+teacher( { foto: src.img+'teachers/teacher.png', name: 'Иванов Иван Иванович', excerpt: 'Error velit, labore voluptate ratione voluptatum fugiat quia soluta doloremque incidunt sint tempora, enim voluptatem voluptas consectetur veritatis vitae reprehenderit itaque nostrum!' } )
+		+teacher( { foto: src.img+'teachers/teacher.png', name: 'Иванов Иван Иванович', excerpt: 'Nam officiis ratione, eos magni optio unde sequi. Accusamus obcaecati quas non facere modi earum mollitia, saepe ad, quisquam aliquid! Quia, cum?' } )
+		+teacher( { foto: src.img+'teachers/teacher.png', name: 'Иванов Иван Иванович', excerpt: 'Eligendi, cupiditate excepturi? Nam incidunt fuga dolorum ab quod, vero facere, temporibus officiis aut quidem excepturi dicta voluptates corporis! Officiis, nihil dolores.' } )
 	#teachers-controls.slider-controls
 		button#teachers-prev.slider-arrow.arrow-prev
 		button#teachers-next.slider-arrow.arrow-next
-	.box: .row
-		.col-xs-12.col-sm-12.first-md.col-md-8
+	.box: .row.middle-xs
+		.col-xs-12.col-sm-12.col-md-8
 			h3 Lorem ipsum dolor sit amet, consectetur adipisicing elit
 			p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis et obcaecati ut quisquam vero voluptate aliquid, quae expedita deserunt quos laudantium culpa atque. Temporibus cum harum asperiores, magni laudantium rem.
 			p Esse possimus, unde iusto eius? Facere quibusdam nihil necessitatibus voluptatum temporibus maxime, dolore modi soluta iusto doloribus sunt, nobis. Cumque, dicta, impedit.
-		.col-xs-12.col-sm-11.first-xs.col-md-4
+			p: a.btn.btn-success( href="#" ) Подробней
+		.col-xs-12.col-sm-11.col-md-3.col-md-offset-1
+			h3 Мы в социальных сетях
 			ul.socials
 				li: a.facebook( href="#" ) #[span.label Facebook]
-				li: a.instagramm( href="#" ) #[span.label Instagramm]
+				li: a.instagram( href="#" ) #[span.label Instagramm]
 				li: a.linkedin( href="#" ) #[span.label LinkedIn]
 				li: a.youtube( href="#" ) #[span.label YouTube]

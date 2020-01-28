@@ -3,7 +3,10 @@
 	margin-top: 1em;
 	display: flex;
 	flex-direction: row;
-	justify-content: flex-end;
+	justify-content: center;
+	@include min-width( $screen-md ) {
+		justify-content: flex-end;
+	}
 }
 
 
@@ -54,12 +57,14 @@
 	button {
 		@extend %xy-center;
 		line-height: 0;
-		width: 20px;
-		height: 20px;
+		width: 16px;
+		height: 16px;
 		padding: 0;
 		border-radius: 50%;
-		background-color: #43444b;
+		// background-color: #43444b;
+		background-color: transparent;
 		border: 2px solid #fff;
+		box-shadow: 0 0 $font-size-base / 2 rgba( 0, 0, 0, .5 );
 	}
 
 	button::before {

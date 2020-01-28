@@ -4,26 +4,35 @@ extend ../layout/_section
 	Главная страница
 	Секция "Шаги к поступлению"
 
+//- mixin step( args )
+//- 	.steps__item.item( role="listitem" )
+//- 		.bg: .row.center-xs: .col-xs-12.col-md-6
+//- 			a.fancybox.thumbnail( href="#" ): img.lazy( src="#", data-src=args.thumbnail, alt=args.title )
+//- 		.overlay: .row: .col-xs-12.col-md-5
+//- 			.box
+//- 				h3.title #{args.title}
+//- 				p.excerpt #{args.excerpt}
+//- 				p: a.permalink( href="#" ) Подробней
+
+
 mixin step( args )
 	.steps__item.item( role="listitem" )
-		.bg: .row.center-xs: .col-xs-12.col-md-6
-			img.lazy.thumbnail( src="#", data-src=args.thumbnail, alt=args.title )
-		.overlay: .row: .col-xs-12.col-md-5
-			.box
-				h3.title #{args.title}
-				p.excerpt #{args.excerpt}
-				p: a.permalink( href="#" ) Подробней
+		img.thumbnail.lazy( src="#", data-src=args.thumbnail, alt=args.title )
+		.wrap
+			h3.title #{args.title}
+			p.excerpt #{args.excerpt}
+			a.permalink( href="#" ) Подробней
 
 
 block variables
 	-
-		section_name = 'Шаги к поступлению';
+		section_title = 'Шаги к поступлению';
 		section_class = 'steps';
 		section_id = 'steps';
 
 block body
 	div( role="list" )
-		+step( { thumbnail: src.img+'thumbnail.png', title: 'Project Understanding', excerpt: 'Molestias reiciendis enim, esse aliquam praesentium laborum libero adipisci, fugiat a, ad, quae velit. Vitae neque nesciunt architecto vero error, tenetur id.' } )
-		+step( { thumbnail: src.img+'thumbnail.png', title: 'Research & Planning', excerpt: 'Ad explicabo tempore nostrum voluptatem dicta facere eos similique vel quasi dolores vero debitis, voluptas maiores voluptate quaerat id nihil reiciendis eius!' } )
-		+step( { thumbnail: src.img+'thumbnail.png', title: 'Wireframe & Design', excerpt: 'Neque iusto eligendi, quod labore cumque, voluptas nam consequatur vel sint numquam itaque voluptatibus reiciendis impedit incidunt ullam enim quaerat, inventore est?' } )
-		+step( { thumbnail: src.img+'thumbnail.png', title: 'Development', excerpt: 'Enim aliquam assumenda harum accusantium delectus ullam cumque veniam ut temporibus! Itaque officiis fuga incidunt quisquam quae, sed cumque ut nemo voluptate.' } )
+		+step( { thumbnail: src.img+'steps/01.jpg', title: 'Зареєструйся для проходження ЗНО', excerpt: 'Але перед тим як зареєструватися, обов’язково ознайомся зі спеціальностями та з переліком конкурсних предметів, з яких тобі потрібно мати сертифікат ЗНО.' } )
+		+step( { thumbnail: src.img+'steps/02.jpg', title: 'Отримай сертифікати ЗНО', excerpt: 'Конкурсний бал складається з оцінки з трьох предметів ЗНО, середнього балу атестату, до 10 балів Ти отримаєш за навчання на підготовчих курсах ПДТУ та 10 балів Ти можешь отримати за перемоги у МАН' } )
+		+step( { thumbnail: src.img+'steps/03.jpg', title: 'Створи власний електронний кабінет', excerpt: 'Ви можете звернутись за допомогою у створенні власного електронного кабінету вступника до консультаційного пункту ПДТУ аудиторія 5.115 (понеділок-п’ятниця з 9.00-17.00, субота з 9.00-14.00)' } )
+		+step( { thumbnail: src.img+'steps/04.jpg', title: 'Подай оригінали документів до ПДТУ', excerpt: 'До 30 липня подай оригінали документів до університету (аудиторія 5.105, телефон: (0629) 44-65-60, 34-30-97. E-mail: priem@pstu.edu). Якщо ти не знайшов себе в списках рекомендованих до зарахування на бюджет і бажаєш навчатися з контрактом – принеси оригінали документів для участі в конкурсі вступу за контрактом. Інформацію про зарахування ти знайдешь в своєму електронному кабінеті 26 липня, на сайті ПДТУ або на інформаційних стендах приймальної комісії.' } )

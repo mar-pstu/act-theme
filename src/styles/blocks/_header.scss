@@ -7,6 +7,21 @@
 
 .header {
 
+	&--fixed {
+		background-color: #fff;
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 1000;
+		box-shadow: 0 0 1em rgba( 0, 0, 0, .5 );
+	}
+
+	&.header--stick .custom-logo-link {
+		width: 3em;
+		height: 3em;
+	}
+
 	.container {
 		display: flex;
 		flex-direction: row;
@@ -16,6 +31,7 @@
 	.custom-logo-link {
 		margin-right: auto;
 		max-width: 5em;
+		transition: width .2s, height .2s;
 	}
 
 	.custom-logo {
@@ -34,6 +50,13 @@
 	.languages {
 		font-size: 85%;
 		margin-left: auto;
+	}
+
+
+	.burger-button {
+		@extend %button;
+		@extend %button-primary;
+		@extend %button-small;
 	}
 
 
