@@ -2,7 +2,7 @@
 
 
 
-namespace starter;
+namespace act_theme;
 
 
 
@@ -25,8 +25,11 @@ function get_custom_logo_img() {
 
 
 
-function get_languages_list() {
-	$result = array();
+function get_languages_list( $args = array() ) {
+	$args = wp_parse_args( $args, array(
+		'container_class' => 'languages',
+	) );
+	$result = __return_empty_array();
 	if ( ( function_exists( 'pll_the_languages' ) ) && ( function_exists( 'pll_current_language' ) ) ) {
 		$current = pll_current_language( 'slug' );
 		$other = pll_the_languages( array(
@@ -38,20 +41,19 @@ function get_languages_list() {
 			'force_home'         => 0,
 			'echo'               => 0,
 			'hide_if_no_translation' => 0,
-			'hide_current'       => 1,
+			'hide_current'       => 0,
 			'post_id'            => ( is_singular() ) ? get_the_ID() : NULL,
 			'raw'                => 1,
 		) );
 		if ( ( $other ) && ( ! empty( $other ) ) ) {
-			$result[] = '<li class="current">' . $current . '</li>';
 			foreach ( $other as $lang ) $result[] = sprintf(
-				'<li><a href="%1$s">%2$s</a></li>',
+				( $lang[ 'slug' ] == $current ) ? '<li class="current">%2$s</li>' : '<li><a href="%1$s">%2$s</a></li>',
 				$lang[ 'url' ],
 				$lang[ 'name' ]
 			);
 		}
 	}
-	if ( ! empty( $result ) ) echo '<ul class="languages">' . implode( "\r\n", $result ) . '</ul>';
+	return ( empty( $result ) ) ? __return_empty_string() :  sprintf( '<ul class="%1$s">%2$s</ul>', $args[ 'container_class' ], implode( "\r\n", $result ) );
 }
 
 

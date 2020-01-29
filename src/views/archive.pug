@@ -8,7 +8,7 @@ block variables
 
 
 mixin archive_entry( args )
-	.archive__entry.entry: .row.center-xs
+	article.archive__entry.entry: .row.center-xs
 		.col-xs-6.col-sm-4.col-md-4.col-lg-4: a.entry__thumbnail.thumbnail( href="#" ): img.lazy.wp-post-thumbnail( src="#", data-src=args.thumbnail )
 		.col-xs-12.col-sm-8.col-md-8.col-lg-8
 			h3.entry__title.title #{args.title}

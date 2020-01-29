@@ -30,15 +30,27 @@ if ( function_exists( 'pll_register_string' ) ) {
  */
 if ( is_customize_preview() ) {
 	add_action( 'customize_register', function ( $wp_customize ) {
+		$slug = ACT_THEME_SLUG;
 		$wp_customize->add_panel(
-			ACT_THEME_SLUG,
+			"{$slug}_home",
 			array(
 				'capability'      => 'edit_theme_options',
-				'title'           => __( 'Настройки Стартовой темы', ACT_THEME_TEXTDOMAIN ),
+				'title'           => __( 'Главная страница МА', ACT_THEME_TEXTDOMAIN ),
 				'priority'        => 200
 			)
 		);
+		include get_theme_file_path( 'customizer/home/jumbotron.php' );
 		include get_theme_file_path( 'customizer/home/about.php' );
+		include get_theme_file_path( 'customizer/home/directions.php' );
+		include get_theme_file_path( 'customizer/home/advertising.php' );
+		include get_theme_file_path( 'customizer/home/specialties.php' );
+		include get_theme_file_path( 'customizer/home/teachers.php' );
+		include get_theme_file_path( 'customizer/home/indicators.php' );
+		include get_theme_file_path( 'customizer/home/steps.php' );
+		include get_theme_file_path( 'customizer/home/cources.php' );
+		include get_theme_file_path( 'customizer/home/graduates.php' );
+		include get_theme_file_path( 'customizer/home/advantages.php' );
+		include get_theme_file_path( 'customizer/home/questions.php' );
 		include get_theme_file_path( 'customizer/404.php' );
 	} );
 }
@@ -71,12 +83,12 @@ add_action( 'after_setup_theme', 'act_theme_load_textdomain' );
 /**
  * Регистрация меню
  */
-function resume_register_nav_menus() {
+function act_theme_register_nav_menus() {
 	register_nav_menus( array(
 		'main'      => __( 'Главное меню', ACT_THEME_TEXTDOMAIN ),
 	) );
 }
-add_action( 'after_setup_theme', 'resume_register_nav_menus' );
+add_action( 'after_setup_theme', 'act_theme_register_nav_menus' );
 
 
 

@@ -2,25 +2,28 @@
 
 
 
+namespace act_theme;
+
+
+
 if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
 
-
 $wp_customize->add_section(
-    STARTER_SLUG . '_about',
+    "{$slug}_about",
     array(
-        'title'            => __( 'Информация', STARTER_TEXTDOMAIN ),
+        'title'            => __( 'Информация', ACT_THEME_TEXTDOMAIN ),
         'priority'         => 10,
-        'description'      => __( 'Секция главной страницы. Якорь #about', STARTER_TEXTDOMAIN ),
-        'panel'            => STARTER_SLUG
+        'description'      => __( 'Секция главной страницы. Якорь #about', ACT_THEME_TEXTDOMAIN ),
+        'panel'            => "{$slug}_home",
     )
 ); /**/
 
 
 
 $wp_customize->add_setting(
-    STARTER_SLUG . '_about_flag',
+    "{$slug}_about_flag",
     array(
         'default'           => false,
         'transport'         => 'reset',
@@ -28,17 +31,17 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    STARTER_SLUG . '_about_flag',
+    "{$slug}_about_flag",
     array(
-        'section'           => STARTER_SLUG . '_about',
-        'label'             => __( 'Использовать секцию', STARTER_TEXTDOMAIN ),
+        'section'           => "{$slug}_about",
+        'label'             => __( 'Использовать секцию', ACT_THEME_TEXTDOMAIN ),
         'type'              => 'checkbox',
     )
 ); /**/
 
 
 $wp_customize->add_setting(
-    STARTER_SLUG . '_about_page_id',
+    "{$slug}_about_page_id",
     array(
         'default'           => '',
         'transport'         => 'reset',
@@ -46,10 +49,10 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    STARTER_SLUG . '_about_page_id',
+    "{$slug}_about_page_id",
     array(
-        'section'           => STARTER_SLUG . '_about',
-        'label'             => __( 'Выбор страницы', STARTER_TEXTDOMAIN ),
+        'section'           => "{$slug}_about",
+        'label'             => __( 'Выбор страницы', ACT_THEME_TEXTDOMAIN ),
         'type'              => 'dropdown-pages',
     )
 ); /**/
@@ -57,18 +60,18 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-    STARTER_SLUG . '_about_title',
+    "{$slug}_about_title",
     array(
-        'default'           => __( 'Информация', STARTER_TEXTDOMAIN ),
+        'default'           => __( 'Информация', ACT_THEME_TEXTDOMAIN ),
         'transport'         => 'reset',
         'sanitize_callback' => 'sanitize_text_field',
     )
 );
 $wp_customize->add_control(
-    STARTER_SLUG . '_about_title',
+    "{$slug}_about_title",
     array(
-        'section'           => STARTER_SLUG . '_about',
-        'label'             => __( 'Заголовок', STARTER_TEXTDOMAIN ),
+        'section'           => "{$slug}_about",
+        'label'             => __( 'Заголовок', ACT_THEME_TEXTDOMAIN ),
         'type'              => 'text',
     )
 ); /**/
@@ -76,18 +79,18 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-    STARTER_SLUG . '_about_label',
+    "{$slug}_about_label",
     array(
-        'default'           => __( 'Подробней', STARTER_TEXTDOMAIN ),
+        'default'           => __( 'Подробней', ACT_THEME_TEXTDOMAIN ),
         'transport'         => 'reset',
         'sanitize_callback' => 'sanitize_text_field',
     )
 );
 $wp_customize->add_control(
-    STARTER_SLUG . '_about_label',
+    "{$slug}_about_label",
     array(
-        'section'           => STARTER_SLUG . '_about',
-        'label'             => __( 'Текст кнопки', STARTER_TEXTDOMAIN ),
+        'section'           => "{$slug}_about",
+        'label'             => __( 'Текст кнопки', ACT_THEME_TEXTDOMAIN ),
         'type'              => 'text',
     )
 ); /**/
@@ -95,9 +98,9 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-    STARTER_SLUG . '_about_thumbnail',
+    "{$slug}_about_thumbnail",
     array(
-        'default'           => STARTER_URL . 'images/thumbnail.png',
+        'default'           => ACT_THEME_URL . 'images/thumbnail.png',
         'transport'         => 'reset',
         'sanitize_callback' => 'sanitize_url',
     )
@@ -105,11 +108,11 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
    new WP_Customize_Image_Control(
        $wp_customize,
-       STARTER_SLUG . '_about_thumbnail',
+       "{$slug}_about_thumbnail",
        array(
-           'label'      => __( 'Фон', STARTER_TEXTDOMAIN ),
-           'section'    => STARTER_SLUG . '_about',
-           'settings'   => STARTER_SLUG . '_about_thumbnail'
+           'label'      => __( 'Фон', ACT_THEME_TEXTDOMAIN ),
+           'section'    => "{$slug}_about",
+           'settings'   => "{$slug}_about_thumbnail",
        )
    )
 );
