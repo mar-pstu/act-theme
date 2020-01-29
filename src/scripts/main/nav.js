@@ -9,14 +9,14 @@ jQuery( document ).ready( function () {
 		jQuery( '.header.header--fixed' ).css( 'top', $wpadminbar.height() );
 	}
 
-	jQuery( 'body' ).on( 'click', '.burger, #mobilenav .bg', function() {
+	jQuery( 'body' ).on( 'click', '.burger-button, #mobilenav .bg', function() {
 		if ( jQuery( 'body' ).attr( 'data-nav' ) == 'active' ) {
 			jQuery( '#mobilenav' ).removeClass( 'active' );
-			jQuery( '.burger' ).removeClass( 'active' );
+			jQuery( '.burger-button' ).removeClass( 'active' );
 			jQuery( 'body' ).attr( 'data-nav', 'inactive' ).css( { 'overflow': 'auto' } );
 		} else {
 			jQuery( '#mobilenav' ).addClass( 'active' ).css( { 'top': jQuery( '.header--fixed' ).height() } );
-			jQuery( '.burger' ).addClass( 'active' );
+			jQuery( '.burger-button' ).addClass( 'active' );
 			jQuery( 'body' ).attr( 'data-nav', 'active' ).css( { 'overflow': 'hidden' } );
 		}
 	} );

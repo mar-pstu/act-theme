@@ -8,12 +8,19 @@
 	}
 
 	.current {
-		font-weight: bold;
-		padding: 0 .5em;
+		color: #fff;
+		background-color: $brand-primary;
+		padding: 0 1em;
 	}
 
 	a {
-		padding: 0 .5em;
+		display: block;
+		padding: 0 1em;
+	}
+
+	a:hover {
+		text-decoration: none;
+		background-color: lighten( $brand-primary, 35% );
 	}
 
 }

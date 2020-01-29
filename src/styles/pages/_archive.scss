@@ -24,6 +24,7 @@
 		.permalink {
 			@extend %button;
 			@extend %button-primary;
+			@extend %button-small;
 		}
 
 	}

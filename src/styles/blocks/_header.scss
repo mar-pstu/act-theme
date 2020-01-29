@@ -13,13 +13,17 @@
 		top: 0;
 		left: 0;
 		right: 0;
-		z-index: 1000;
+		z-index: 999;
 		box-shadow: 0 0 1em rgba( 0, 0, 0, .5 );
 	}
 
 	&.header--stick .custom-logo-link {
 		width: 3em;
 		height: 3em;
+	}
+
+	&.header--stick .burger-button {
+		padding: 0 1em;
 	}
 
 	.container {
@@ -50,13 +54,45 @@
 	.languages {
 		font-size: 85%;
 		margin-left: auto;
+		display: none;
+		@include min-width( $screen-lg ) { display: block; }
+	}
+
+
+	.languages ~ .burder-button {
+		margin-left: 2em;
 	}
 
 
 	.burger-button {
-		@extend %button;
-		@extend %button-primary;
-		@extend %button-small;
+		background-color: transparent;
+		margin-left: auto;
+		border: none;
+		@include min-width( $screen-lg ) { display: none; }
+	}
+
+	.burger-button .label {
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	.burger-button.active .icon {
+		transform: rotate( -90deg );
+	}
+
+	.burger-button .icon {
+		@extend %xy-center;
+		display: inline-flex;
+		vertical-align: middle;
+		margin-right: .5em;
+		margin-left: .5em;
+		width: 2em;
+		height: 2em;
+		border: none;
+		background-color: transparent;
+		transform-origin: center center;
+		transition: transform .2s;
+		path { fill: #000; }
 	}
 
 
