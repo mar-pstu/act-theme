@@ -13,9 +13,9 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 $wp_customize->add_section(
     "{$slug}_about",
     array(
-        'title'            => __( 'Информация', ACT_THEME_TEXTDOMAIN ),
+        'title'            => __( 'О нас', ACT_THEME_TEXTDOMAIN ),
         'priority'         => 10,
-        'description'      => __( 'Секция главной страницы. Якорь #about', ACT_THEME_TEXTDOMAIN ),
+        'description'      => __( 'Вторая секция главной страницы. Якорь #about', ACT_THEME_TEXTDOMAIN ),
         'panel'            => "{$slug}_home",
     )
 ); /**/
@@ -62,7 +62,7 @@ $wp_customize->add_control(
 $wp_customize->add_setting(
     "{$slug}_about_title",
     array(
-        'default'           => __( 'Информация', ACT_THEME_TEXTDOMAIN ),
+        'default'           => __( 'О нас', ACT_THEME_TEXTDOMAIN ),
         'transport'         => 'reset',
         'sanitize_callback' => 'sanitize_text_field',
     )
@@ -106,7 +106,7 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-   new WP_Customize_Image_Control(
+   new \WP_Customize_Image_Control(
        $wp_customize,
        "{$slug}_about_thumbnail",
        array(

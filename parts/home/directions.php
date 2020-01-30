@@ -6,7 +6,9 @@
 							<div class="col-xs-12 col-sm-5 col-md-5 col-lg-3 col-lg-offset-0">
 								<div class="wrap">
 									<div class="directions__item item">
-										<div class="icon"><img class="lazy" src="#" data-src="../images/directions/programming.png" alt="Программирование систем упровления технологически и процессами"></div>
+										<div class="icon">
+											<img class="lazy" src="#" data-src="../images/directions/programming.png" alt="Программирование систем упровления технологически и процессами">
+										</div>
 										<h3 class="title">Программирование систем упровления технологически и процессами</h3>
 										<p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum dolor, aperiam ex sapiente expedita omnis! Ipsum maxime, sit porro. Totam laudantium incidunt nostrum numquam dignissimos labore atque soluta assumenda vitae.</p>
 									</div>

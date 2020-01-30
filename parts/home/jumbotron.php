@@ -1,3 +1,17 @@
+<?php
+
+
+
+namespace act_theme;
+
+
+
+if ( ! defined( 'ABSPATH' ) ) { exit; };
+
+
+
+?>
+
 <section class="jumbotron" id="jumbotron">
 	<h1 class="title">Кафедра автоматизации и компьютерных технологий</h1>
 	<p class="description">Кафедра автоматизации и компьютерных технологий </p><a class="permalink" href="#">Поступление 2020</a>
