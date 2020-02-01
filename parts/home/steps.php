@@ -3,10 +3,12 @@
 		<h2>Шаги к поступлению</h2>
 		<p>Текстовое описание секции Reiciendis quos possimus dignissimos nihil obcaecati quod dolorem culpa unde, illo. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
 		<div role="list">
-							<div class="steps__item item" role="listitem"><img class="thumbnail lazy" src="#" data-src="../images/steps/01.jpg" alt="Зареєструйся для проходження ЗНО">
+							<div class="steps__item item" role="listitem">
+								<img class="thumbnail lazy" src="#" data-src="../images/steps/01.jpg" alt="Зареєструйся для проходження ЗНО">
 								<div class="wrap">
 									<h3 class="title">Зареєструйся для проходження ЗНО</h3>
-									<p class="excerpt">Але перед тим як зареєструватися, обов’язково ознайомся зі спеціальностями та з переліком конкурсних предметів, з яких тобі потрібно мати сертифікат ЗНО.</p><a class="permalink" href="#">Подробней</a>
+									<p class="excerpt">Але перед тим як зареєструватися, обов’язково ознайомся зі спеціальностями та з переліком конкурсних предметів, з яких тобі потрібно мати сертифікат ЗНО.</p>
+									<a class="permalink" href="#">Подробней</a>
 								</div>
 							</div>
 							<div class="steps__item item" role="listitem"><img class="thumbnail lazy" src="#" data-src="../images/steps/02.jpg" alt="Отримай сертифікати ЗНО">

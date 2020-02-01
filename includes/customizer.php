@@ -2,7 +2,7 @@
 
 
 
-//
+if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
 
@@ -27,6 +27,11 @@ function act_theme_customizer( $wp_customize ) {
 		'advertising',   // рекламное видео
 		'specialties',   // специальности
 		'teachers',      // преподватели
+		'indicators',    // показатели работы
+		'steps',         // шаги к поступлению
+		'cources',       // курсы
+		'graduates',     // выпускники
+		'advantages'     // преимущества обучения на кафедре
 	) as $file_name ) {
 		include get_theme_file_path( "customizer/home/{$file_name}.php" );
 	}
@@ -47,18 +52,31 @@ function act_theme_customizer( $wp_customize ) {
 		'specialties',
 		'teachers',
 		'socials',
+		'indicators',
+		'steps',
+		'cources',
+		'graduates',
+		'advantages',
 	) as $file_name ) {
 		include get_theme_file_path( "customizer/lists/{$file_name}.php" );
 	}
 
-	// include get_theme_file_path( 'customizer/home/teachers.php' );
-	// include get_theme_file_path( 'customizer/home/indicators.php' );
-	// include get_theme_file_path( 'customizer/home/steps.php' );
-	// include get_theme_file_path( 'customizer/home/cources.php' );
-	// include get_theme_file_path( 'customizer/home/graduates.php' );
-	// include get_theme_file_path( 'customizer/home/advantages.php' );
-	// include get_theme_file_path( 'customizer/home/questions.php' );
-	// include get_theme_file_path( 'customizer/404.php' );
+	// подключение настроек типов страниц
+	$wp_customize->add_panel(
+		"{$slug}_pages",
+		array(
+			'capability'      => 'edit_theme_options',
+			'title'           => __( 'Типы страниц темы', ACT_THEME_TEXTDOMAIN ),
+			'priority'        => 200
+		)
+	);
+	
+	foreach ( array(
+		'404',
+	) as $file_name ) {
+		include get_theme_file_path( "customizer/pages/{$file_name}.php" );
+	}
+
 }
 
 add_action( 'customize_register', 'act_theme_customizer', 10, 1 );

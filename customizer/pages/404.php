@@ -6,14 +6,13 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
 
-
 $wp_customize->add_section(
     ACT_THEME_SLUG . '_error404',
     array(
         'title'            => __( 'Страница ошибки 404', ACT_THEME_TEXTDOMAIN ),
         'priority'         => 10,
         'description'      => __( 'Якорь #error404', ACT_THEME_TEXTDOMAIN ),
-        'panel'            => ACT_THEME_SLUG
+        'panel'            => "{$slug}_pages",
     )
 ); /**/
 
