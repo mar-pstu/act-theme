@@ -15,7 +15,7 @@ $wp_customize->add_section(
 	array(
 		'title'            => __( 'Особенности', ACT_THEME_TEXTDOMAIN ),
 		'priority'         => 10,
-		'description'      => '',
+		'description'      => '[features]',
 		'panel'            => "{$slug}_lists",
 	)
 ); /**/

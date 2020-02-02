@@ -63,7 +63,7 @@ $wp_customize->add_control(
 $wp_customize->add_setting(
     "{$slug}_specialties_subtitle",
     array(
-        'default'           => __( 'Специальности', ACT_THEME_TEXTDOMAIN ),
+        'default'           => '',
         'transport'         => 'reset',
         'sanitize_callback' => 'sanitize_text_field',
     )
@@ -74,5 +74,45 @@ $wp_customize->add_control(
         'section'           => "{$slug}_specialties",
         'label'             => __( 'Подзаголовок', ACT_THEME_TEXTDOMAIN ),
         'type'              => 'text',
+    )
+); /**/
+
+
+$wp_customize->add_setting(
+    "{$slug}_specialties_type",
+    array(
+        'default'           => 'list',
+        'transport'         => 'reset',
+        'sanitize_callback' => 'sanitize_text_field',
+    )
+);
+$wp_customize->add_control(
+    "{$slug}_specialties_type",
+    array(
+        'section'           => "{$slug}_specialties",
+        'label'             => __( 'Тип контента', ACT_THEME_TEXTDOMAIN ),
+        'type'              => 'select',
+        'choices'           => array(
+            'list'            => __( 'список', ACT_THEME_TEXTDOMAIN ),
+            'content'         => __( 'контент', ACT_THEME_TEXTDOMAIN ),
+        ),
+    )
+); /**/
+
+
+$wp_customize->add_setting(
+    "{$slug}_specialties_page_id",
+    array(
+        'default'           => '',
+        'transport'         => 'reset',
+        'sanitize_callback' => 'absint',
+    )
+);
+$wp_customize->add_control(
+    "{$slug}_specialties_page_id",
+    array(
+        'section'           => "{$slug}_specialties",
+        'label'             => __( 'Выбор страницы', ACT_THEME_TEXTDOMAIN ),
+        'type'              => 'dropdown-pages',
     )
 ); /**/

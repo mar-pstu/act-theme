@@ -16,6 +16,7 @@ define( 'ACT_THEME_SLUG', 'act_theme' );
 
 get_template_part( 'includes/enqueue' );
 get_template_part( 'includes/template-functions' );
+get_template_part( 'includes/shortcodes' );
 get_template_part( 'includes/gutenberg' );
 get_template_part( 'includes/brand' );
 

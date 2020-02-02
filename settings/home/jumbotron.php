@@ -61,7 +61,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-	"{$slug}_jumbotron_subtitle",
+	"{$slug}_jumbotron_description",
 	array(
 		'default'           => get_bloginfo( 'description' ),
 		'transport'         => 'reset',
@@ -69,7 +69,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	"{$slug}_jumbotron_subtitle",
+	"{$slug}_jumbotron_description",
 	array(
 		'section'           => "{$slug}_jumbotron",
 		'label'             => __( 'Подзаголовок', ACT_THEME_TEXTDOMAIN ),

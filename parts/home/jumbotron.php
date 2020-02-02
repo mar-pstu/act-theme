@@ -1,29 +1,24 @@
 <?php
 
 
-
 namespace act_theme;
-
 
 
 if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
+$title = get_theme_mod( ACT_THEME_SLUG . '_jumbotron_title', get_bloginfo( 'name' ) );
+$description = get_theme_mod( ACT_THEME_SLUG . '_jumbotron_description', get_bloginfo( 'description' ) );
+$label = get_theme_mod( ACT_THEME_SLUG . '_jumbotron_label', __( 'Подробней', ACT_THEME_TEXTDOMAIN ) );
+$permalink = get_theme_mod( ACT_THEME_SLUG . '_jumbotron_permalink', __return_empty_string() );
 
-?>
 
-<section class="jumbotron" id="jumbotron">
-	<h1 class="title">Кафедра автоматизации и компьютерных технологий</h1>
-	<p class="description">Кафедра автоматизации и компьютерных технологий </p><a class="permalink" href="#">Поступление 2020</a>
-	<ul class="features">
-						<li class="features__item item"><img class="icon lazy" src="#" data-src="../images/features/01.png" alt="Fixed price projects">
-							<div class="title">Fixed price projects</div>
-						</li>
-						<li class="features__item item"><img class="icon lazy" src="#" data-src="../images/features/02.png" alt="Receive on time">
-							<div class="title">Receive on time</div>
-						</li>
-						<li class="features__item item"><img class="icon lazy" src="#" data-src="../images/features/03.png" alt="Satisfaction guranteed">
-							<div class="title">Satisfaction guranteed</div>
-						</li>
-	</ul>
-</section>
+if ( function_exists( 'pll__' ) ) {
+	$title = pll__( $title );
+	$description = pll__( $description );
+	$label = pll__( $label );
+	$permalink = pll__( $permalink );
+}
+
+
+include get_theme_file_path( 'views/home/jumbotron.php' );

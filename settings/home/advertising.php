@@ -1,13 +1,10 @@
 <?php
 
 
-
 namespace act_theme;
 
 
-
 if ( ! defined( 'ABSPATH' ) ) { exit; };
-
 
 
 $wp_customize->add_section(
@@ -20,6 +17,23 @@ $wp_customize->add_section(
 	)
 ); /**/
 
+
+$wp_customize->add_setting(
+    "{$slug}_advertising_flag",
+    array(
+        'default'           => false,
+        'transport'         => 'reset',
+        'sanitize_callback' => 'sanitize_text_field',
+    )
+);
+$wp_customize->add_control(
+    "{$slug}_advertising_flag",
+    array(
+        'section'           => "{$slug}_advertising",
+        'label'             => __( 'Использовать секцию', ACT_THEME_TEXTDOMAIN ),
+        'type'              => 'checkbox',
+    )
+); /**/
 
 
 $wp_customize->add_setting(
@@ -40,9 +54,8 @@ $wp_customize->add_control(
 ); /**/
 
 
-
 $wp_customize->add_setting(
-	"{$slug}_advertising_subtitle",
+	"{$slug}_advertising_excerpt",
 	array(
 		'default'           => get_bloginfo( 'description' ),
 		'transport'         => 'reset',
@@ -50,14 +63,13 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	"{$slug}_advertising_subtitle",
+	"{$slug}_advertising_excerpt",
 	array(
 		'section'           => "{$slug}_advertising",
 		'label'             => __( 'Подзаголовок', ACT_THEME_TEXTDOMAIN ),
 		'type'              => 'text',
 	)
 ); /**/
-
 
 
 $wp_customize->add_setting(
@@ -78,7 +90,6 @@ $wp_customize->add_control(
 ); /**/
 
 
-
 $wp_customize->add_setting(
 	"{$slug}_advertising_video",
 	array(
@@ -93,5 +104,26 @@ $wp_customize->add_control(
 		'section'           => "{$slug}_advertising",
 		'label'             => __( 'Ссылка на видео', ACT_THEME_TEXTDOMAIN ),
 		'type'              => 'text',
+	)
+); /**/
+
+
+$wp_customize->add_setting(
+	"{$slug}_advertising_bgi",
+		array(
+			'default'           => ACT_THEME_URL . 'images/advertising.jpg',
+			'transport'         => 'reset',
+			'sanitize_callback' => 'sanitize_url',
+		)
+	);
+$wp_customize->add_control(
+	new \WP_Customize_Image_Control(
+		$wp_customize,
+		"{$slug}_advertising_bgi",
+		array(
+			'label'      => __( 'Фон', ACT_THEME_TEXTDOMAIN ),
+			'section'    => "{$slug}_advertising",
+			'settings'   => "{$slug}_advertising_bgi",
+		)
 	)
 ); /**/

@@ -44,7 +44,7 @@ $wp_customize->add_control(
 $wp_customize->add_setting(
 	"{$slug}_directions_title",
 	array(
-		'default'           => get_bloginfo( 'name' ),
+		'default'           => __( 'Направления работы', ACT_THEME_TEXTDOMAIN ),
 		'transport'         => 'reset',
 		'sanitize_callback' => 'sanitize_text_field',
 	)
@@ -63,7 +63,7 @@ $wp_customize->add_control(
 $wp_customize->add_setting(
 	"{$slug}_directions_subtitle",
 	array(
-		'default'           => get_bloginfo( 'description' ),
+		'default'           => '',
 		'transport'         => 'reset',
 		'sanitize_callback' => 'sanitize_text_field',
 	)
@@ -75,4 +75,45 @@ $wp_customize->add_control(
 		'label'             => __( 'Подзаголовок', ACT_THEME_TEXTDOMAIN ),
 		'type'              => 'text',
 	)
+); /**/
+
+
+
+$wp_customize->add_setting(
+	"{$slug}_directions_type",
+	array(
+		'default'           => 'list',
+		'transport'         => 'reset',
+		'sanitize_callback' => 'sanitize_text_field',
+	)
+);
+$wp_customize->add_control(
+	"{$slug}_directions_type",
+	array(
+		'section'           => "{$slug}_directions",
+		'label'             => __( 'Тип контента', ACT_THEME_TEXTDOMAIN ),
+		'type'              => 'select',
+		'choices'           => array(
+			'list'            => __( 'список', ACT_THEME_TEXTDOMAIN ),
+			'content'         => __( 'контент', ACT_THEME_TEXTDOMAIN ),
+		),
+	)
+); /**/
+
+
+$wp_customize->add_setting(
+    "{$slug}_directions_page_id",
+    array(
+        'default'           => '',
+        'transport'         => 'reset',
+        'sanitize_callback' => 'absint',
+    )
+);
+$wp_customize->add_control(
+    "{$slug}_directions_page_id",
+    array(
+        'section'           => "{$slug}_directions",
+        'label'             => __( 'Выбор страницы', ACT_THEME_TEXTDOMAIN ),
+        'type'              => 'dropdown-pages',
+    )
 ); /**/

@@ -33,7 +33,7 @@ function act_theme_customizer( $wp_customize ) {
 		'graduates',     // выпускники
 		'advantages'     // преимущества обучения на кафедре
 	) as $file_name ) {
-		include get_theme_file_path( "customizer/home/{$file_name}.php" );
+		include get_theme_file_path( "settings/home/{$file_name}.php" );
 	}
 
 	// подключение списков
@@ -58,7 +58,7 @@ function act_theme_customizer( $wp_customize ) {
 		'graduates',
 		'advantages',
 	) as $file_name ) {
-		include get_theme_file_path( "customizer/lists/{$file_name}.php" );
+		include get_theme_file_path( "settings/lists/{$file_name}.php" );
 	}
 
 	// подключение настроек типов страниц
@@ -74,7 +74,7 @@ function act_theme_customizer( $wp_customize ) {
 	foreach ( array(
 		'404',
 	) as $file_name ) {
-		include get_theme_file_path( "customizer/pages/{$file_name}.php" );
+		include get_theme_file_path( "settings/pages/{$file_name}.php" );
 	}
 
 }

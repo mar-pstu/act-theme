@@ -1,14 +1,56 @@
-<section class="section specialties" id="specialties">
-	<div class="container">
-		<h2>Заголовок секции</h2>
-		<p>Текстовое описание секции Reiciendis quos possimus dignissimos nihil obcaecati quod dolorem culpa unde, illo. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-		<div class="row" role="list">
-							<div class="col-xs-12 col-sm-4"><a class="specialties__entry entry" href="#" role="listitem"><img class="wp-post-thumbnail lazy" src="#" data-src="../images/specialties/akit.jpg" alt="Автоматизация и компьютерно-интегрированные технологии">
-									<div class="title">Автоматизация и компьютерно-интегрированные технологии</div></a></div>
-							<div class="col-xs-12 col-sm-4"><a class="specialties__entry entry" href="#" role="listitem"><img class="wp-post-thumbnail lazy" src="#" data-src="../images/specialties/automation.jpg" alt="Компьютерно-интегрированные технологические процессы и производства">
-									<div class="title">Компьютерно-интегрированные технологические процессы и производства</div></a></div>
-							<div class="col-xs-12 col-sm-4"><a class="specialties__entry entry" href="#" role="listitem"><img class="wp-post-thumbnail lazy" src="#" data-src="../images/specialties/control.jpg" alt="Автоматизированное управление технологическими процессами">
-									<div class="title">Автоматизированное управление технологическими процессами</div></a></div>
-		</div>
-	</div>
-</section>
+<?php
+
+
+namespace act_theme;
+
+
+if ( ! defined( 'ABSPATH' ) ) { exit; };
+
+
+$section_name = 'specialties';
+$title = get_theme_mod( ACT_THEME_SLUG . '_specialties_title', __( 'Специальности', ACT_THEME_TEXTDOMAIN ) );
+$subtitle = get_theme_mod( ACT_THEME_SLUG . '_specialties_subtitle', __return_empty_string() );
+$content = __return_empty_string();
+$permalink = __return_empty_string();
+$label = __return_empty_string();
+$page_id = get_translate_id( get_theme_mod( ACT_THEME_SLUG . '_directions_page_id', '' ), 'page' );
+$page = ( empty( $page_id ) ) ? __return_false() : get_post( $page_id, OBJECT );
+
+
+if ( function_exists( 'pll__' ) ) {
+	$title = pll__( $title );
+	$subtitle = pll__( $subtitle );
+	$label = pll__( $label );
+}
+
+
+if ( $page instanceof \WP_Post ) {
+	$permalik = get_permalink( $page, false );
+	if ( empty( $title ) ) {
+		$title = apply_filters( 'the_title', $page->post_title, $page->ID );
+	}
+	if ( empty( $subtitle ) ) {
+		$subtitle = $page->post_excerpt;
+	}
+}
+
+
+switch ( get_theme_mod( ACT_THEME_SLUG . '_specialties_type', 'list' ) ) {
+	case 'content':
+		if ( $page instanceof \WP_Post ) {
+			$parts = get_extended( $page->post_content );
+			$content = do_shortcode( $parts[ 'main' ], false );
+		}
+		break;
+	case 'list':
+	default:
+		$content = shortcode_specialties( array(
+			'section' => false,
+		) );
+		break;
+}
+
+
+if ( ! empty( $content ) ) {
+	include get_theme_file_path( 'views/home/section.php' );
+}

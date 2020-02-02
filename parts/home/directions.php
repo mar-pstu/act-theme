@@ -1,46 +1,54 @@
-<section class="section directions" id="directions">
-	<div class="container">
-		<h2>Направления работы</h2>
-		<p>Текстовое описание секции Reiciendis quos possimus dignissimos nihil obcaecati quod dolorem culpa unde, illo. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-		<div class="row center-xs stratch-xs">
-							<div class="col-xs-12 col-sm-5 col-md-5 col-lg-3 col-lg-offset-0">
-								<div class="wrap">
-									<div class="directions__item item">
-										<div class="icon">
-											<img class="lazy" src="#" data-src="../images/directions/programming.png" alt="Программирование систем упровления технологически и процессами">
-										</div>
-										<h3 class="title">Программирование систем упровления технологически и процессами</h3>
-										<p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum dolor, aperiam ex sapiente expedita omnis! Ipsum maxime, sit porro. Totam laudantium incidunt nostrum numquam dignissimos labore atque soluta assumenda vitae.</p>
-									</div>
-								</div>
-							</div>
-							<div class="col-xs-12 col-sm-5 col-md-5 col-lg-3 col-lg-offset-0">
-								<div class="wrap">
-									<div class="directions__item item">
-										<div class="icon"><img class="lazy" src="#" data-src="../images/directions/network.png" alt="Компьютерные системы и сети"></div>
-										<h3 class="title">Компьютерные системы и сети</h3>
-										<p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt, blanditiis, quasi! Itaque earum adipisci totam debitis! Qui natus aliquam corporis, saepe accusantium labore magnam! Alias excepturi vitae tenetur doloremque consectetur?</p>
-									</div>
-								</div>
-							</div>
-							<div class="col-xs-12 col-sm-5 col-md-5 col-lg-3 col-lg-offset-0">
-								<div class="wrap">
-									<div class="directions__item item">
-										<div class="icon"><img class="lazy" src="#" data-src="../images/directions/automation.png" alt="Проектирование систем автоматизации технологических процессов"></div>
-										<h3 class="title">Проектирование систем автоматизации технологических процессов</h3>
-										<p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate corporis perferendis dicta! Et numquam rerum sint tenetur ea dolor nisi officia accusamus earum voluptatibus dignissimos molestiae sapiente cumque, perferendis obcaecati.</p>
-									</div>
-								</div>
-							</div>
-							<div class="col-xs-12 col-sm-5 col-md-5 col-lg-3 col-lg-offset-0">
-								<div class="wrap">
-									<div class="directions__item item">
-										<div class="icon"><img class="lazy" src="#" data-src="../images/directions/controller.png" alt="Микропроцессорная техника"></div>
-										<h3 class="title">Микропроцессорная техника</h3>
-										<p class="excerpt"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde odio, consectetur at ipsa repellat necessitatibus autem eaque temporibus quibusdam, dolores esse accusamus laborum amet, sunt perferendis illum. Error, at, libero!</p>
-									</div>
-								</div>
-							</div>
-		</div>
-	</div>
-</section>
+<?php
+
+
+namespace act_theme;
+
+
+if ( ! defined( 'ABSPATH' ) ) { exit; };
+
+
+$section_name = 'directions';
+
+$title = get_theme_mod( ACT_THEME_SLUG . '_directions_title', __( 'Направления работы', ACT_THEME_TEXTDOMAIN ) );
+$subtitle = get_theme_mod( ACT_THEME_SLUG . '_directions_subtitle', __return_empty_string() );
+$label = get_theme_mod( ACT_THEME_SLUG . '_directions_label', __( 'Подробнее', ACT_THEME_TEXTDOMAIN ) );
+$content = __return_empty_string();
+$permalik = __return_empty_string();
+$page_id = get_translate_id( get_theme_mod( ACT_THEME_SLUG . '_directions_page_id', '' ), 'page' );
+$page = ( empty( $page_id ) ) ? __return_false() : get_post( $page_id, OBJECT );
+
+
+if ( function_exists( 'pll__' ) ) {
+	$title = pll__( $title );
+	$subtitle = pll__( $subtitle );
+	$label = pll__( $label );
+}
+
+if ( $page instanceof \WP_Post ) {
+	$permalik = get_permalink( $page, false );
+	if ( empty( $title ) ) {
+		$title = apply_filters( 'the_title', $page->post_title, $page->ID );
+	}
+	if ( empty( $subtitle ) ) {
+		$subtitle = $page->post_excerpt;
+	}
+}
+
+switch ( get_theme_mod( ACT_THEME_SLUG . '_directions_type', 'list' ) ) {
+	case 'content':
+		if ( $page instanceof \WP_Post ) {
+			$parts = get_extended( $page->post_content );
+			$content = do_shortcode( $parts[ 'main' ], false );
+		}
+		break;
+	case 'list':
+	default:
+		$content = shortcode_directions( array(
+			'section' => false,
+		) );
+		break;
+}
+
+if ( ! empty( $content ) ) {
+	include get_theme_file_path( 'views/home/section.php' );
+}

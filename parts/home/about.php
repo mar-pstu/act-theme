@@ -1,48 +1,40 @@
 <?php
 
 
-
 namespace act_theme;
-
 
 
 if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
-
 $page_id = get_translate_id( get_theme_mod( ACT_THEME_SLUG . '_about_page_id', '' ), 'page' );
 
 
-// if ( ! empty( $page_id ) ) {
+if ( ! empty( $page_id ) ) {
 
-//     $page = get_post( $page_id, OBJECT, 'raw' );
+	$page = get_post( $page_id, OBJECT, 'raw' );
 
-//     if ( $page && ! is_wp_error( $page ) ) {
+	if ( $page instanceof \WP_Post ) {
 
-//         $permalink = get_permalink( $page->ID );
-//         $title = get_theme_mod( STARTER_SLUG . '_about_title', '' );
-//         $label = get_theme_mod( STARTER_SLUG . '_about_label', __( 'Подробней', STARTER_TEXTDOMAIN ) );
-//         $thumbnail_src = get_theme_mod( STARTER_SLUG . '_about_thumbnail', '' );
+		$title = get_theme_mod( ACT_THEME_SLUG . '_about_title', __( 'О нас', ACT_THEME_TEXTDOMAIN ) );
+		$label = get_theme_mod( ACT_THEME_SLUG . '_about_label', __( 'Подробней', ACT_THEME_TEXTDOMAIN ) );
+		$thumbnail_src = get_theme_mod( ACT_THEME_SLUG . '_about_thumbnail', '' );
+		$permalink = get_permalink( $page->ID );
 
-//         if ( function_exists( 'pll__' ) ) {
-//             $title = pll__( $title );
-//             $label = pll__( $label );
-//         }
+		if ( function_exists( 'pll__' ) ) {
+			$title = pll__( $title );
+			$label = pll__( $label );
+		}
 
-//         if ( empty( $title ) ) $title = apply_filters( 'the_title', $page->post_title, $page->ID );
+		$parts = get_extended( $page->post_content );
+		$content = do_shortcode( $parts[ 'main' ], false );
 
-//         if ( empty( $thumbnail_src ) ) {
-//             $thumbnail_src = STARTER_URL . 'images/thumbnail.png';
-//             $thumbnail_alt = $title;
-//         } else {
-//             $thumbnail_alt = wp_get_attachment_caption( attachment_url_to_postid( $thumbnail_src ) );
-//         }
+		if ( empty( $title ) ) {
+			$title = apply_filters( 'the_title', $page->post_title, $page->ID );
+		}
 
-//         $parts = get_extended( $page->post_content );
-//         $content = do_shortcode( $parts[ 'main' ], false );
-		
-//         include get_theme_file_path( 'views/home/about.php' );
+		include get_theme_file_path( 'views/home/about.php' );
 
-//     }
+	}
 
-// }
+}

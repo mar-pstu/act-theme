@@ -47,7 +47,7 @@ $wp_customize->add_control(
 
 for ( $i = 0; $i < get_theme_mod( "{$slug}_directions_number", 4 ); $i++ ) {
 	$wp_customize->add_setting(
-		"{$slug}_directions[{$i}][logo]",
+		"{$slug}_directions[{$i}][icon]",
 			array(
 				'default'           => ACT_THEME_URL . 'images/business.png',
 				'transport'         => 'reset',
@@ -57,11 +57,11 @@ for ( $i = 0; $i < get_theme_mod( "{$slug}_directions_number", 4 ); $i++ ) {
 	$wp_customize->add_control(
 		new \WP_Customize_Image_Control(
 			$wp_customize,
-			"{$slug}_directions[{$i}][logo]",
+			"{$slug}_directions[{$i}][icon]",
 			array(
 				'label'      => sprintf( __( 'лого №%d', ACT_THEME_TEXTDOMAIN ), ( $i + 1 ) ),
 				'section'    => "{$slug}_list_directions",
-				'settings'   => "{$slug}_directions[{$i}][logo]",
+				'settings'   => "{$slug}_directions[{$i}][icon]",
 			)
 		)
 	);

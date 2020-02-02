@@ -100,7 +100,7 @@ $wp_customize->add_control(
 $wp_customize->add_setting(
     "{$slug}_about_thumbnail",
     array(
-        'default'           => ACT_THEME_URL . 'images/thumbnail.png',
+        'default'           => '',
         'transport'         => 'reset',
         'sanitize_callback' => 'sanitize_url',
     )
@@ -110,7 +110,7 @@ $wp_customize->add_control(
        $wp_customize,
        "{$slug}_about_thumbnail",
        array(
-           'label'      => __( 'Фон', ACT_THEME_TEXTDOMAIN ),
+           'label'      => __( 'Превью', ACT_THEME_TEXTDOMAIN ),
            'section'    => "{$slug}_about",
            'settings'   => "{$slug}_about_thumbnail",
        )
