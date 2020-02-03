@@ -16,11 +16,4 @@
 
 	}
 
-	.permalink {
-		@extend %button;
-		@extend %button-large;
-		@extend %button-success;
-		margin: 2em auto 0 auto;
-	}
-
 }

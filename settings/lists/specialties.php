@@ -47,7 +47,7 @@ $wp_customize->add_control(
 
 for ( $i=0; $i < get_theme_mod( "{$slug}_specialties_number", 3 ); $i++ ) {
 	$wp_customize->add_setting(
-		"{$slug}_specialties[{$i}][logo]",
+		"{$slug}_specialties[{$i}][thumbnail]",
 			array(
 				'default'           => ACT_THEME_URL . 'images/thumbnail.png',
 				'transport'         => 'reset',
@@ -57,11 +57,11 @@ for ( $i=0; $i < get_theme_mod( "{$slug}_specialties_number", 3 ); $i++ ) {
 	$wp_customize->add_control(
 		new \WP_Customize_Image_Control(
 			$wp_customize,
-			"{$slug}_specialties[{$i}][logo]",
+			"{$slug}_specialties[{$i}][thumbnail]",
 			array(
 				'label'      => sprintf( __( 'лого №%d', ACT_THEME_TEXTDOMAIN ), ( $i + 1 ) ),
 				'section'    => "{$slug}_list_specialties",
-				'settings'   => "{$slug}_specialties[{$i}][logo]",
+				'settings'   => "{$slug}_specialties[{$i}][thumbnail]",
 			)
 		)
 	);

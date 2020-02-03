@@ -17,5 +17,11 @@ section( class = "section " + section_class, id = section_id, style = section_st
 			block heading
 				h2 #{section_title}
 				p #{section_excerpt}
-			block body
-				p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi illo ipsa eos perspiciatis dolorum pariatur omnis ad sed cum? Alias odit aspernatur doloremque dolorem aut fugiat, quo corrupti, assumenda et?
+			.content
+				block body
+					p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi illo ipsa eos perspiciatis dolorum pariatur omnis ad sed cum? Alias odit aspernatur doloremque dolorem aut fugiat, quo corrupti, assumenda et?
+			block basement
+				p.text-center
+					br
+					br
+					a.btn.btn-lg.btn-primary( href="#" ) Подробней

@@ -13,7 +13,7 @@ $title = get_theme_mod( ACT_THEME_SLUG . '_directions_title', __( 'Направ�
 $subtitle = get_theme_mod( ACT_THEME_SLUG . '_directions_subtitle', __return_empty_string() );
 $label = get_theme_mod( ACT_THEME_SLUG . '_directions_label', __( 'Подробнее', ACT_THEME_TEXTDOMAIN ) );
 $content = __return_empty_string();
-$permalik = __return_empty_string();
+$permalink = __return_empty_string();
 $page_id = get_translate_id( get_theme_mod( ACT_THEME_SLUG . '_directions_page_id', '' ), 'page' );
 $page = ( empty( $page_id ) ) ? __return_false() : get_post( $page_id, OBJECT );
 
@@ -25,7 +25,7 @@ if ( function_exists( 'pll__' ) ) {
 }
 
 if ( $page instanceof \WP_Post ) {
-	$permalik = get_permalink( $page, false );
+	$permalink = get_permalink( $page, false );
 	if ( empty( $title ) ) {
 		$title = apply_filters( 'the_title', $page->post_title, $page->ID );
 	}
@@ -49,6 +49,5 @@ switch ( get_theme_mod( ACT_THEME_SLUG . '_directions_type', 'list' ) ) {
 		break;
 }
 
-if ( ! empty( $content ) ) {
-	include get_theme_file_path( 'views/home/section.php' );
-}
+
+include get_theme_file_path( 'views/home/section.php' );
