@@ -13,6 +13,7 @@
 		}
 	}
 
+	.item:nth-of-type( 1 ) .wrap { margin-top: 5em; }
 	.item:nth-of-type( odd ) .wrap { left: 0; }
 	.item:nth-of-type( even ) .wrap { right: 0; }
 
@@ -73,7 +74,7 @@
 			margin: 0;
 		}
 
-		.permalink {
+		.link {
 			@extend %button;
 			@extend %button-primary;
 			@extend %button-small;
@@ -82,98 +83,3 @@
 	}
 
 }
-
-
-// .steps {
-
-// 	counter-reset: steps;
-
-// 	.item {
-// 		position: relative;
-// 		counter-increment: steps;
-// 	}
-
-// 	.item:hover .bg {
-// 		z-index: 1;
-// 	}
-
-
-// 	// .item + .item {
-// 	// 	margin-bottom: 1em;
-// 	// }
-
-
-// 	.item:nth-of-type( odd ) .overlay .row {
-// 		@extend .reverse;
-// 	}
-
-
-// 	&__item {
-
-// 		.bg {
-// 			@include min-width( $screen-lg ) {
-// 				position: absolute;
-// 				top: 0;
-// 				left: 0;
-// 				right: 0;
-// 				bottom: 0;
-// 			}
-// 		}
-
-// 		.overlay {
-// 			min-height: 20em;
-// 		}
-
-// 		.thumbnail {
-// 			display: block;
-// 			margin-bottom: 1em;
-// 			box-shadow: .5em .5em 1em rgba( 0, 0, 0, .5 );
-// 			@include min-width( $screen-lg ) {
-// 				margin-bottom: 0;
-// 				box-shadow: none;
-// 			}
-// 		}
-
-// 		.thumbnail img {
-// 			display: block;
-// 			width: 100%;
-// 			height: auto;
-// 		}
-
-// 		.box {
-// 			background-color: #fff;
-// 			padding: 1em 1em 1em 4em;
-// 			border-bottom: .2em solid $brand-primary;
-// 			position: relative;
-// 			z-index: 2;
-// 			box-shadow: .5em .5em 1em rgba( 0, 0, 0, .5 );
-// 			@include min-width( $screen-lg ) {
-// 				top: -2em;
-// 			}
-// 		}
-
-// 		.box::before {
-// 			content: counter( steps );
-// 			position: absolute;
-// 			top: 0em;
-// 			left: 0em;
-// 			font-weight: bold;
-// 			font-size: 4em;
-// 			line-height: 1em;
-// 			margin-top: .25em;
-// 			margin-left: .25em;
-// 			color: lighten( $text-color, 50% );
-// 			// transform: scale( 5 );
-// 			// transform-origin: top center;
-// 		}
-//
-//		.permalink {
-//			@extend %button;
-//			@extend %button-primary;
-//			@extend %button-small;
-//		}
-//
-// 	}
-	
-
-// }

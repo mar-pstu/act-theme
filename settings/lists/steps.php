@@ -25,7 +25,7 @@ $wp_customize->add_section(
 $wp_customize->add_setting(
 	"{$slug}_steps_number",
 	array(
-		'default'           => 4,
+		'default'           => 3,
 		'transport'         => 'reset',
 		'sanitize_callback' => 'sanitize_text_field',
 	)

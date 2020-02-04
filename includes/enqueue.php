@@ -22,6 +22,7 @@ function act_theme_scripts() {
 		'url'      => ACT_THEME_URL,
 	) );
 	wp_enqueue_script( 'lazyload', ACT_THEME_URL . 'scripts/lazyload.js', array( 'jquery' ), '1.7.6', true );
+	wp_register_script( 'slick', ACT_THEME_URL . 'scripts/slick.js', array( 'jquery' ), '1.8.0', true );
 	wp_enqueue_script( 'fancybox', ACT_THEME_URL . 'scripts/fancybox.js', array( 'jquery' ), '3.3.5', true );
 	wp_add_inline_script( 'fancybox', "jQuery( '.fancybox' ).fancybox();", 'after' );
 	wp_add_inline_script( 'lazyload', "jQuery( '.lazy' ).lazy();", 'after' );
@@ -44,10 +45,23 @@ add_action( 'wp_enqueue_scripts', 'act_theme_scripts' );
  * @param string $media для каких устройств подключать
  */
 function act_theme_styles() {
+	$slug = ACT_THEME_SLUG;
 	wp_enqueue_style( 'act-theme-main', ACT_THEME_URL . 'styles/main.css', array(), filemtime( get_theme_file_path( 'styles/main.css' ) ), 'all' );
+	$main_css = act_theme\css_array_to_css( array(
+		'.indicators' => array(
+			'color'      => get_theme_mod( "{$slug}_indicators_text_color", '#ffffff' ),
+		),
+		'.advertising .title, .advertising .excerpt, .advertising .play' => array(
+			'color'      => get_theme_mod( "{$slug}_advertising_text_color", '#ffffff' ),
+		),
+		'.advertising .play path' => array(
+			'fill'      => get_theme_mod( "{$slug}_advertising_text_color", '#ffffff' ),
+		),
+	), array( 'container' => false ) );
+	wp_add_inline_style( 'act-theme-main', $main_css );
 	wp_enqueue_style( 'act-theme-font', 'https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i&display=swap&subset=cyrillic,cyrillic-ext', array(), '14', 'all' );
 	wp_enqueue_style( 'fancybox', ACT_THEME_URL . 'styles/fancybox.css', array(), '3.3.5', 'all' );
-	wp_enqueue_style( 'slick', ACT_THEME_URL . 'styles/slick.css', array(), '1.8.0', 'all' );
+	wp_register_style( 'slick', ACT_THEME_URL . 'styles/slick.css', array(), '1.8.0', 'all' );
 }
 add_action( 'wp_enqueue_scripts', 'act_theme_styles', 10, 0 );
 

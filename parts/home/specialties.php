@@ -13,7 +13,7 @@ $subtitle = get_theme_mod( ACT_THEME_SLUG . '_specialties_subtitle', __return_em
 $content = __return_empty_string();
 $permalink = __return_empty_string();
 $label = get_theme_mod( ACT_THEME_SLUG . '_specialties_label', __( 'Подробней', ACT_THEME_TEXTDOMAIN ) );
-$page_id = get_translate_id( get_theme_mod( ACT_THEME_SLUG . '_directions_page_id', '' ), 'page' );
+$page_id = get_translate_id( get_theme_mod( ACT_THEME_SLUG . '_specialties_page_id', '' ), 'page' );
 $page = ( empty( $page_id ) ) ? __return_false() : get_post( $page_id, OBJECT );
 
 

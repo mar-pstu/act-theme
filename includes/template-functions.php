@@ -198,3 +198,33 @@ function get_categories_choices() {
 	}
 	return $result;
 }
+
+
+
+/**
+ * Конвертер ассоциативного массива в css правила
+ **/
+function css_array_to_css( $rules, $args = array() ) {
+	$args = array_merge( array(
+		'indent'     => 0,
+		'container'  => false,
+	), $args );
+	$css = __return_empty_string();
+	$prefix = str_repeat( '  ', $args[ 'indent' ] );
+	foreach ($rules as $key => $value ) {
+		if ( is_array( $value ) ) {
+			$selector = $key;
+			$properties = $value;
+			$css .= $prefix . "$selector {\n";
+			$css .= $prefix . css_array_to_css( $properties, array(
+				'indent'     => $args[ 'indent' ] + 1,
+				'container'  => false,
+			) );
+			$css .= $prefix . "}\n";
+		} else {
+			$property = $key;
+			$css .= $prefix . "$property: $value;\n";
+		}
+	}
+	return ( $args[ 'container' ] ) ? "\n<style>\n" . $css . "\n</style>\n" : $css;
+}

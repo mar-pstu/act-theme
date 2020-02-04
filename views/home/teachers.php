@@ -17,28 +17,24 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 			<h2><?php echo $title ?></h2>
 		<?php endif; ?>
 
-		<?php if ( ! empty( $subtitle ) ) : ?>
-			<p><?php echo $subtitle; ?></p>
+		<?php if ( ! empty( $excerpt ) ) : ?>
+			<p><?php echo $excerpt; ?></p>
 		<?php endif; ?>
 
-		<?php if ( ! empty( $teachers ) ) : ?>
-			<div id="teachers-list">
-				<?php echo $teachers; ?>
-			</div>
-			<div class="slider-controls" id="teachers-controls">
-				<button class="slider-arrow arrow-prev" id="teachers-prev"></button>
-				<button class="slider-arrow arrow-next" id="teachers-next"></button>
-			</div>
-		<?php endif; ?>
+		<?php echo $teachers; ?>
 
 		<div class="box">
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md">
-					<h3><?php echo $description; ?></h3>
+					<?php if ( ! empty( $subtitle ) ) : ?>
+						<h3><?php echo $subtitle; ?></h3>
+					<?php endif; ?>
 					<?php echo $content; ?>
-					<p>
-						<a class="btn btn-success" href="#"><?php echo $label; ?></a>
-					</p>
+					<?php if ( ! empty( $permalink ) ) : ?>
+						<p>
+							<a class="btn btn-success" href="<?php echo esc_attr( $permalink ); ?>"><?php echo $label; ?></a>
+						</p>
+					<?php endif; ?>
 				</div>
 				<?php if ( ! empty( $socials_list ) ) : ?>
 					<div class="col-xs-12 col-sm-11 col-md-4">

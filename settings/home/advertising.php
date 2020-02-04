@@ -127,3 +127,23 @@ $wp_customize->add_control(
 		)
 	)
 ); /**/
+
+
+$wp_customize->add_setting(
+	"{$slug}_advertising_text_color",
+	array(
+		'default'           => '#ffffff',
+		'transport'         => 'reset',
+		'sanitize_callback' => 'sanitize_hex_color',
+	)
+);
+$wp_customize->add_control( 
+    new \WP_Customize_Color_Control( 
+    $wp_customize, 
+    "{$slug}_advertising_text_color", 
+    array(
+        'label'      => __( 'Цвет текста', ACT_THEME_TEXTDOMAIN ),
+        'section'    => "{$slug}_advertising",
+        'settings'   => "{$slug}_advertising_text_color",
+    ) ) 
+);

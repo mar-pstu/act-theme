@@ -43,12 +43,12 @@ $wp_customize->add_control(
 
 $wp_customize->add_setting(
 	"{$slug}_indicators_bgi",
-		array(
-			'default'           => ACT_THEME_URL . 'images/business.png',
-			'transport'         => 'reset',
-			'sanitize_callback' => 'sanitize_url',
-		)
-	);
+	array(
+		'default'           => ACT_THEME_URL . 'images/indicators.jpg',
+		'transport'         => 'reset',
+		'sanitize_callback' => 'sanitize_url',
+	)
+);
 $wp_customize->add_control(
 	new \WP_Customize_Image_Control(
 		$wp_customize,
@@ -59,4 +59,25 @@ $wp_customize->add_control(
 			'settings'   => "{$slug}_indicators_bgi",
 		)
 	)
+);
+
+
+
+$wp_customize->add_setting(
+	"{$slug}_indicators_text_color",
+	array(
+		'default'           => '#ffffff',
+		'transport'         => 'reset',
+		'sanitize_callback' => 'sanitize_hex_color',
+	)
+);
+$wp_customize->add_control( 
+    new \WP_Customize_Color_Control( 
+    $wp_customize, 
+    "{$slug}_indicators_text_color", 
+    array(
+        'label'      => __( 'Цвет текста', ACT_THEME_TEXTDOMAIN ),
+        'section'    => "{$slug}_indicators",
+        'settings'   => "{$slug}_indicators_text_color",
+    ) ) 
 );

@@ -63,7 +63,7 @@ for ( $i=0; $i < 4; $i++ ) {
 		array(
 			'default'           => '',
 			'transport'         => 'reset',
-			'sanitize_callback' => 'sanitize_textarea_field',
+			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
 	$wp_customize->add_control(
@@ -71,7 +71,7 @@ for ( $i=0; $i < 4; $i++ ) {
 		array(
 			'section'           => "{$slug}_list_indicators",
 			'label'             => sprintf( __( 'значение №%d', ACT_THEME_TEXTDOMAIN ), ( $i + 1 ) ),
-			'type'              => 'textarea',
+			'type'              => 'text',
 		)
 	); /**/
 }

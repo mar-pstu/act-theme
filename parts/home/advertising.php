@@ -11,6 +11,7 @@ $title = get_theme_mod( ACT_THEME_SLUG . '_advertising_title', get_bloginfo( 'na
 $excerpt = get_theme_mod( ACT_THEME_SLUG . '_advertising_excerpt', get_bloginfo( 'description' ) );
 $label = get_theme_mod( ACT_THEME_SLUG . '_advertising_label', __( 'Нажмите, чтобы воспроизвести видео', ACT_THEME_TEXTDOMAIN ) );
 $video = get_theme_mod( ACT_THEME_SLUG . '_advertising_video', __return_empty_string() );
+$bgi =  get_theme_mod( ACT_THEME_SLUG . '_advertising_bgi', ACT_THEME_URL . 'images/advertising.jpg' );
 
 
 if ( function_exists( 'pll__' ) ) {

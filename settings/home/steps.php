@@ -76,3 +76,64 @@ $wp_customize->add_control(
         'type'              => 'text',
     )
 ); /**/
+
+
+
+$wp_customize->add_setting(
+    "{$slug}_steps_type",
+    array(
+        'default'           => 'list',
+        'transport'         => 'reset',
+        'sanitize_callback' => 'sanitize_text_field',
+    )
+);
+$wp_customize->add_control(
+    "{$slug}_steps_type",
+    array(
+        'section'           => "{$slug}_steps",
+        'label'             => __( 'Тип контента', ACT_THEME_TEXTDOMAIN ),
+        'type'              => 'select',
+        'choices'           => array(
+            'list'            => __( 'список', ACT_THEME_TEXTDOMAIN ),
+            'content'         => __( 'контент', ACT_THEME_TEXTDOMAIN ),
+        ),
+    )
+); /**/
+
+
+
+$wp_customize->add_setting(
+    "{$slug}_steps_page_id",
+    array(
+        'default'           => '',
+        'transport'         => 'reset',
+        'sanitize_callback' => 'absint',
+    )
+);
+$wp_customize->add_control(
+    "{$slug}_steps_page_id",
+    array(
+        'section'           => "{$slug}_steps",
+        'label'             => __( 'Выбор страницы', ACT_THEME_TEXTDOMAIN ),
+        'type'              => 'dropdown-pages',
+    )
+); /**/
+
+
+
+$wp_customize->add_setting(
+    "{$slug}_steps_label",
+    array(
+        'default'           => __( 'Подробней', ACT_THEME_TEXTDOMAIN ),
+        'transport'         => 'reset',
+        'sanitize_callback' => 'sanitize_text_field',
+    )
+);
+$wp_customize->add_control(
+    "{$slug}_steps_label",
+    array(
+        'section'           => "{$slug}_steps",
+        'label'             => __( 'Текст кнопки', ACT_THEME_TEXTDOMAIN ),
+        'type'              => 'text',
+    )
+); /**/

@@ -61,6 +61,25 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
+    "{$slug}_teachers_excerpt",
+    array(
+        'default'           => '',
+        'transport'         => 'reset',
+        'sanitize_callback' => 'sanitize_textarea_field',
+    )
+);
+$wp_customize->add_control(
+    "{$slug}_teachers_excerpt",
+    array(
+        'section'           => "{$slug}_teachers",
+        'label'             => __( 'Подзаголовок', ACT_THEME_TEXTDOMAIN ),
+        'type'              => 'textarea',
+    )
+); /**/
+
+
+
+$wp_customize->add_setting(
     "{$slug}_teachers_subtitle",
     array(
         'default'           => '',
@@ -72,27 +91,8 @@ $wp_customize->add_control(
     "{$slug}_teachers_subtitle",
     array(
         'section'           => "{$slug}_teachers",
-        'label'             => __( 'Подзаголовок', ACT_THEME_TEXTDOMAIN ),
+        'label'             => __( 'Заголовок более расширеного описания', ACT_THEME_TEXTDOMAIN ),
         'type'              => 'text',
-    )
-); /**/
-
-
-
-$wp_customize->add_setting(
-    "{$slug}_teachers_description",
-    array(
-        'default'           => '',
-        'transport'         => 'reset',
-        'sanitize_callback' => 'sanitize_textarea_field',
-    )
-);
-$wp_customize->add_control(
-    "{$slug}_teachers_description",
-    array(
-        'section'           => "{$slug}_teachers",
-        'label'             => __( 'Более расширеное описание', ACT_THEME_TEXTDOMAIN ),
-        'type'              => 'textarea',
     )
 ); /**/
 
