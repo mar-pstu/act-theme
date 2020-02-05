@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
 $section_name = 'cources';
-$title = get_theme_mod( ACT_THEME_SLUG . '_cources_title', __( 'Шаги к поступлению', ACT_THEME_TEXTDOMAIN ) );
+$title = get_theme_mod( ACT_THEME_SLUG . '_cources_title', __( 'Курсы', ACT_THEME_TEXTDOMAIN ) );
 $subtitle = get_theme_mod( ACT_THEME_SLUG . '_cources_subtitle', '' );
 $content = __return_empty_string();
 $permalink = __return_empty_string();

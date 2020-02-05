@@ -55,7 +55,10 @@ function act_theme_styles() {
 			'color'      => get_theme_mod( "{$slug}_advertising_text_color", '#ffffff' ),
 		),
 		'.advertising .play path' => array(
-			'fill'      => get_theme_mod( "{$slug}_advertising_text_color", '#ffffff' ),
+			'fill'       => get_theme_mod( "{$slug}_advertising_text_color", '#ffffff' ),
+		),
+		'.jumbotron .title, .jumbotron .description' => array(
+			'color'      => get_theme_mod( "{$slug}_jumbotron_text_color", '#ffffff' ),
 		),
 	), array( 'container' => false ) );
 	wp_add_inline_style( 'act-theme-main', $main_css );

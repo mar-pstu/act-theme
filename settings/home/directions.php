@@ -91,7 +91,7 @@ $wp_customize->add_control(
 	"{$slug}_directions_type",
 	array(
 		'section'           => "{$slug}_directions",
-		'label'             => __( 'Тип контента', ACT_THEME_TEXTDOMAIN ),
+		'label'             => __( 'Тип содержимого', ACT_THEME_TEXTDOMAIN ),
 		'type'              => 'select',
 		'choices'           => array(
 			'list'            => __( 'список', ACT_THEME_TEXTDOMAIN ),
@@ -113,7 +113,7 @@ $wp_customize->add_control(
     "{$slug}_directions_page_id",
     array(
         'section'           => "{$slug}_directions",
-        'label'             => __( 'Выбор страницы', ACT_THEME_TEXTDOMAIN ),
+        'label'             => __( 'Выбор страницы с описанием', ACT_THEME_TEXTDOMAIN ),
         'type'              => 'dropdown-pages',
     )
 ); /**/

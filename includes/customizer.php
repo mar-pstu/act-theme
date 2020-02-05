@@ -31,7 +31,8 @@ function act_theme_customizer( $wp_customize ) {
 		'steps',         // шаги к поступлению
 		'cources',       // курсы
 		'graduates',     // выпускники
-		'advantages'     // преимущества обучения на кафедре
+		'advantages',    // преимущества обучения на кафедре
+		'questions',     // контактная форма 
 	) as $file_name ) {
 		include get_theme_file_path( "settings/home/{$file_name}.php" );
 	}

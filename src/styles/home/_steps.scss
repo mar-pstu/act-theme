@@ -13,9 +13,9 @@
 		}
 	}
 
-	.item:nth-of-type( 1 ) .wrap { margin-top: 5em; }
-	.item:nth-of-type( odd ) .wrap { left: 0; }
-	.item:nth-of-type( even ) .wrap { right: 0; }
+	.item:nth-of-type( 1 ) { margin-top: 5em; }
+	.item:nth-of-type( odd ) .wrap { left: 3em; }
+	.item:nth-of-type( even ) .wrap { right: 3em; }
 
 	&__item {
 

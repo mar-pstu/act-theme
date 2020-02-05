@@ -90,7 +90,7 @@ $wp_customize->add_control(
     "{$slug}_specialties_type",
     array(
         'section'           => "{$slug}_specialties",
-        'label'             => __( 'Тип контента', ACT_THEME_TEXTDOMAIN ),
+        'label'             => __( 'Тип содержимого', ACT_THEME_TEXTDOMAIN ),
         'type'              => 'select',
         'choices'           => array(
             'list'            => __( 'список', ACT_THEME_TEXTDOMAIN ),

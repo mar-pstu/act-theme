@@ -102,7 +102,7 @@ $wp_customize->add_control(
 	"{$slug}_advertising_video",
 	array(
 		'section'           => "{$slug}_advertising",
-		'label'             => __( 'Ссылка на видео', ACT_THEME_TEXTDOMAIN ),
+		'label'             => __( 'Ссылка на Youtube видео', ACT_THEME_TEXTDOMAIN ),
 		'type'              => 'text',
 	)
 ); /**/
@@ -142,7 +142,7 @@ $wp_customize->add_control(
     $wp_customize, 
     "{$slug}_advertising_text_color", 
     array(
-        'label'      => __( 'Цвет текста', ACT_THEME_TEXTDOMAIN ),
+        'label'      => __( 'Цвет текста и кнопки Play', ACT_THEME_TEXTDOMAIN ),
         'section'    => "{$slug}_advertising",
         'settings'   => "{$slug}_advertising_text_color",
     ) ) 

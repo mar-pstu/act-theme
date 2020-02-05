@@ -52,7 +52,7 @@ $wp_customize->add_control(
     "{$slug}_about_page_id",
     array(
         'section'           => "{$slug}_about",
-        'label'             => __( 'Выбор страницы', ACT_THEME_TEXTDOMAIN ),
+        'label'             => __( 'Выбор страницы с описанием', ACT_THEME_TEXTDOMAIN ),
         'type'              => 'dropdown-pages',
     )
 ); /**/

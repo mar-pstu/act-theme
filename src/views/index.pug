@@ -3,6 +3,7 @@ html
 		title Examples
 		meta( charset="utf-8" )
 	body
+		p Сылка на git-репозиторий WordPress темы #[a( href="https://github.com/mar-pstu/act-theme") https://github.com/mar-pstu/act-theme]
 		h2 Шаблоны страниц
 		ul
 			li: a( href="examples/home.html" ) Главная
@@ -10,8 +11,22 @@ html
 			li: a( href="examples/page.html" ) Страница
 			li: a( href="examples/404.html" ) 404
 			li: a( href="examples/contacts.html" ) Контакты
-		h2 Структура сайта
-		a.fancybox( href='./images/structure.svg' ): img( src='./images/structure.svg', style="max-width: 100%;" )
+		h2 Шорткоды темы
+		ul
+			li #[code &#91;contact_form&#93;] - контактная форма
+			li #[code &#91;features&#93;] - список особенностей кафедры
+			li #[code &#91;directions&#93;] - направления работы
+			li #[code &#91;specialties&#93;] - список специальностей
+			li #[code &#91;teachers&#93;] - слайдер преподавателей
+			li #[code &#91;socials_list&#93;] - список в ссылок на социальные сети в виде иконок
+			li #[code &#91;indicators&#93;] - блок показателей работы кафедры
+			li #[code &#91;steps&#93;] - список шагов к поступлению
+			li #[code &#91;cources&#93;] - дополнительные образовательные курсы
+			li #[code &#91;advantages&#93;] - преимущества обучения на кафедре
+		h2 Настройки темы
+		a.fancybox( href='./images/settings.svg', style="display: block;" ): img( src='./images/settings.svg', style="width: 100%;" )
+		h2 Предполагаемая структура сайта
+		a.fancybox( href='./images/structure.svg', style="display: block;" ): img( src='./images/structure.svg', style="width: 100%;" )
 		script( src='./scripts/jquery.js' )
 		link( rel="stylesheet", href='styles/fancybox.css' )
 		script( src='./scripts/fancybox.js' )

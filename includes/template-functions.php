@@ -140,7 +140,7 @@ function the_pager() {
 			$title = apply_filters( 'the_title', $value[ 'entry' ]->post_title, $value[ 'entry' ]->ID );
 			$label = $value[ 'label' ];
 			$permalink = get_permalink( $value[ 'entry' ]->ID );
-			include get_theme_file_path( 'views/adjacent-post.php' );
+			include get_theme_file_path( 'views/items/adjacent-post.php' );
 		}
 	}
 	$content = ob_get_contents();
@@ -227,4 +227,20 @@ function css_array_to_css( $rules, $args = array() ) {
 		}
 	}
 	return ( $args[ 'container' ] ) ? "\n<style>\n" . $css . "\n</style>\n" : $css;
+}
+
+
+
+/**
+ * Получает IP юзверя
+ **/
+function get_the_user_ip() {
+	if ( ! empty( $_SERVER[ 'HTTP_CLIENT_IP' ] ) ) {
+		$ip = $_SERVER[ 'HTTP_CLIENT_IP' ];
+	} elseif ( ! empty( $_SERVER[ 'HTTP_X_FORWARDED_FOR' ] ) ) {
+		$ip = $_SERVER[ 'HTTP_X_FORWARDED_FOR' ];
+	} else {
+		$ip = $_SERVER[ 'REMOTE_ADDR' ];
+	}
+	return apply_filters( 'edd_get_ip', $ip );
 }

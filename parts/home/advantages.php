@@ -1,75 +1,54 @@
-<section class="section advantages" id="advantages">
-	<div class="container">
-		<h2>Пому именно наша кафедра</h2>
-		<p>Текстовое описание секции Reiciendis quos possimus dignissimos nihil obcaecati quod dolorem culpa unde, illo. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-		<div class="row center-xs" role="list">
-							<div class="col-xs-12 col-sm-5 col-md-4">
-								<div class="advantages__item item" role="listitem">
-									<div class="row middle-xs">
-										<div class="col-xs-3 col-sm-3 col-md-3 col-md-2"><img class="icon lazy" src="#" data-src="../images/advantages/01.png" alt="Ultimate Perfection"></div>
-										<div class="col-xs-9 col-sm-9 col-md-6 col-md-6">
-											<h3>Ultimate Perfection</h3>
-										</div>
-									</div>
-									<p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus aut obcaecati accusantium eum, tempora, enim vel voluptate velit iste eius neque dolore, laborum dignissimos a minus repellendus reiciendis quos at!</p>
-								</div>
-							</div>
-							<div class="col-xs-12 col-sm-5 col-md-4">
-								<div class="advantages__item item" role="listitem">
-									<div class="row middle-xs">
-										<div class="col-xs-3 col-sm-3 col-md-3 col-md-2"><img class="icon lazy" src="#" data-src="../images/advantages/02.png" alt="Unlimited Revisions"></div>
-										<div class="col-xs-9 col-sm-9 col-md-6 col-md-6">
-											<h3>Unlimited Revisions</h3>
-										</div>
-									</div>
-									<p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi rem, blanditiis alias. Similique ea culpa ratione corrupti id sit impedit, quod natus possimus soluta quaerat distinctio dolores vero autem, ut.</p>
-								</div>
-							</div>
-							<div class="col-xs-12 col-sm-5 col-md-4">
-								<div class="advantages__item item" role="listitem">
-									<div class="row middle-xs">
-										<div class="col-xs-3 col-sm-3 col-md-3 col-md-2"><img class="icon lazy" src="#" data-src="../images/advantages/03.png" alt="Business Growth"></div>
-										<div class="col-xs-9 col-sm-9 col-md-6 col-md-6">
-											<h3>Business Growth</h3>
-										</div>
-									</div>
-									<p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur veritatis aperiam facere in dolorum perspiciatis atque accusantium ullam recusandae, tenetur odit nemo eum architecto consequuntur hic saepe, enim tempore, nulla.</p>
-								</div>
-							</div>
-							<div class="col-xs-12 col-sm-5 col-md-4">
-								<div class="advantages__item item" role="listitem">
-									<div class="row middle-xs">
-										<div class="col-xs-3 col-sm-3 col-md-3 col-md-2"><img class="icon lazy" src="#" data-src="../images/advantages/04.png" alt="Smart Experience"></div>
-										<div class="col-xs-9 col-sm-9 col-md-6 col-md-6">
-											<h3>Smart Experience</h3>
-										</div>
-									</div>
-									<p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse placeat perferendis minus iusto, excepturi quo id provident assumenda reprehenderit mollitia dolor corrupti tempora ex corporis culpa quis totam commodi quos?</p>
-								</div>
-							</div>
-							<div class="col-xs-12 col-sm-5 col-md-4">
-								<div class="advantages__item item" role="listitem">
-									<div class="row middle-xs">
-										<div class="col-xs-3 col-sm-3 col-md-3 col-md-2"><img class="icon lazy" src="#" data-src="../images/advantages/05.png" alt="Strict Deadline"></div>
-										<div class="col-xs-9 col-sm-9 col-md-6 col-md-6">
-											<h3>Strict Deadline</h3>
-										</div>
-									</div>
-									<p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate maiores et eum. Dignissimos unde accusantium, in earum modi dolorem nesciunt minus rem. Impedit a recusandae esse, sequi vel unde, blanditiis.</p>
-								</div>
-							</div>
-							<div class="col-xs-12 col-sm-5 col-md-4">
-								<div class="advantages__item item" role="listitem">
-									<div class="row middle-xs">
-										<div class="col-xs-3 col-sm-3 col-md-3 col-md-2"><img class="icon lazy" src="#" data-src="../images/advantages/06.png" alt="Award-winning Company"></div>
-										<div class="col-xs-9 col-sm-9 col-md-6 col-md-6">
-											<h3>Award-winning Company</h3>
-										</div>
-									</div>
-									<p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae nemo quia ea illum voluptatibus accusantium, blanditiis ipsum, architecto saepe expedita quos ipsa, fugiat aut minus fuga? Dolorem provident deleniti id.</p>
-								</div>
-							</div>
-		</div>
-		<p class="text-center"><a class="permalink" href="#">Как к нам поступить</a></p>
-	</div>
-</section>
+<?php
+
+
+namespace act_theme;
+
+
+if ( ! defined( 'ABSPATH' ) ) { exit; };
+
+
+$section_name = 'advantages';
+$title = get_theme_mod( ACT_THEME_SLUG . '_advantages_title', __( 'Пому именно наша кафедра', ACT_THEME_TEXTDOMAIN ) );
+$subtitle = get_theme_mod( ACT_THEME_SLUG . '_advantages_subtitle', __return_empty_string() );
+$content = __return_empty_string();
+$permalink = __return_empty_string();
+$label = get_theme_mod( ACT_THEME_SLUG . '_advantages_label', __( 'Подробней', ACT_THEME_TEXTDOMAIN ) );
+$page_id = get_translate_id( get_theme_mod( ACT_THEME_SLUG . '_advantages_page_id', '' ), 'page' );
+$page = ( empty( $page_id ) ) ? __return_false() : get_post( $page_id, OBJECT );
+
+
+if ( function_exists( 'pll__' ) ) {
+	$title = pll__( $title );
+	$subtitle = pll__( $subtitle );
+	$label = pll__( $label );
+}
+
+
+if ( $page instanceof \WP_Post ) {
+	$permalink = get_permalink( $page, false );
+	if ( empty( $title ) ) {
+		$title = apply_filters( 'the_title', $page->post_title, $page->ID );
+	}
+	if ( empty( $subtitle ) ) {
+		$subtitle = $page->post_excerpt;
+	}
+}
+
+
+switch ( get_theme_mod( ACT_THEME_SLUG . '_advantages_type', 'list' ) ) {
+	case 'content':
+		if ( $page instanceof \WP_Post ) {
+			$parts = get_extended( $page->post_content );
+			$content = do_shortcode( $parts[ 'main' ], false );
+		}
+		break;
+	case 'list':
+	default:
+		$content = shortcode_advantages( array(
+			'section' => false,
+		) );
+		break;
+}
+
+
+include get_theme_file_path( 'views/home/section.php' );

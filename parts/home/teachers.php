@@ -40,7 +40,7 @@ if ( ! empty( $page_id ) ) {
 		}
 
 		if ( empty( $subtitle ) ) {
-			$excerpt = $page->post_excerpt;
+			$subtitle = $page->post_excerpt;
 		}
 
 		$parts = get_extended( $page->post_content );

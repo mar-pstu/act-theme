@@ -369,7 +369,30 @@ function shortcode_cources( $args ) {
 	) );
 	$result = __return_empty_string();
 	$items = get_theme_mod( ACT_THEME_SLUG . '_cources', __return_empty_array() );
-	// формирование вывода
+	if ( is_array( $items ) ) {
+		ob_start();
+		for ( $i = 0; $i < get_theme_mod( ACT_THEME_SLUG . '_cources_number', 3 ); $i++ ) { 
+			if ( isset( $items[ $i ] ) && is_array( $items[ $i ] ) ) {
+				$items[ $i ] = array_merge( array(
+					'thumbnail' => ACT_THEME_URL . 'images/thumbnail.png',
+					'title'     => '',
+					'excerpt'   => '',
+					'link'      => '',
+				), $items[ $i ] );
+				if ( function_exists( 'pll__' ) ) {
+					$items[ $i ][ 'title' ] = pll__( $items[ $i ][ 'title' ] );
+					$items[ $i ][ 'excerpt' ] = pll__( $items[ $i ][ 'excerpt' ] );
+					$items[ $i ][ 'link' ] = pll__( $items[ $i ][ 'link' ] );
+				}
+				if ( ! empty( $items[ $i ][ 'title' ] ) && ! empty( $items[ $i ][ 'link' ] ) ) {
+					extract( $items[ $i ] );
+					include get_theme_file_path( 'views/items/cource.php' );
+				}
+			}
+		}
+		$result = ob_get_contents();
+		ob_end_clean();
+	}
 	if ( ! empty( $result ) ) {
 		$result = '<div class="row center-xs stratch-xs" role="list">' . $result . '</div>';
 		if ( ( bool ) $args[ 'section' ] ) {
@@ -380,3 +403,62 @@ function shortcode_cources( $args ) {
 }
 
 add_shortcode( 'cources', 'act_theme\shortcode_cources' );
+
+
+
+/**
+ * Контактная форма
+ * используется на главной странице
+ **/
+function shortcode_contacts_form() {
+	$author = ( isset( $_REQUEST[ 'author' ] ) ) ? sanitize_text_field( trim( $_REQUEST[ 'author' ] ) ) : __return_empty_string();
+	$email = ( isset( $_REQUEST[ 'email' ] ) ) ? sanitize_email( trim( $_REQUEST[ 'email' ] ) ) : __return_empty_string();
+	$message = ( isset( $_REQUEST[ 'message' ] ) ) ? sanitize_textarea_field( trim( $_REQUEST[ 'message' ] ) ) : __return_empty_string();
+	$answer = __return_empty_string();
+	if ( isset( $_REQUEST[ 'action' ] ) && 'contacts_form' == $_REQUEST[ 'action' ] ) {
+		if ( isset( $_REQUEST[ 'login' ] ) && empty( $_REQUEST[ 'login' ] ) ) {
+			$user_ip = get_the_user_ip();
+			if ( ! wp_blacklist_check( $author, $email, '', $message, $user_ip, '' ) ) {
+				$headers = sprintf(
+					'From: %1$s <%2$s>%3$sContent-type: text/html%3$scharset=utf-8%3$s',
+					$email,
+					( is_email( $email ) ) ? $email : __( 'Аноним', ACT_THEME_TEXTDOMAIN ),
+					"\r\n"
+				);
+				$subject = sprintf(
+					'%1$s %2$s',
+					__( 'Сообщение с сайта', ACT_THEME_TEXTDOMAIN ),
+					get_bloginfo( 'name' )
+				);
+				ob_start();
+				include get_theme_file_path( 'views/contact-message.php' );
+				$letter = ob_get_contents();
+				ob_end_clean();
+				if ( wp_mail( get_bloginfo( 'admin_email', 'raw' ), $subject, $letter, $headers, array() ) ) {
+					$author = __return_empty_string();
+					$email = __return_empty_string();
+					$message = __return_empty_string();
+					$answer = __( 'Сообщение отправлено', ACT_THEME_TEXTDOMAIN );
+				} else {
+					$answer = __( 'Сообщение не отправлено, попробуйте позже', ACT_THEME_TEXTDOMAIN );
+				}
+			} else {
+				$answer = __( 'Вы в "черном списке", сообщение отклонено. Обратитесь к администратору сайта.', ACT_THEME_TEXTDOMAIN );
+			}
+		} else {
+			$answer = __( 'Сообщение похоже на спам и отклонено.', ACT_THEME_TEXTDOMAIN );
+		}
+	}
+	ob_start();
+	include get_theme_file_path( 'views/contact-form.php' );
+	$result = ob_get_contents();
+	ob_end_clean();
+	return $result;
+}
+
+add_shortcode( 'contacts_form', 'act_theme\shortcode_contacts_form' );
+
+
+function shortcode_advantages() {
+	return '';
+}

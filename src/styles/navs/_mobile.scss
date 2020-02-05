@@ -32,6 +32,12 @@
 		overflow-y: auto;
 	}
 
+	.overlay::after {
+		content: '';
+		display: block;
+		height: 5em;
+	}
+
 }
 
 
