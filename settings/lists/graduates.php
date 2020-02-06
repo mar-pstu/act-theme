@@ -25,7 +25,7 @@ $wp_customize->add_section(
 $wp_customize->add_setting(
     "{$slug}_graduates_number",
     array(
-        'default'           => 5,
+        'default'           => 3,
         'transport'         => 'reset',
         'sanitize_callback' => 'sanitize_text_field',
     )
@@ -66,7 +66,7 @@ for ( $i=0; $i < get_theme_mod( "{$slug}_graduates_number", 3 ); $i++ ) {
         )
     ); /**/
     $wp_customize->add_setting(
-        "{$slug}_graduates[{$i}][title]",
+        "{$slug}_graduates[{$i}][name]",
         array(
             'default'           => '',
             'transport'         => 'reset',
@@ -74,7 +74,7 @@ for ( $i=0; $i < get_theme_mod( "{$slug}_graduates_number", 3 ); $i++ ) {
         )
     );
     $wp_customize->add_control(
-        "{$slug}_graduates[{$i}][title]",
+        "{$slug}_graduates[{$i}][name]",
         array(
             'section'           => "{$slug}_list_graduates",
             'label'             => sprintf( __( 'имя №%d', ACT_THEME_TEXTDOMAIN ), ( $i + 1 ) ),

@@ -1,69 +1,56 @@
-<section class="section graduates" id="graduates">
-	<div class="container">
-		<h2>Наши выпускники</h2>
-		<p>Текстовое описание секции Reiciendis quos possimus dignissimos nihil obcaecati quod dolorem culpa unde, illo. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-		<div class="slider" id="graduates-list">
-							<div class="graduates__item item">
-								<div class="row middle-xs">
-									<div class="col-xs-12 col-sm-4"><img class="foto" src="#" data-lazy="../images/user.png" alt="Иванов Иван"></div>
-									<div class="col-xs-12 col-sm-8">
-										<div class="overlay">
-											<h3 class="name">Иванов Иван</h3>
-											<p class="specialty">Менеджмент транспорту та логістики</p>
-											<p class="excerpt">Inventore magnam necessitatibus ipsam dicta amet ipsum sequi accusantium officia, vel et aspernatur excepturi explicabo quae suscipit accusamus blanditiis, placeat laboriosam asperiores?</p>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="graduates__item item">
-								<div class="row middle-xs">
-									<div class="col-xs-12 col-sm-4"><img class="foto" src="#" data-lazy="../images/user.png" alt="Иванов Иван"></div>
-									<div class="col-xs-12 col-sm-8">
-										<div class="overlay">
-											<h3 class="name">Иванов Иван</h3>
-											<p class="specialty">Металургія</p>
-											<p class="excerpt">Amet voluptas sed quaerat commodi ea beatae quae mollitia accusamus odio rem a, nulla suscipit soluta quasi, laudantium, ipsum eum unde sequi!</p>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="graduates__item item">
-								<div class="row middle-xs">
-									<div class="col-xs-12 col-sm-4"><img class="foto" src="#" data-lazy="../images/user.png" alt="Иванов Иван"></div>
-									<div class="col-xs-12 col-sm-8">
-										<div class="overlay">
-											<h3 class="name">Иванов Иван</h3>
-											<p class="specialty">Інтелектуальна власність</p>
-											<p class="excerpt">Voluptatibus labore dicta porro ullam quia rerum beatae voluptas placeat aspernatur ea vero pariatur impedit aut accusantium, illum quos dolore ratione delectus.</p>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="graduates__item item">
-								<div class="row middle-xs">
-									<div class="col-xs-12 col-sm-4"><img class="foto" src="#" data-lazy="../images/user.png" alt="Иванов Иван"></div>
-									<div class="col-xs-12 col-sm-8">
-										<div class="overlay">
-											<h3 class="name">Иванов Иван</h3>
-											<p class="specialty">Матеріалознавство</p>
-											<p class="excerpt">Impedit sunt et expedita vitae, molestiae suscipit totam explicabo sint consequuntur provident esse aliquam autem omnis architecto pariatur cumque iste porro dignissimos?</p>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="graduates__item item">
-								<div class="row middle-xs">
-									<div class="col-xs-12 col-sm-4"><img class="foto" src="#" data-lazy="../images/user.png" alt="Иванов Иван"></div>
-									<div class="col-xs-12 col-sm-8">
-										<div class="overlay">
-											<h3 class="name">Иванов Иван</h3>
-											<p class="specialty">Комп’ютерне моделювання</p>
-											<p class="excerpt">Ut reprehenderit consectetur, eaque ipsa adipisci eos nobis laboriosam consequatur et recusandae nihil, eius cumque aspernatur dolor, assumenda magnam sit eveniet esse?</p>
-										</div>
-									</div>
-								</div>
-							</div>
-		</div>
-		<div class="slider-controls" id="graduates-controls"></div>
-	</div>
-</section>
+<?php
+
+
+namespace act_theme;
+
+
+if ( ! defined( 'ABSPATH' ) ) { exit; };
+
+
+$section_name = 'graduates';
+$title = get_theme_mod( ACT_THEME_SLUG . '_graduates_title', __( 'Преподаватели', ACT_THEME_TEXTDOMAIN ) );
+$subtitle = get_theme_mod( ACT_THEME_SLUG . '_graduates_subtitle', '' );
+$content = __return_empty_string();
+$permalink = __return_empty_string();
+$label = get_theme_mod( ACT_THEME_SLUG . '_graduates_label', __( 'Подробней', ACT_THEME_TEXTDOMAIN ) );
+$page_id = get_translate_id( get_theme_mod( ACT_THEME_SLUG . '_graduates_page_id', '' ), 'page' );
+$page = ( empty( $page_id ) ) ? __return_false() : get_post( $page_id, OBJECT );
+
+
+if ( function_exists( 'pll__' ) ) {
+	$title = pll__( $title );
+	$subtitle = pll__( $subtitle );
+	$label = pll__( $label );
+}
+
+
+if ( $page instanceof \WP_Post ) {
+	$permalink = get_permalink( $page, false );
+	if ( empty( $title ) ) {
+		$title = apply_filters( 'the_title', $page->post_title, $page->ID );
+	}
+	if ( empty( $subtitle ) ) {
+		$subtitle = $page->post_excerpt;
+	}
+}
+
+
+switch ( get_theme_mod( ACT_THEME_SLUG . '_graduates_type', 'list' ) ) {
+	case 'content':
+		if ( $page instanceof \WP_Post ) {
+			$parts = get_extended( $page->post_content );
+			$content = do_shortcode( $parts[ 'main' ], false );
+		}
+		break;
+	case 'list':
+	default:
+		$content = shortcode_graduates( array(
+			'section' => false,
+		) );
+		break;
+}
+
+
+
+
+include get_theme_file_path( 'views/home/section.php' );

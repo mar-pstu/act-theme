@@ -13,9 +13,9 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 $wp_customize->add_section(
 	"{$slug}_list_advantages",
 	array(
-		'title'            => __( 'Специальности', ACT_THEME_TEXTDOMAIN ),
+		'title'            => __( 'Преимущества', ACT_THEME_TEXTDOMAIN ),
 		'priority'         => 10,
-		'description'      => __( 'Список специальностей, выводится на главной странице.', ACT_THEME_TEXTDOMAIN ),
+		'description'      => __( 'Преимущества обучения на кафедре, выводится на главной странице.', ACT_THEME_TEXTDOMAIN ),
 		'panel'            => "{$slug}_lists",
 	)
 ); /**/

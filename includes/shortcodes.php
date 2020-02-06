@@ -459,6 +459,118 @@ function shortcode_contacts_form() {
 add_shortcode( 'contacts_form', 'act_theme\shortcode_contacts_form' );
 
 
-function shortcode_advantages() {
-	return '';
+function shortcode_advantages( $args ) {
+	$args = wp_parse_args( $args, array(
+		'section' => true,
+	) );
+	$result = __return_empty_string();
+	$items = get_theme_mod( ACT_THEME_SLUG . '_advantages', __return_empty_array() );
+	if ( is_array( $items ) ) {
+		ob_start();
+		for ( $i = 0; $i < get_theme_mod( ACT_THEME_SLUG . '_advantages_number', 3 ); $i++ ) { 
+			if ( isset( $items[ $i ] ) && is_array( $items[ $i ] ) ) {
+				$items[ $i ] = array_merge( array(
+					'icon'      => ACT_THEME_URL . 'images/thumbnail.png',
+					'title'     => '',
+					'excerpt'   => '',
+				), $items[ $i ] );
+				if ( function_exists( 'pll__' ) ) {
+					$items[ $i ][ 'title' ] = pll__( $items[ $i ][ 'title' ] );
+					$items[ $i ][ 'excerpt' ] = pll__( $items[ $i ][ 'excerpt' ] );
+				}
+				if ( ! empty( $items[ $i ][ 'title' ] ) ) {
+					extract( $items[ $i ] );
+					include get_theme_file_path( 'views/items/advantage.php' );
+				}
+			}
+		}
+		$result = ob_get_contents();
+		ob_end_clean();
+	}
+	if ( ! empty( $result ) ) {
+		$result = '<div class="row center-xs" role="list">' . $result . '</div>';
+		if ( ( bool ) $args[ 'section' ] ) {
+			$result = '<section class="section advantages">' . $result . '</section>';
+		}
+	}
+	return $result;
 }
+
+
+
+
+/**
+ * Преподаватели
+ * Используется на главной странице
+ **/
+function shortcode_graduates( $args ) {
+	$args = wp_parse_args( $args, array(
+		'section' => true,
+	) );
+	$slides = __return_empty_string();
+	$result = __return_empty_string();
+	$items = get_theme_mod( ACT_THEME_SLUG . '_graduates', __return_empty_array() );
+	if ( is_array( $items ) ) {
+		ob_start();
+		for ( $i = 0; $i < get_theme_mod( ACT_THEME_SLUG . '_graduates_number', 3 ); $i++ ) {
+			if ( isset( $items[ $i ] ) && is_array( $items[ $i ] ) ) {
+				$items[ $i ] = array_merge( array(
+					'foto'      => ACT_THEME_URL . 'images/user.png',
+					'name'      => '',
+					'specialty' => '',
+					'excerpt'   => '',
+				), $items[ $i ] );
+				if ( ! empty( $items[ $i ][ 'name' ] ) && ! empty( $items[ $i ][ 'foto' ] ) ) {
+					if ( function_exists( 'pll__' ) ) {
+						$items[ $i ][ 'name' ] = pll__( $items[ $i ][ 'name' ] );
+						$items[ $i ][ 'specialty' ] = pll__( $items[ $i ][ 'specialty' ] );
+						$items[ $i ][ 'excerpt' ] = pll__( $items[ $i ][ 'excerpt' ] );
+					}
+					extract( $items[ $i ] );
+					include get_theme_file_path( 'views/items/graduate.php' );
+				}
+			}
+		}
+		$slides = ob_get_contents();
+		ob_end_clean();
+	}
+	if ( ! empty( $slides ) ) {
+		wp_enqueue_script( 'jquery' );
+		wp_enqueue_script( 'slick' );
+		wp_enqueue_style( 'slick' );
+		ob_start();
+		?>
+			<div class="slider" id="graduates-list">
+				<?php echo $slides; ?>
+			</div>
+			<div class="slider-controls" id="graduates-controls"></div>
+			<script>
+				( function () {
+					jQuery().ready( function () {
+						jQuery( '#graduates-list' ).slick( {
+							dots: true,
+							arrows: false,
+							fade: true,
+							dotsClass: 'slider-dots',
+							appendDots: '#graduates-controls',
+							autoplay: true,
+							autoplaySpeed: 5000,
+							speed: 1000,
+							lazyLoad: 'ondemand',
+							slidesToShow: 1,
+							slidesToScroll: 1,
+						} );
+					} );
+				} )();
+			</script>
+		<?php
+		$result = ob_get_contents();
+		ob_end_clean();
+		if ( ( bool ) $args[ 'section' ] ) {
+			$result = '<section class="section graduates">' . $result . '</section>';
+		}
+	}
+	return $result;
+}
+
+add_shortcode( 'teachers', 'act_theme\shortcode_graduates' );

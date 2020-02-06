@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
 $section_name = 'advantages';
-$title = get_theme_mod( ACT_THEME_SLUG . '_advantages_title', __( 'Пому именно наша кафедра', ACT_THEME_TEXTDOMAIN ) );
+$title = get_theme_mod( ACT_THEME_SLUG . '_advantages_title', __( 'Преимущества обучения на кафедре', ACT_THEME_TEXTDOMAIN ) );
 $subtitle = get_theme_mod( ACT_THEME_SLUG . '_advantages_subtitle', __return_empty_string() );
 $content = __return_empty_string();
 $permalink = __return_empty_string();
