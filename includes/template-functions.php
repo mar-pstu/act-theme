@@ -67,7 +67,7 @@ function the_breadcrumb() {
 			if ( ! is_front_page() ) {
 				echo '<a href="';
 				echo home_url();
-				echo '">'.__( 'Главная', STARTER_TEXTDOMAIN );
+				echo '">'.__( 'Главная', ACT_THEME_TEXTDOMAIN);
 				echo "</a> » ";
 				if ( is_category() || is_single() ) {
 						the_category(' ');
@@ -80,7 +80,7 @@ function the_breadcrumb() {
 				}
 			}
 			else {
-				echo __( 'Домашняя страница', STARTER_TEXTDOMAIN );
+				echo __( 'Домашняя страница', ACT_THEME_TEXTDOMAIN);
 			}
 	}
 	$result = ob_get_contents();
@@ -129,11 +129,11 @@ function the_pager() {
 	foreach ( array(
 		'previous'  => array(
 			'entry'     => get_previous_post(),
-			'label'     => __( 'Смотреть предыдущий пост', STARTER_TEXTDOMAIN ),
+			'label'     => __( 'Смотреть предыдущий пост', ACT_THEME_TEXTDOMAIN),
 		),
 		'next'      => array(
 			'entry'     => get_next_post(),
-			'label'     => __( 'Смотреть следующий пост', STARTER_TEXTDOMAIN ),
+			'label'     => __( 'Смотреть следующий пост', ACT_THEME_TEXTDOMAIN),
 		),
 	) as $key => $value ) {
 		if ( $value[ 'entry' ] && ! is_wp_error( $value[ 'entry' ] ) ) {
