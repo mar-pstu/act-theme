@@ -44,7 +44,7 @@ $wp_customize->add_control(
 $wp_customize->add_setting(
 	"{$slug}_graduates_title",
 	array(
-		'default'           => get_bloginfo( 'name' ),
+		'default'           => __( 'Выпускники', ACT_THEME_TEXTDOMAIN ),
 		'transport'         => 'reset',
 		'sanitize_callback' => 'sanitize_text_field',
 	)
@@ -63,7 +63,7 @@ $wp_customize->add_control(
 $wp_customize->add_setting(
 	"{$slug}_graduates_subtitle",
 	array(
-		'default'           => get_bloginfo( 'description' ),
+		'default'           => '',
 		'transport'         => 'reset',
 		'sanitize_callback' => 'sanitize_text_field',
 	)

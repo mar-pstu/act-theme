@@ -45,7 +45,7 @@ $wp_customize->add_control(
 
 
 
-for ( $i=0; $i < get_theme_mod( "{$slug}_advantages_number", 3 ); $i++ ) {
+for ( $i = 0; $i < get_theme_mod( "{$slug}_advantages_number", 3 ); $i++ ) {
 	$wp_customize->add_setting(
 		"{$slug}_advantages[{$i}][icon]",
 			array(

@@ -10,21 +10,6 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
 
-function get_custom_logo_img() {
-	$result = __return_empty_string();
-	$custom_logo_id = get_theme_mod( 'custom_logo' );
-	if ( $custom_logo_id ) {
-		$result = sprintf(
-			'<img class="custom-logo" src="%1$s" alt="%2$s">',
-			wp_get_attachment_image_src( $custom_logo_id, 'thumbnail', false ),
-			get_bloginfo( 'name', 'display' )
-		);
-	}
-	return $result;
-}
-
-
-
 function get_languages_list( $args = array() ) {
 	$args = wp_parse_args( $args, array(
 		'container_class' => 'languages',
@@ -152,55 +137,6 @@ function the_pager() {
 
 
 
-
-
-
-
-function the_thumbnail_image( $post_id, $size = 'thumbnail', $attribute = 'src' ) {
-	printf(
-		'<img class="lazy wp-post-thumbnail" src="#" data-%3$s="%1$s" alt="%2$s"/>',
-		( has_post_thumbnail( $post_id ) ) ? get_the_post_thumbnail_url( $post_id, $size ) : STARTER_URL . 'images/thumbnail.png',
-		the_title_attribute( array(
-			'before' => '',
-			'after'  => '',
-			'echo'   => false,
-			'post'   => $post_id,
-		) ),
-		$attribute
-	);
-}
-
-
-
-
-
-
-function get_categories_choices() {
-	$result = __return_empty_array();
-	$categories = get_categories( array(
-		'taxonomy'     => 'category',
-		'type'         => 'post',
-		'child_of'     => 0,
-		'parent'       => '',
-		'orderby'      => 'name',
-		'order'        => 'ASC',
-		'hide_empty'   => 1,
-		'hierarchical' => 1,
-		'exclude'      => '',
-		'include'      => '',
-		'number'       => 0,
-		'pad_counts'   => false,
-	) );
-	if ( is_array( $categories ) && ! empty( $categories ) ) {
-		foreach ( $categories as $category ) {
-			$result[ $category->term_id ] = esc_html( apply_filters( 'single_cat_title', $category->name ) );
-		}
-	}
-	return $result;
-}
-
-
-
 /**
  * Конвертер ассоциативного массива в css правила
  **/
@@ -243,4 +179,65 @@ function get_the_user_ip() {
 		$ip = $_SERVER[ 'REMOTE_ADDR' ];
 	}
 	return apply_filters( 'edd_get_ip', $ip );
+}
+
+
+
+
+/**
+ * Функция формирует "стандартный" список темы
+ * 
+ * @param string $name имя секции и имя настройки в БД
+ * @param string $template_name имя файла шаблона отдельного пункта
+ * @param int $number количество пунктов для вывода по умолчанию
+ * @param array $fields массив полей
+ * @param array $args параметры шорткода
+ * @return string возвращает html-код
+ **/
+
+function render_default_list_of_items( $name, $template_name, $number, $fields, $args = array(), $before = '<div class="row center-xs stratch-xs" role="list">', $after = '</div>' ) {
+	$args = wp_parse_args( $args, array(
+		'section' => true,
+	) );
+	$result = __return_empty_string();
+	$items = get_theme_mod( ACT_THEME_SLUG . '_' . $name, __return_empty_array() );
+	if ( is_array( $items ) ) {
+		ob_start();
+		for ( $i = 0; $i < get_theme_mod( ACT_THEME_SLUG . '_' . $name . '_number', $number ); $i++ ) {
+			if ( isset( $items[ $i ] ) && is_array( $items[ $i ] ) ) {
+				$validate_flag = __return_true();
+				foreach ( $fields as $field ) {
+					if ( ! isset( $items[ $i ][ $field[ 'name' ] ] ) ) {
+						$items[ $i ][ $field[ 'name' ] ] = $field[ 'default' ];
+					}
+					if ( empty( $items[ $i ][ $field[ 'name' ] ] ) ) {
+						if ( $field[ 'required' ] ) {
+							$validate_flag = __return_false();
+							break;
+						} else {
+							$items[ $i ][ $field[ 'name' ] ] = $field[ 'default' ];
+						}
+					}
+				}
+				if ( $validate_flag ) {
+					if ( function_exists( 'pll__' ) ) {
+						foreach ( wp_list_filter( $fields, array( 'translate' => true ), 'AND' ) as $field ) {
+							$items[ $i ][ $field[ 'name' ] ] = pll__( $items[ $i ][ $field[ 'name' ] ] );
+						}
+					}
+					extract( $items[ $i ] );
+					include get_theme_file_path( 'views/items/' . $template_name . '.php' );
+				}
+			}
+		}
+		$result = ob_get_contents();
+		ob_end_clean();
+	}
+	if ( ! empty( $result ) ) {
+		$result = $before . $result . $after;
+		if ( ( bool ) $args[ 'section' ] ) {
+			$result = '<section class="section ' . $name . '" id="' . $name . '">' . $result . '</section>';
+		}
+	}
+	return $result;
 }

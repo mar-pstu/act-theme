@@ -25,6 +25,17 @@ $brand-primary:         #dd5f48;
 $brand-success:         #78c596;
 $brand-warning:         #ecb866;
 $brand-info:            #a37bf1;
+$brand-danger:          #df0000;
+
+
+
+$brand-colors:
+	'default' $brand-default,
+	'primary' $brand-primary,
+	'success' $brand-success,
+	'warning' $brand-warning,
+	'info' $brand-info,
+	'danger' $brand-danger;
 
 
 

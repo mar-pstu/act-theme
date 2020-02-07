@@ -22,9 +22,13 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 				<div class="container">
 					<a class="custom-logo-link" href="<?php echo home_url( '/' ); ?>">
 						<?php
-							$custom_logo_img = get_custom_logo_img();
-							if ( ( bool ) $custom_logo_img ) {
-								echo $custom_logo_img;
+							$custom_logo_id = get_theme_mod( 'custom_logo' );
+							if ( $custom_logo_id ) {
+								printf(
+									'<img class="custom-logo" src="%1$s" alt="%2$s">',
+									wp_get_attachment_image_src( $custom_logo_id, 'thumbnail', false ),
+									get_bloginfo( 'name', 'display' )
+								);
 							} else {
 								bloginfo( 'name' );
 							}

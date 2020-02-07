@@ -9,40 +9,42 @@
 
 @import "base/normalize";
 @import "base/type";
-@import "base/wrapper";
-@import "base/flexboxgrid";
+@import "base/wrapper";         // обёртка страницы
+@import "base/flexboxgrid";     // модульная сетка FlexboxGrid
 
 
-@import "widgets/tagcloud";
-@import "widgets/calendar";
-
-
-
-@import "navs/mobile";
-@import "navs/main";
-@import "navs/languages";
+@import "widgets/tagcloud";     // стандартный виджет WP - Облако тегов
+@import "widgets/calendar";     // стандартный виджет WP - Календарь
 
 
 
+@import "navs/mobile";          // стили блока мобильного меню
+@import "navs/main";            // основное меню сайта
+@import "navs/languages";       // список языкых версий сайта
 
-@import "blocks/slider";
-@import "blocks/file";
-@import "blocks/widget";
+
+
+
+@import "blocks/accordio";       // список аккоредеон
+@import "blocks/tabs";           // "вкладки"
+@import "blocks/features";       // особенности кафедры
+@import "blocks/slider";         // стили по умолчанию для слайдеров (используются на главной странице и в шорткодах)
+@import "blocks/file";           // иконки ссылок на файлы
+@import "blocks/widget";         // стили по умолчанию для виджетов
 @import "blocks/content";
-@import "blocks/pager";
-@import "blocks/section";
-@import "blocks/burger";
-@import "blocks/breadcrumbs";
-@import "blocks/pagination";
-@import "blocks/form";
-@import "blocks/buttons";
+@import "blocks/pager";          // блок со ссылками на предыдущую и следующую страницы ( используется в шаблоне поста и постоянной страницы )
+@import "blocks/section";        // "стандартная" секция (используеются на главной странице)
+@import "blocks/breadcrumbs";    // хлебные крошки
+@import "blocks/pagination";     // порядковая нумерация страниц в шаблоне архива/категории
+@import "blocks/form";           // стили элементов формы
+@import "blocks/buttons";        // стили кнопок
 @import "blocks/breadcrumbs";    // "хлебные крошки"
 @import "blocks/to-top-button";  // кнопка наверх
 @import "blocks/header";         // Шапка сайта
 @import "blocks/footer";         // Подвал сайта
 
 
-@import "asides/basement";      // сайдбар подвала сайта
+@import "asides/basement";       // сайдбар подвала сайта
 
 
 @import "home/jumbotron";        // главная страница - первый экран

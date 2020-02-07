@@ -8,81 +8,24 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
 /**
- * Особенности кафедры
- * Используется в секции "первого экрана" главной страницы
- **/
-function shortcode_features() {
-	$result = __return_empty_array();
-	$items = get_theme_mod( ACT_THEME_SLUG . '_features', __return_empty_array() );
-	if ( is_array( $items ) ) {
-		foreach ( $items as &$item ) {
-			if ( is_array( $item ) ) {
-				$item = array_merge( array(
-					'logo'    => ACT_THEME_URL . 'images/business.png',
-					'title'   => '',
-				), $item );
-				if ( ! empty( $item[ 'title' ] ) ) {
-					if ( function_exists( 'pll__' ) ) {
-						$item[ 'title' ] = pll__( $item[ 'title' ] );
-					}
-					$result[] = sprintf(
-						'<li class="features__item item"><img class="icon lazy" src="#" data-src="%1$s" alt="%2$s"><div class="title">%3$s</div></li>',
-						$item[ 'logo' ],
-						esc_attr( $item[ 'title' ] ),
-						$item[ 'title' ]
-					);
-				}
-			}	
-		}
-	}
-	return ( empty( $result ) ) ? __return_empty_string() : '<ul class="features">' . implode( "\r\n", $result ) . '</ul>';
-}
-
-add_shortcode( 'features', 'act_theme\shortcode_features' );
-
-
-/**
  * Направления работы
  * Используется в секции "первого экрана" главной страницы
  **/
-function shortcode_directions( $args ) {
-	$args = wp_parse_args( $args, array(
-		'section' => true,
-	) );
-	$result = __return_empty_string();
-	$items = get_theme_mod( ACT_THEME_SLUG . '_directions', __return_empty_array() );
-	if ( is_array( $items ) ) {
-		ob_start();
-		for ( $i = 0; $i < get_theme_mod( ACT_THEME_SLUG . '_directions_number', 4 ); $i++ ) {
-			if ( isset( $items[ $i ] ) && is_array( $items[ $i ] ) ) {
-				$items[ $i ] = array_merge( array(
-					'icon'    => ACT_THEME_URL . 'images/business.png',
-					'title'   => '',
-					'excerpt' => '',
-				), $items[ $i ] );
-				if ( ! empty( $items[ $i ][ 'title' ] ) ) {
-					if ( function_exists( 'pll__' ) ) {
-						$items[ $i ][ 'title' ] = pll__( $items[ $i ][ 'title' ] );
-						$items[ $i ][ 'excerpt' ] = pll__( $items[ $i ][ 'excerpt' ] );
-					}
-					extract( $items[ $i ] );
-					include get_theme_file_path( 'views/items/direction.php' );
-				}
-			}
-		}
-		$result = ob_get_contents();
-		ob_end_clean();
-	}
-	if ( ! empty( $result ) ) {
-		$result = '<div class="row center-xs stratch-xs">' . $result . '</div>';
-		if ( ( bool ) $args[ 'section' ] ) {
-			$result = '<section class="section directions" id="directions">' . $result . '</section>';
-		}
-	}
-	return $result;
+function shortcode_directions( $args = array() ) {
+	return render_default_list_of_items( 'directions', 'direction', 4, array(
+		array(
+			'name'      => 'icon',                                 // имя поля
+			'default'   => ACT_THEME_URL . 'images/business.png',  // значение поля по умолчанию
+			'translate' => false,                                  // требуется ли перевод
+			'required'  => false,                                  // обязательное поле или нет
+		),
+		array( 'name' => 'title', 'default' => '', 'translate' => true, 'required' => true ),
+		array( 'name' => 'excerpt', 'default' => '', 'translate' => true, 'required'  => false ),
+	), $args );
 }
 
 add_shortcode( 'directions', 'act_theme\shortcode_directions' );
+
 
 
 /**
@@ -90,43 +33,94 @@ add_shortcode( 'directions', 'act_theme\shortcode_directions' );
  * Используется в секции "первого экрана" главной страницы
  **/
 function shortcode_specialties( $args ) {
-	$args = wp_parse_args( $args, array(
-		'section' => true,
-	) );
-	$result = __return_empty_string();
-	$items = get_theme_mod( ACT_THEME_SLUG . '_specialties', __return_empty_array() );
-	if ( is_array( $items ) ) {
-		ob_start();
-		for ( $i = 0; $i < get_theme_mod( ACT_THEME_SLUG . '_specialties_number', 4 ); $i++ ) {
-			if ( isset( $items[ $i ] ) && is_array( $items[ $i ] ) ) {
-				$items[ $i ] = array_merge( array(
-					'thumbnail' => ACT_THEME_URL . 'images/thumbnail.png',
-					'title'     => '',
-					'link'      => '',
-				), $items[ $i ] );
-				if ( ! empty( $items[ $i ][ 'title' ] ) && ! empty( $items[ $i ][ 'link' ] ) ) {
-					if ( function_exists( 'pll__' ) ) {
-						$items[ $i ][ 'title' ] = pll__( $items[ $i ][ 'title' ] );
-						$items[ $i ][ 'link' ] = pll__( $items[ $i ][ 'link' ] );
-					}
-					extract( $items[ $i ] );
-					include get_theme_file_path( 'views/items/specialty.php' );
-				}
-			}
-		}
-		$result = ob_get_contents();
-		ob_end_clean();
-	}
-	if ( ! empty( $result ) ) {
-		$result = '<div class="row center-xs">' . $result . '</div>';
-		if ( ( bool ) $args[ 'section' ] ) {
-			$result = '<section class="section specialties" id="directions">' . $result . '</section>';
-		}
-	}
-	return $result;
+	return render_default_list_of_items( 'specialties', 'specialty', 3, array(
+		array( 'name' => 'thumbnail', 'default' => ACT_THEME_URL . 'images/thumbnail.png', 'translate' => false, 'required' => false ),
+		array( 'name' => 'title', 'default' => '', 'translate' => true, 'required' => true ),
+		array( 'name' => 'link', 'default' => '', 'translate' => true, 'required' => true ),
+	), $args );
 }
 
 add_shortcode( 'specialties', 'act_theme\shortcode_specialties' );
+
+
+
+/**
+ * Список показателей работы
+ * используется на главной странице
+ **/
+function shortcode_indicators( $args ) {
+	return render_default_list_of_items( 'indicators', 'indicator', 4, array(
+		array( 'name' => 'logo', 'default' => ACT_THEME_URL . 'images/business.png', 'translate' => false, 'required' => false ),
+		array( 'name' => 'label', 'default' => '', 'translate' => true, 'required' => true ),
+		array( 'name' => 'value', 'default' => '', 'translate' => false, 'required' => true ),
+	), $args );
+}
+
+add_shortcode( 'indicators', 'act_theme\shortcode_indicators' );
+
+
+/**
+ * Образовательные курсы
+ * используется на главной странице
+ **/
+function shortcode_cources( $args ) {
+	return render_default_list_of_items( 'cources', 'cource', 3, array(
+		array( 'name' => 'thumbnail', 'default' => ACT_THEME_URL . 'images/thumbnail.png', 'translate' => false, 'required' => false ),
+		array( 'name' => 'title', 'default' => '', 'translate' => true, 'required' => true ),
+		array( 'name' => 'excerpt', 'default' => '', 'translate' => true, 'required' => false ),
+		array( 'name' => 'link', 'default' => '', 'translate' => true, 'required' => true ),
+	), $args );
+}
+
+add_shortcode( 'cources', 'act_theme\shortcode_cources' );
+
+
+
+/**
+ * Шаги к поступлению
+ * используется на главной странице
+ **/
+function shortcode_steps( $args ) {
+	return render_default_list_of_items( 'steps', 'step', 3, array(
+		array( 'name' => 'thumbnail', 'default' => ACT_THEME_URL . 'images/thumbnail.png', 'translate' => false, 'required' => false ),
+		array( 'name' => 'title', 'default' => '', 'translate' => true, 'required' => true ),
+		array( 'name' => 'excerpt', 'default' => '', 'translate' => true, 'required' => true ),
+		array( 'name' => 'link', 'default' => '', 'translate' => true, 'required'  => false ),
+		array( 'name' => 'label', 'default' => __( 'Подробней', ACT_THEME_TEXTDOMAIN ), 'translate' => true, 'required' => false ),
+	), $args );
+}
+
+add_shortcode( 'steps', 'act_theme\shortcode_steps' );
+
+
+/**
+ * Преимущества обучения на кафедре
+ * используется на главной странице
+ **/
+function shortcode_advantages( $args = array() ) {
+	return render_default_list_of_items( 'advantages', 'advantage', 3, array(
+		array( 'name' => 'icon', 'default' => ACT_THEME_URL . 'images/thumbnail.png', 'translate' => false, 'required' => false ),
+		array( 'name' => 'title', 'default' => '',	'translate' => true, 'required' => true ),
+		array( 'name' => 'excerpt', 'default' => '', 'translate' => true, 'required' => false ),
+	), $args );
+}
+
+add_shortcode( 'steps', 'act_theme\shortcode_advantages' );
+
+
+
+/**
+ * Особенности кафедры
+ * Используется в секции "первого экрана" главной страницы
+ **/
+function shortcode_features( $args = array() ) {
+	return render_default_list_of_items( 'features', 'feature', 3, array(
+		array( 'name' => 'logo', 'default' => ACT_THEME_URL . 'images/business.png', 'translate' => false, 'required' => false ),
+		array( 'name' => 'title', 'default' => '',	'translate' => true, 'required' => true ),
+	), $args, '<ul class="features">', '</ul>' );
+}
+
+add_shortcode( 'features', 'act_theme\shortcode_features' );
 
 
 /**
@@ -269,142 +263,6 @@ function shortcode_socials_list() {
 add_shortcode( 'socials_list', 'act_theme\shortcode_socials_list' );
 
 
-/**
- * Список показателей работы
- * используется на главной странице
- **/
-function shortcode_indicators( $args ) {
-	$args = wp_parse_args( $args, array(
-		'section' => true,
-	) );
-	$result = __return_empty_string();
-	$items = get_theme_mod( ACT_THEME_SLUG . '_indicators', __return_empty_array() );
-	if ( is_array( $items ) ) {
-		ob_start();
-		for ( $i = 0; $i < 4; $i++ ) { 
-			if ( isset( $items[ $i ] ) && is_array( $items[ $i ] ) ) {
-				$items[ $i ] = array_merge( array(
-					'logo'    => ACT_THEME_URL . 'images/business.png',
-					'label'   => '',
-					'value'   => '',
-				), $items[ $i ] );
-				if ( ! empty( $items[ $i ][ 'label' ] ) || ! empty( $items[ $i ][ 'value' ] ) ) {
-					if ( function_exists( 'pll__' ) ) {
-						$items[ $i ][ 'label' ] = pll__( $items[ $i ][ 'label' ] );
-					}
-					extract( $items[ $i ] );
-					include get_theme_file_path( 'views/items/indicator.php' );
-				}
-			}
-		}
-		$result = ob_get_contents();
-		ob_end_clean();
-	}
-	if ( ! empty( $result ) ) {
-		$result = '<div class="row center-xs">' . $result . '</div>';
-		if ( ( bool ) $args[ 'section' ] ) {
-			$result = '<section class="section indicators">' . $result . '</section>';
-		}
-	}
-	return $result;
-}
-
-add_shortcode( 'indicators', 'act_theme\shortcode_indicators' );
-
-
-/**
- * Шаги к поступлению
- * используется на главной странице
- **/
-function shortcode_steps( $args ) {
-	$args = wp_parse_args( $args, array(
-		'section' => true,
-	) );
-	$result = __return_empty_string();
-	$items = get_theme_mod( ACT_THEME_SLUG . '_steps', __return_empty_array() );
-	if ( is_array( $items ) ) {
-		ob_start();
-		for ( $i = 0; $i < get_theme_mod( ACT_THEME_SLUG . '_steps_number', 3 ); $i++ ) { 
-			if ( isset( $items[ $i ] ) && is_array( $items[ $i ] ) ) {
-				$items[ $i ] = array_merge( array(
-					'thumbnail' => ACT_THEME_URL . 'images/thumbnail.png',
-					'title'     => '',
-					'excerpt'   => '',
-					'link'      => '',
-					'label'     => __( 'Подробней', ACT_THEME_TEXTDOMAIN ),
-				), $items[ $i ] );
-				if ( function_exists( 'pll__' ) ) {
-					$items[ $i ][ 'title' ] = pll__( $items[ $i ][ 'title' ] );
-					$items[ $i ][ 'excerpt' ] = pll__( $items[ $i ][ 'excerpt' ] );
-					$items[ $i ][ 'link' ] = pll__( $items[ $i ][ 'link' ] );
-				}
-				if ( ! empty( $items[ $i ][ 'title' ] ) && ! empty( $items[ $i ][ 'excerpt' ] ) ) {
-					extract( $items[ $i ] );
-					include get_theme_file_path( 'views/items/step.php' );
-				}
-			}
-		}
-		$result = ob_get_contents();
-		ob_end_clean();
-	}
-	if ( ! empty( $result ) ) {
-		$result = '<div class="list">' . $result . '</div>';
-		if ( ( bool ) $args[ 'section' ] ) {
-			$result = '<section class="section steps">' . $result . '</section>';
-		}
-	}
-	return $result;
-}
-
-add_shortcode( 'steps', 'act_theme\shortcode_steps' );
-
-
-/**
- * Образовательные курсы
- * используется на главной странице
- **/
-function shortcode_cources( $args ) {
-	$args = wp_parse_args( $args, array(
-		'section' => true,
-	) );
-	$result = __return_empty_string();
-	$items = get_theme_mod( ACT_THEME_SLUG . '_cources', __return_empty_array() );
-	if ( is_array( $items ) ) {
-		ob_start();
-		for ( $i = 0; $i < get_theme_mod( ACT_THEME_SLUG . '_cources_number', 3 ); $i++ ) { 
-			if ( isset( $items[ $i ] ) && is_array( $items[ $i ] ) ) {
-				$items[ $i ] = array_merge( array(
-					'thumbnail' => ACT_THEME_URL . 'images/thumbnail.png',
-					'title'     => '',
-					'excerpt'   => '',
-					'link'      => '',
-				), $items[ $i ] );
-				if ( function_exists( 'pll__' ) ) {
-					$items[ $i ][ 'title' ] = pll__( $items[ $i ][ 'title' ] );
-					$items[ $i ][ 'excerpt' ] = pll__( $items[ $i ][ 'excerpt' ] );
-					$items[ $i ][ 'link' ] = pll__( $items[ $i ][ 'link' ] );
-				}
-				if ( ! empty( $items[ $i ][ 'title' ] ) && ! empty( $items[ $i ][ 'link' ] ) ) {
-					extract( $items[ $i ] );
-					include get_theme_file_path( 'views/items/cource.php' );
-				}
-			}
-		}
-		$result = ob_get_contents();
-		ob_end_clean();
-	}
-	if ( ! empty( $result ) ) {
-		$result = '<div class="row center-xs stratch-xs" role="list">' . $result . '</div>';
-		if ( ( bool ) $args[ 'section' ] ) {
-			$result = '<section class="section cources">' . $result . '</section>';
-		}
-	}
-	return $result;
-}
-
-add_shortcode( 'cources', 'act_theme\shortcode_cources' );
-
-
 
 /**
  * Контактная форма
@@ -457,45 +315,6 @@ function shortcode_contacts_form() {
 }
 
 add_shortcode( 'contacts_form', 'act_theme\shortcode_contacts_form' );
-
-
-function shortcode_advantages( $args ) {
-	$args = wp_parse_args( $args, array(
-		'section' => true,
-	) );
-	$result = __return_empty_string();
-	$items = get_theme_mod( ACT_THEME_SLUG . '_advantages', __return_empty_array() );
-	if ( is_array( $items ) ) {
-		ob_start();
-		for ( $i = 0; $i < get_theme_mod( ACT_THEME_SLUG . '_advantages_number', 3 ); $i++ ) { 
-			if ( isset( $items[ $i ] ) && is_array( $items[ $i ] ) ) {
-				$items[ $i ] = array_merge( array(
-					'icon'      => ACT_THEME_URL . 'images/thumbnail.png',
-					'title'     => '',
-					'excerpt'   => '',
-				), $items[ $i ] );
-				if ( function_exists( 'pll__' ) ) {
-					$items[ $i ][ 'title' ] = pll__( $items[ $i ][ 'title' ] );
-					$items[ $i ][ 'excerpt' ] = pll__( $items[ $i ][ 'excerpt' ] );
-				}
-				if ( ! empty( $items[ $i ][ 'title' ] ) ) {
-					extract( $items[ $i ] );
-					include get_theme_file_path( 'views/items/advantage.php' );
-				}
-			}
-		}
-		$result = ob_get_contents();
-		ob_end_clean();
-	}
-	if ( ! empty( $result ) ) {
-		$result = '<div class="row center-xs" role="list">' . $result . '</div>';
-		if ( ( bool ) $args[ 'section' ] ) {
-			$result = '<section class="section advantages">' . $result . '</section>';
-		}
-	}
-	return $result;
-}
-
 
 
 

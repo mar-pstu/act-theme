@@ -26,5 +26,5 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 			<?php echo $label; ?>
 		</a>
 	<?php endif; ?>
-	<?php echo do_shortcode( '[features]', false ); ?>
+	<?php echo shortcode_features(); ?>
 </section>

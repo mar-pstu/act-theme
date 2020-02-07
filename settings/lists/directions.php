@@ -86,7 +86,7 @@ for ( $i = 0; $i < get_theme_mod( "{$slug}_directions_number", 4 ); $i++ ) {
 		array(
 			'default'           => '',
 			'transport'         => 'reset',
-			'sanitize_callback' => 'sanitize_text_field',
+			'sanitize_callback' => 'sanitize_textarea_field',
 		)
 	);
 	$wp_customize->add_control(
@@ -94,7 +94,7 @@ for ( $i = 0; $i < get_theme_mod( "{$slug}_directions_number", 4 ); $i++ ) {
 		array(
 			'section'           => "{$slug}_list_directions",
 			'label'             => sprintf( __( 'описание №%d', ACT_THEME_TEXTDOMAIN ), ( $i + 1 ) ),
-			'type'              => 'text',
+			'type'              => 'textarea',
 		)
 	); /**/
 }

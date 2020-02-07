@@ -65,7 +65,7 @@ $wp_customize->add_setting(
 	array(
 		'default'           => '',
 		'transport'         => 'reset',
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'sanitize_textarea_field',
 	)
 );
 $wp_customize->add_control(
@@ -73,7 +73,7 @@ $wp_customize->add_control(
 	array(
 		'section'           => "{$slug}_directions",
 		'label'             => __( 'Подзаголовок', ACT_THEME_TEXTDOMAIN ),
-		'type'              => 'text',
+		'type'              => 'textarea',
 	)
 ); /**/
 
@@ -116,4 +116,23 @@ $wp_customize->add_control(
         'label'             => __( 'Выбор страницы с описанием', ACT_THEME_TEXTDOMAIN ),
         'type'              => 'dropdown-pages',
     )
+); /**/
+
+
+
+$wp_customize->add_setting(
+	"{$slug}_directions_label",
+	array(
+		'default'           => __( 'Подробней', ACT_THEME_TEXTDOMAIN ),
+		'transport'         => 'reset',
+		'sanitize_callback' => 'sanitize_text_field',
+	)
+);
+$wp_customize->add_control(
+	"{$slug}_directions_label",
+	array(
+		'section'           => "{$slug}_directions",
+		'label'             => __( 'Текст кнопки', ACT_THEME_TEXTDOMAIN ),
+		'type'              => 'text',
+	)
 ); /**/
