@@ -1,0 +1,575 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2020-02-10 14:59+0200\n"
+"PO-Revision-Date: 2020-02-10 15:14+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.3\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"X-Poedit-KeywordsList: __;_e;esc_attr__;esc_attr_e\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: node_modules\n"
+"X-Poedit-SearchPathExcluded-1: src\n"
+
+#: 404.php:9 includes/register-strings.php:13 settings/pages/404.php:24
+msgid "Ошибка 404"
+msgstr "Помилка 404"
+
+#: 404.php:10
+msgid "Страница не найдена"
+msgstr "Сторінка не знайдена"
+
+#: 404.php:20
+msgid "На главную"
+msgstr "На головну"
+
+#: footer.php:26
+msgid "ЦКТ ПГТУ"
+msgstr "ЦКТ ПДТУ"
+
+#: functions.php:72
+msgid "Главное меню"
+msgstr "Головне меню"
+
+#: functions.php:85
+msgid "Колонка"
+msgstr "Колонка"
+
+#: header.php:52 parts/mobilenav.php:21
+msgid "Меню"
+msgstr "Меню"
+
+#: includes/customizer.php:18
+msgid "Блоки главной страницы"
+msgstr "Блоки головної сторінки"
+
+#: includes/customizer.php:45
+msgid "Списки темы"
+msgstr "Списки теми"
+
+#: includes/customizer.php:70
+msgid "Типы страниц темы"
+msgstr "Типи сторінок теми"
+
+#: includes/enqueue.php:21
+msgid "Наверх"
+msgstr "Наверх"
+
+#: includes/register-strings.php:15 parts/home/about.php:19
+#: settings/home/about.php:16 settings/home/about.php:65
+msgid "О нас"
+msgstr "Про нас"
+
+#: includes/register-strings.php:16 includes/register-strings.php:19
+#: includes/register-strings.php:25 includes/register-strings.php:28
+#: includes/register-strings.php:34 includes/register-strings.php:39
+#: includes/register-strings.php:44 includes/register-strings.php:48
+#: includes/shortcodes.php:89 parts/archive.php:24 parts/home/about.php:20
+#: parts/home/advantages.php:15 parts/home/cources.php:15
+#: parts/home/directions.php:14 parts/home/graduates.php:15
+#: parts/home/jumbotron.php:12 parts/home/questions.php:13
+#: parts/home/specialties.php:15 parts/home/steps.php:15
+#: parts/home/teachers.php:13 settings/home/about.php:84
+#: settings/home/advantages.php:127 settings/home/cources.php:127
+#: settings/home/directions.php:126 settings/home/graduates.php:127
+#: settings/home/jumbotron.php:106 settings/home/questions.php:146
+#: settings/home/specialties.php:125 settings/home/steps.php:127
+#: settings/home/teachers.php:123 views/items/cource.php:26
+msgid "Подробней"
+msgstr "Докладніше"
+
+#: includes/register-strings.php:17 parts/home/advantages.php:11
+#: settings/home/advantages.php:47
+msgid "Преимущества обучения на кафедре"
+msgstr "Переваги навчання на кафедрі"
+
+#: includes/register-strings.php:22 parts/home/advertising.php:12
+#: settings/home/advertising.php:78
+msgid "Нажмите, чтобы воспроизвести видео"
+msgstr "Натисніть, щоб відтворити відео"
+
+#: includes/register-strings.php:23 parts/home/cources.php:11
+#: settings/home/cources.php:16 settings/home/cources.php:47
+#: settings/lists/cources.php:16
+msgid "Курсы"
+msgstr "Курси"
+
+#: includes/register-strings.php:26 parts/home/directions.php:12
+#: settings/home/directions.php:16 settings/home/directions.php:47
+#: settings/lists/directions.php:16
+msgid "Направления работы"
+msgstr "Напрямки роботи"
+
+#: includes/register-strings.php:29 settings/home/graduates.php:16
+#: settings/home/graduates.php:47 settings/lists/graduates.php:16
+msgid "Выпускники"
+msgstr "Випускники"
+
+#: includes/register-strings.php:36 parts/home/questions.php:11
+#: settings/home/questions.php:47
+msgid "Остались вопросы?"
+msgstr "Залишилися питання?"
+
+#: includes/register-strings.php:37 parts/home/questions.php:12
+#: settings/home/questions.php:66
+msgid "Напишите нам, мы с Вами обязательно свяжемся."
+msgstr "Напишіть нам, ми з Вами обов'язково зв'яжемося."
+
+#: includes/register-strings.php:40 parts/home/specialties.php:11
+#: settings/home/specialties.php:16 settings/home/specialties.php:47
+#: settings/lists/specialties.php:16
+msgid "Специальности"
+msgstr "Спеціальності"
+
+#: includes/register-strings.php:42 parts/home/steps.php:11
+#: settings/home/steps.php:16 settings/home/steps.php:47
+#: settings/lists/steps.php:16
+msgid "Шаги к поступлению"
+msgstr "Кроки до вступу"
+
+#: includes/register-strings.php:45 parts/home/graduates.php:11
+#: parts/home/teachers.php:10 settings/home/teachers.php:16
+#: settings/home/teachers.php:47 settings/lists/teachers.php:16
+msgid "Преподаватели"
+msgstr "Викладачі"
+
+#: includes/register-strings.php:49 parts/home/teachers.php:14
+#: settings/home/teachers.php:142
+msgid "Мы в социальных сетях"
+msgstr "Ми в соціальних мережах"
+
+#: includes/shortcodes.php:170
+msgid "Предыдущий слайд"
+msgstr "Попередній слайд"
+
+#: includes/shortcodes.php:173
+msgid "Следующий слайд"
+msgstr "Наступний слайд"
+
+#: includes/shortcodes.php:242
+msgid "Мы на Facebook"
+msgstr "Ми на Facebook"
+
+#: includes/shortcodes.php:243
+msgid "Мы в LinkedIn"
+msgstr "Ми в LinkedIn"
+
+#: includes/shortcodes.php:244
+msgid "Мы в Instagram"
+msgstr "Ми в Instagram"
+
+#: includes/shortcodes.php:245
+msgid "Мы на YouTube"
+msgstr "Ми на YouTube"
+
+#: includes/shortcodes.php:283
+msgid "Аноним"
+msgstr "Анонім"
+
+#: includes/shortcodes.php:288
+msgid "Сообщение с сайта"
+msgstr "Повідомлення з сайту"
+
+#: includes/shortcodes.php:299
+msgid "Сообщение отправлено"
+msgstr "Повідомлення відправлено"
+
+#: includes/shortcodes.php:301
+msgid "Сообщение не отправлено, попробуйте позже"
+msgstr "Повідомлення не відправлено, спробуйте пізніше"
+
+#: includes/shortcodes.php:304
+msgid ""
+"Вы в \"черном списке\", сообщение отклонено. Обратитесь к администратору "
+"сайта."
+msgstr ""
+"Ви в \"чорному списку\", повідомлення відхилено. Зверніться до "
+"адміністратора сайту."
+
+#: includes/shortcodes.php:307
+msgid "Сообщение похоже на спам и отклонено."
+msgstr "Повідомлення схоже на спам і відхилено."
+
+#: includes/template-functions.php:55
+msgid "Главная"
+msgstr "Головна"
+
+#: includes/template-functions.php:68
+msgid "Домашняя страница"
+msgstr "Домашня сторінка"
+
+#: includes/template-functions.php:117
+msgid "Смотреть предыдущий пост"
+msgstr "Дивитися попередній пост"
+
+#: includes/template-functions.php:121
+msgid "Смотреть следующий пост"
+msgstr "Наступне пост"
+
+#: settings/home/about.php:18
+msgid "Вторая секция главной страницы. Якорь #about"
+msgstr "Друга секція головної сторінки. Якір #about"
+
+#: settings/home/about.php:37 settings/home/advantages.php:37
+#: settings/home/advertising.php:33 settings/home/cources.php:37
+#: settings/home/directions.php:37 settings/home/graduates.php:37
+#: settings/home/indicators.php:37 settings/home/jumbotron.php:37
+#: settings/home/questions.php:37 settings/home/specialties.php:37
+#: settings/home/steps.php:37 settings/home/teachers.php:37
+msgid "Использовать секцию"
+msgstr "Використовувати секцію"
+
+#: settings/home/about.php:55 settings/home/directions.php:116
+#: settings/home/teachers.php:113
+msgid "Выбор страницы с описанием"
+msgstr "Вибір сторінки з описом"
+
+#: settings/home/about.php:74 settings/home/advantages.php:56
+#: settings/home/advertising.php:51 settings/home/cources.php:56
+#: settings/home/directions.php:56 settings/home/graduates.php:56
+#: settings/home/jumbotron.php:56 settings/home/questions.php:56
+#: settings/home/specialties.php:56 settings/home/steps.php:56
+#: settings/home/teachers.php:56 settings/pages/404.php:33
+msgid "Заголовок"
+msgstr "Заголовок"
+
+#: settings/home/about.php:93 settings/home/advertising.php:87
+#: settings/home/directions.php:135 settings/home/jumbotron.php:115
+#: settings/home/specialties.php:134 settings/home/steps.php:136
+#: settings/home/teachers.php:132
+msgid "Текст кнопки"
+msgstr "Текст кнопки"
+
+#: settings/home/about.php:113
+msgid "Превью"
+msgstr "Прев'ю"
+
+#: settings/home/advantages.php:16 settings/lists/advantages.php:16
+msgid "Преимущества"
+msgstr "Переваги"
+
+#: settings/home/advantages.php:18
+msgid "Пятая секция главной страницы. Якорь #advantages"
+msgstr "П'ята секція головної сторінки. якір #advantages"
+
+#: settings/home/advantages.php:75 settings/home/advertising.php:69
+#: settings/home/cources.php:75 settings/home/directions.php:75
+#: settings/home/graduates.php:75 settings/home/jumbotron.php:75
+#: settings/home/questions.php:75 settings/home/specialties.php:75
+#: settings/home/steps.php:75 settings/home/teachers.php:75
+#: settings/pages/404.php:52
+msgid "Подзаголовок"
+msgstr "Підзаголовок"
+
+#: settings/home/advantages.php:94 settings/home/cources.php:94
+#: settings/home/graduates.php:94 settings/home/questions.php:94
+#: settings/home/steps.php:94
+msgid "Тип контента"
+msgstr "Тип контенту"
+
+#: settings/home/advantages.php:97 settings/home/cources.php:97
+#: settings/home/directions.php:97 settings/home/graduates.php:97
+#: settings/home/specialties.php:96 settings/home/steps.php:97
+msgid "список"
+msgstr "список"
+
+#: settings/home/advantages.php:98 settings/home/cources.php:98
+#: settings/home/directions.php:98 settings/home/graduates.php:98
+#: settings/home/questions.php:98 settings/home/specialties.php:97
+#: settings/home/steps.php:98
+msgid "контент"
+msgstr "контент"
+
+#: settings/home/advantages.php:117 settings/home/cources.php:117
+#: settings/home/graduates.php:117 settings/home/questions.php:136
+#: settings/home/specialties.php:115 settings/home/steps.php:117
+msgid "Выбор страницы"
+msgstr "Вибір сторінки"
+
+#: settings/home/advantages.php:136 settings/home/cources.php:136
+#: settings/home/graduates.php:136 settings/home/questions.php:155
+msgid "Текст кнопки внизу секции"
+msgstr "Текст кнопки внизу секції"
+
+#: settings/home/advertising.php:13
+msgid "Рекламное видео"
+msgstr "Рекламне відео"
+
+#: settings/home/advertising.php:15
+msgid "Секция главной страницы. Якорь #advertising"
+msgstr "Секція головної сторінки. Якір #advertising"
+
+#: settings/home/advertising.php:105
+msgid "Ссылка на Youtube видео"
+msgstr "Посилання на Youtube відео"
+
+#: settings/home/advertising.php:124
+msgid "Фон"
+msgstr "Фон"
+
+#: settings/home/advertising.php:145
+msgid "Цвет текста и кнопки Play"
+msgstr "Колір тексту і кнопки Play"
+
+#: settings/home/cources.php:18
+msgid "Секция главной страницы. Якорь #cources."
+msgstr "Секція головної сторінки. Якір #cources."
+
+#: settings/home/directions.php:18
+msgid ""
+"Секция главной страницы. Якорь #directions. В секции выводится список "
+"преимуществ, перечень которых настраивается отдельно."
+msgstr ""
+"Секція головної сторінки. Якір #directions. У секції виводиться список "
+"переваг, перелік яких налаштовується окремо."
+
+#: settings/home/directions.php:94 settings/home/specialties.php:93
+msgid "Тип содержимого"
+msgstr "Тип вмісту"
+
+#: settings/home/graduates.php:18
+msgid ""
+"Секция главной страницы. Якорь #graduates. В секции выводится список "
+"преимуществ, перечень которых настраивается отдельно."
+msgstr ""
+"Секція головної сторінки. Якір #graduates. У секції виводиться список "
+"переваг, перелік яких налаштовується окремо."
+
+#: settings/home/indicators.php:16 settings/lists/indicators.php:16
+msgid "Показатели работы"
+msgstr "Показники роботи"
+
+#: settings/home/indicators.php:18
+msgid ""
+"Секция главной страницы. Якорь #indicators. В секции выводится список "
+"показателей работы, перечень которых настраивается отдельно."
+msgstr ""
+"Секція головної сторінки. Якір #indicators. У секції виводиться список "
+"показників роботи, перелік яких налаштовується окремо."
+
+#: settings/home/indicators.php:57
+msgid "Фон блока"
+msgstr "Фон блоку"
+
+#: settings/home/indicators.php:79 settings/home/jumbotron.php:95
+msgid "Цвет текста"
+msgstr "Колір тексту"
+
+#: settings/home/jumbotron.php:16
+msgid "Первый экран"
+msgstr "Перший екран"
+
+#: settings/home/jumbotron.php:18
+msgid "Секция главной страницы. Якорь #jumbotron"
+msgstr "Секція головної сторінки. Якір #jumbotron"
+
+#: settings/home/jumbotron.php:134
+msgid "Ссылка"
+msgstr "Посилання"
+
+#: settings/home/questions.php:16
+msgid "Контактная форма"
+msgstr "Контактна форма"
+
+#: settings/home/questions.php:18
+msgid ""
+"Секция главной страницы. Якорь #questions. Если шорткод формы не установлен, "
+"то используется стандартная форма темы, письмо с которой приходит на почту "
+"администратора сайта."
+msgstr ""
+"Секція головної сторінки. Якір #questions. Якщо шорткод форми не "
+"встановлено, то використовується стандартна форма теми, лист з якої "
+"приходить на пошту адміністратора сайту."
+
+#: settings/home/questions.php:97
+msgid "шорткод"
+msgstr "шорткод"
+
+#: settings/home/questions.php:117
+msgid "Шорткод формы"
+msgstr "Шорткод формы"
+
+#: settings/home/specialties.php:18
+msgid "Пятая секция главной страницы. Якорь #specialties"
+msgstr "П'ята секція головної сторінки. Якір #specialties"
+
+#: settings/home/steps.php:18
+msgid "Пятая секция главной страницы. Якорь #steps"
+msgstr "П'ята секція головної сторінки. Якір #steps"
+
+#: settings/home/teachers.php:18
+msgid "Шестая секция главной страницы. Якорь #teachers"
+msgstr "Шоста секція головної сторінки. Якір #teachers"
+
+#: settings/home/teachers.php:94
+msgid "Заголовок более расширеного описания"
+msgstr "Тема більш розширеного опису"
+
+#: settings/home/teachers.php:151
+msgid "Заголовок блока со ссылками на социальные сети"
+msgstr "Тема блоку з посиланнями на соціальні мережі"
+
+#: settings/lists/advantages.php:18
+msgid "Преимущества обучения на кафедре, выводится на главной странице."
+msgstr "Переваги навчання на кафедрі, виводиться на головній сторінці."
+
+#: settings/lists/advantages.php:37 settings/lists/cources.php:37
+#: settings/lists/directions.php:37 settings/lists/graduates.php:37
+#: settings/lists/specialties.php:37 settings/lists/steps.php:37
+#: settings/lists/teachers.php:37
+msgid "Количество записей"
+msgstr "Кількість записів"
+
+#: settings/lists/advantages.php:62 settings/lists/cources.php:62
+#: settings/lists/directions.php:62 settings/lists/feautures.php:39
+#: settings/lists/indicators.php:39 settings/lists/specialties.php:62
+#: settings/lists/steps.php:62
+#, php-format
+msgid "лого №%d"
+msgstr "лого №%d"
+
+#: settings/lists/advantages.php:80 settings/lists/cources.php:80
+#: settings/lists/directions.php:80 settings/lists/specialties.php:80
+#: settings/lists/steps.php:80
+#, php-format
+msgid "заголовок №%d"
+msgstr "заголовок №%d"
+
+#: settings/lists/advantages.php:96 settings/lists/cources.php:96
+#: settings/lists/directions.php:96 settings/lists/graduates.php:112
+#: settings/lists/indicators.php:57 settings/lists/steps.php:96
+#, php-format
+msgid "описание №%d"
+msgstr "опис №%d"
+
+#: settings/lists/cources.php:18 settings/lists/specialties.php:18
+#: settings/lists/steps.php:18
+msgid "Список специальностей, выводится на главной странице."
+msgstr "Список спеціальностей, виводиться на головній сторінці."
+
+#: settings/lists/cources.php:112 settings/lists/specialties.php:96
+#: settings/lists/steps.php:112
+#, php-format
+msgid "ссылка №%d"
+msgstr "ссылка №%d"
+
+#: settings/lists/directions.php:18
+msgid "Список направлений работы, выводится на главной странице."
+msgstr "Список напрямків роботи, виводиться на головній сторінці."
+
+#: settings/lists/feautures.php:16
+msgid "Особенности"
+msgstr "Особливості"
+
+#: settings/lists/feautures.php:57
+#, php-format
+msgid "особенность №%d"
+msgstr "особливість №%d"
+
+#: settings/lists/graduates.php:18
+msgid "Список выпускников, выводится на главной странице."
+msgstr "Список випускників, виводиться на головній сторінці."
+
+#: settings/lists/graduates.php:62 settings/lists/teachers.php:62
+#, php-format
+msgid "фото №%d"
+msgstr "фото №%d"
+
+#: settings/lists/graduates.php:80 settings/lists/teachers.php:80
+#, php-format
+msgid "имя №%d"
+msgstr "ім'я №%d"
+
+#: settings/lists/graduates.php:96
+#, php-format
+msgid "специальность №%d"
+msgstr "спеціальність №%d"
+
+#: settings/lists/indicators.php:18
+msgid "Список показателей работы, выводится на главной странице."
+msgstr "Список показників роботи, виводиться на головній сторінці."
+
+#: settings/lists/indicators.php:73
+#, php-format
+msgid "значение №%d"
+msgstr "значення №%d"
+
+#: settings/lists/socials.php:16
+msgid "Социальные сети"
+msgstr "Соціальні мережі"
+
+#: settings/lists/socials.php:18
+msgid "Список ссылок на страницы социальных сетей организации"
+msgstr "Список посилань на сторінки соціальних мереж організації"
+
+#: settings/lists/socials.php:26
+msgid "Facebook"
+msgstr "Facebook"
+
+#: settings/lists/socials.php:27
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+#: settings/lists/socials.php:28
+msgid "Instagram"
+msgstr "Instagram"
+
+#: settings/lists/socials.php:29
+msgid "YouTube"
+msgstr "YouTube"
+
+#: settings/lists/teachers.php:18
+msgid "Список преподавателей, выводится на главной странице."
+msgstr "Список праподавателей, виводиться на головній сторінці."
+
+#: settings/lists/teachers.php:96
+#, php-format
+msgid "краткое описание №%d"
+msgstr "короткий опис №%d"
+
+#: settings/pages/404.php:12
+msgid "Страница ошибки 404"
+msgstr "Сторінка помилки 404"
+
+#: settings/pages/404.php:14
+msgid "Якорь #error404"
+msgstr "Якір #error404"
+
+#: views/contact-form.php:15
+msgid "Ваше имя"
+msgstr "Ваше ім'я"
+
+#: views/contact-form.php:17
+msgid "Логин"
+msgstr "Логін"
+
+#: views/contact-form.php:19
+msgid "Ваш email"
+msgstr "Ваш email"
+
+#: views/contact-form.php:21 views/contact-message.php:27
+msgid "Сообщение"
+msgstr "Повідомлення"
+
+#: views/contact-form.php:23
+msgid "Отправить"
+msgstr "Відправити"
+
+#: views/contact-message.php:12
+msgid "IP пользователя"
+msgstr "IP пользователя"
+
+#: views/contact-message.php:17
+msgid "Имя пользователя"
+msgstr "Ім'я користувача"
+
+#: views/contact-message.php:22
+msgid "Email пользователя"
+msgstr "Email користувача"

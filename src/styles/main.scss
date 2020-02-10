@@ -7,10 +7,10 @@
 @import "helpers/extends";
 
 
-@import "base/normalize";
+// @import "base/normalize";
 @import "base/type";
-@import "base/wrapper";         // обёртка страницы
-@import "base/flexboxgrid";     // модульная сетка FlexboxGrid
+// @import "base/wrapper";         // обёртка страницы
+// @import "base/flexboxgrid";     // модульная сетка FlexboxGrid
 
 
 @import "widgets/tagcloud";     // стандартный виджет WP - Облако тегов
@@ -27,7 +27,7 @@
 
 @import "blocks/accordio";       // список аккоредеон
 @import "blocks/tabs";           // "вкладки"
-@import "blocks/features";       // особенности кафедры
+// @import "blocks/features";       // особенности кафедры
 @import "blocks/slider";         // стили по умолчанию для слайдеров (используются на главной странице и в шорткодах)
 @import "blocks/file";           // иконки ссылок на файлы
 @import "blocks/widget";         // стили по умолчанию для виджетов
@@ -40,14 +40,14 @@
 @import "blocks/buttons";        // стили кнопок
 @import "blocks/breadcrumbs";    // "хлебные крошки"
 @import "blocks/to-top-button";  // кнопка наверх
-@import "blocks/header";         // Шапка сайта
+// @import "blocks/header";         // Шапка сайта
 @import "blocks/footer";         // Подвал сайта
 
 
 @import "asides/basement";       // сайдбар подвала сайта
 
 
-@import "home/jumbotron";        // главная страница - первый экран
+// @import "home/jumbotron";        // главная страница - первый экран
 @import "home/about";            // главная страница - секция "О нас"
 @import "home/directions";       // главная странциа - секция "Направления работы"
 @import "home/advertising";      // главная странциа - блок с рекламным видео

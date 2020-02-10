@@ -91,7 +91,7 @@ $wp_customize->add_control(
     "{$slug}_teachers_subtitle",
     array(
         'section'           => "{$slug}_teachers",
-        'label'             => __( 'Заголовок более расширеного описания', ACT_THEME_TEXTDOMAIN ),
+        'label'             => __( 'Заголовок более расширенного описания', ACT_THEME_TEXTDOMAIN ),
         'type'              => 'text',
     )
 ); /**/

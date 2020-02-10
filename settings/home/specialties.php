@@ -122,7 +122,7 @@ $wp_customize->add_control(
 $wp_customize->add_setting(
     "{$slug}_specialties_label",
     array(
-        'default'           => __( 'Подробнее', ACT_THEME_TEXTDOMAIN ),
+        'default'           => __( 'Подробней', ACT_THEME_TEXTDOMAIN ),
         'transport'         => 'reset',
         'sanitize_callback' => 'sanitize_text_field',
     )

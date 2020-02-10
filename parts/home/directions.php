@@ -11,7 +11,7 @@ $section_name = 'directions';
 
 $title = get_theme_mod( ACT_THEME_SLUG . '_directions_title', __( 'Направления работы', ACT_THEME_TEXTDOMAIN ) );
 $subtitle = get_theme_mod( ACT_THEME_SLUG . '_directions_subtitle', __return_empty_string() );
-$label = get_theme_mod( ACT_THEME_SLUG . '_directions_label', __( 'Подробнее', ACT_THEME_TEXTDOMAIN ) );
+$label = get_theme_mod( ACT_THEME_SLUG . '_directions_label', __( 'Подробней', ACT_THEME_TEXTDOMAIN ) );
 $content = __return_empty_string();
 $permalink = __return_empty_string();
 $page_id = get_translate_id( get_theme_mod( ACT_THEME_SLUG . '_directions_page_id', '' ), 'page' );

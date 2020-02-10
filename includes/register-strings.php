@@ -25,7 +25,7 @@ foreach ( array(
     'cources_label'         => __( 'Подробней', ACT_THEME_TEXTDOMAIN ),
     'directions_title'      => __( 'Направления работы', ACT_THEME_TEXTDOMAIN ),
     'directions_subtitle'   => '',
-    'directions_label'      => __( 'Подробней ', ACT_THEME_TEXTDOMAIN ),
+    'directions_label'      => __( 'Подробней', ACT_THEME_TEXTDOMAIN ),
     'graduates_title'       => __( 'Выпускники', ACT_THEME_TEXTDOMAIN ),
     'graduates_subtitle'    => '',
     'graduates_label'       => '',

@@ -15,7 +15,7 @@ $wp_customize->add_section(
 	array(
 		'title'            => __( 'Преподаватели', ACT_THEME_TEXTDOMAIN ),
 		'priority'         => 10,
-		'description'      => __( 'Список праподавателей, выводится на главной странице.', ACT_THEME_TEXTDOMAIN ),
+		'description'      => __( 'Список преподавателей, выводится на главной странице.', ACT_THEME_TEXTDOMAIN ),
 		'panel'            => "{$slug}_lists",
 	)
 ); /**/
