@@ -8,7 +8,6 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
 $section_name = 'directions';
-
 $title = get_theme_mod( ACT_THEME_SLUG . '_directions_title', __( 'Направления работы', ACT_THEME_TEXTDOMAIN ) );
 $subtitle = get_theme_mod( ACT_THEME_SLUG . '_directions_subtitle', __return_empty_string() );
 $label = get_theme_mod( ACT_THEME_SLUG . '_directions_label', __( 'Подробней', ACT_THEME_TEXTDOMAIN ) );

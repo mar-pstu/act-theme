@@ -23,7 +23,6 @@ if ( function_exists( 'pll__' ) ) {
 	$label = pll__( $label );
 }
 
-
 if ( $page instanceof \WP_Post ) {
 	$permalink = get_permalink( $page, false );
 	if ( empty( $title ) ) {

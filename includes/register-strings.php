@@ -114,3 +114,11 @@ foreach ( array(
 /**
  * Регистрация ссылок на социальные сети
  **/
+$socials = get_theme_mod( ACT_THEME_SLUG . "_socials", array() );
+if ( is_array( $socials ) && ! empty( $socials ) ) {
+	foreach ( $socials as $key => $link ) {
+		if ( ! empty( trim( $link ) ) ) {
+			pll_register_string( "socials_{$key}", $link, ACT_THEME_TEXTDOMAIN, false );
+		}
+	}
+}

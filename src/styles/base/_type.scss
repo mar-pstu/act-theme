@@ -49,3 +49,42 @@ img.alignright, a.alignright img { margin: 5px 0px 10px 10px; }
 .list-inline { @extend %list-inline; }
 
 .sr-only { display: none; }
+
+
+// is-style-text-primary
+
+
+@each $name, $color in $brand-colors {
+	.is-style-text-#{$name} {
+		color: $color;
+	}
+}
+
+
+table {
+	&.is-style-table-primary,
+	&.table-primary {
+		th { background-color: $brand-primary; color: #fff; }
+		th, td { border: 1px solid $brand-primary; }
+	}
+	&.is-style-table-success,
+	&.table-success {
+		th { background-color: $brand-success; color: #fff; }
+		th, td { border: 1px solid $brand-success; }
+	}
+	&.is-style-table-info,
+	&.table-info {
+		th { background-color: $brand-info; color: #fff; }
+		th, td { border: 1px solid $brand-info; }
+	}
+	&.is-style-table-danger,
+	&.table-danger {
+		th { background-color: $brand-danger; color: #fff; }
+		th, td { border: 1px solid $brand-danger; }
+	}
+	&.is-style-table-warning,
+	&.table-warning {
+		th { background-color: $brand-warning; color: #fff; }
+		th, td { border: 1px solid $brand-warning; }
+	}
+}

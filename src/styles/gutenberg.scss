@@ -1,0 +1,82 @@
+[data-type$='/clearfix'],
+.pstu-cleargix {
+  margin: 15px auto;
+  width: 100%;
+  text-align: center;
+  clear: both; }
+
+.pstu-clearfix-inner {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: center; }
+
+.pstu-clearfix-inner:before,
+.pstu-clearfix-inner:after {
+  content: '';
+  height: 3px;
+  flex-grow: 1;
+  background-image: repeating-linear-gradient(to right, #999 0px, #999 20px, transparent 20px, transparent 25px); }
+
+.pstu-clearfix-inner .label {
+  flex-shrink: 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: monospace;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: #555; }
+
+table.is-style-table-primary th, table.table-primary th {
+  background-color: #0c426f;
+  color: #fff; }
+table.is-style-table-primary th, table.is-style-table-primary td, table.table-primary th, table.table-primary td {
+  border: 1px solid #0c426f; }
+table.is-style-table-success th, table.table-success th {
+  background-color: #28b7dd;
+  color: #fff; }
+table.is-style-table-success th, table.is-style-table-success td, table.table-success th, table.table-success td {
+  border: 1px solid #28b7dd; }
+table.is-style-table-info th, table.table-info th {
+  background-color: #0098a4;
+  color: #fff; }
+table.is-style-table-info th, table.is-style-table-info td, table.table-info th, table.table-info td {
+  border: 1px solid #0098a4; }
+table.is-style-table-danger th, table.table-danger th {
+  background-color: #971b2f;
+  color: #fff; }
+table.is-style-table-danger th, table.is-style-table-danger td, table.table-danger th, table.table-danger td {
+  border: 1px solid #971b2f; }
+table.is-style-table-warning th, table.table-warning th {
+  background-color: #d87200;
+  color: #fff; }
+table.is-style-table-warning th, table.is-style-table-warning td, table.table-warning th, table.table-warning td {
+  border: 1px solid #d87200; }
+
+
+.accordio {
+  border-top: 4px solid #262626;
+  border-bottom: 4px solid #262626;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  padding: 2em; }
+
+.is-style-accordio-primary {
+  border-top: 4px solid #0e5086;
+  border-bottom: 4px solid #0e5086; }
+
+.is-style-accordio-success {
+  border-top: 4px solid #28b7dd;
+  border-bottom: 4px solid #28b7dd; }
+
+.is-style-accordio-warning {
+  border-top: 4px solid #d87200;
+  border-bottom: 4px solid #d87200; }
+
+.is-style-accordio-danger {
+  border-top: 4px solid #971b2f;
+  border-bottom: 4px solid #971b2f; }
+
+.is-style-accordio-info {
+  border-top: 4px solid #0098a4;
+  border-bottom: 4px solid #0098a4; }

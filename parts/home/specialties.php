@@ -16,13 +16,11 @@ $label = get_theme_mod( ACT_THEME_SLUG . '_specialties_label', __( 'Подроб
 $page_id = get_translate_id( get_theme_mod( ACT_THEME_SLUG . '_specialties_page_id', '' ), 'page' );
 $page = ( empty( $page_id ) ) ? __return_false() : get_post( $page_id, OBJECT );
 
-
 if ( function_exists( 'pll__' ) ) {
 	$title = pll__( $title );
 	$subtitle = pll__( $subtitle );
 	$label = pll__( $label );
 }
-
 
 if ( $page instanceof \WP_Post ) {
 	$permalink = get_permalink( $page, false );
@@ -33,7 +31,6 @@ if ( $page instanceof \WP_Post ) {
 		$subtitle = $page->post_excerpt;
 	}
 }
-
 
 switch ( get_theme_mod( ACT_THEME_SLUG . '_specialties_type', 'list' ) ) {
 	case 'content':
