@@ -8,20 +8,13 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
 $section_name = 'steps';
-$title = get_theme_mod( ACT_THEME_SLUG . '_steps_title', __( 'Шаги к поступлению', ACT_THEME_TEXTDOMAIN ) );
-$subtitle = get_theme_mod( ACT_THEME_SLUG . '_steps_subtitle', '' );
-$content = __return_empty_string();
-$permalink = __return_empty_string();
-$label = get_theme_mod( ACT_THEME_SLUG . '_steps_label', __( 'Подробней', ACT_THEME_TEXTDOMAIN ) );
-$page_id = get_translate_id( get_theme_mod( ACT_THEME_SLUG . '_steps_page_id', '' ), 'page' );
-$page = ( empty( $page_id ) ) ? __return_false() : get_post( $page_id, OBJECT );
-
-
-if ( function_exists( 'pll__' ) ) {
-	$title = pll__( $title );
-	$subtitle = pll__( $subtitle );
-	$label = pll__( $label );
-}
+$title = get_theme_mod( 'steps_title', __( 'Шаги к поступлению', ACT_THEME_TEXTDOMAIN ) );
+$subtitle = get_theme_mod( 'steps_subtitle', '' );
+$content = '';
+$permalink = '';
+$label = get_theme_mod( 'steps_label', __( 'Подробней', ACT_THEME_TEXTDOMAIN ) );
+$page_id = get_theme_mod( 'steps_page_id', '' );
+$page = ( empty( $page_id ) ) ? false : get_post( $page_id, OBJECT );
 
 
 if ( $page instanceof \WP_Post ) {
@@ -35,7 +28,7 @@ if ( $page instanceof \WP_Post ) {
 }
 
 
-switch ( get_theme_mod( ACT_THEME_SLUG . '_steps_type', 'list' ) ) {
+switch ( get_theme_mod( 'steps_type', 'list' ) ) {
 	case 'content':
 		if ( $page instanceof \WP_Post ) {
 			$parts = get_extended( $page->post_content );

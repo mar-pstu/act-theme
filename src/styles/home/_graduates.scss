@@ -37,6 +37,11 @@
 
 		.specialty {
 			font-weight: bold;
+			color: $titles-color;
+		}
+
+		.excerpt {
+			color: $text-color;
 		}
 
 		.overlay {

@@ -29,7 +29,7 @@ foreach ( array(
 	'youtube'   => __( 'YouTube', ACT_THEME_TEXTDOMAIN ),
 ) as $key => $label ) {
 	$wp_customize->add_setting(
-		"{$slug}_socials[{$key}]",
+		"socials[{$key}]",
 		array(
 			'default'           => '',
 			'transport'         => 'reset',
@@ -37,7 +37,7 @@ foreach ( array(
 		)
 	);
 	$wp_customize->add_control(
-		"{$slug}_socials[{$key}]",
+		"socials[{$key}]",
 		array(
 			'section'           => "{$slug}_socials",
 			'label'             => $label,

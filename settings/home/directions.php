@@ -23,7 +23,7 @@ $wp_customize->add_section(
 
 
 $wp_customize->add_setting(
-	"{$slug}_directions_flag",
+	'directions_flag',
 	array(
 		'default'           => false,
 		'transport'         => 'reset',
@@ -31,7 +31,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	"{$slug}_directions_flag",
+	'directions_flag',
 	array(
 		'section'           => "{$slug}_directions",
 		'label'             => __( 'Использовать секцию', ACT_THEME_TEXTDOMAIN ),
@@ -42,7 +42,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-	"{$slug}_directions_title",
+	'directions_title',
 	array(
 		'default'           => __( 'Направления работы', ACT_THEME_TEXTDOMAIN ),
 		'transport'         => 'reset',
@@ -50,7 +50,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	"{$slug}_directions_title",
+	'directions_title',
 	array(
 		'section'           => "{$slug}_directions",
 		'label'             => __( 'Заголовок', ACT_THEME_TEXTDOMAIN ),
@@ -61,7 +61,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-	"{$slug}_directions_subtitle",
+	'directions_subtitle',
 	array(
 		'default'           => '',
 		'transport'         => 'reset',
@@ -69,7 +69,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	"{$slug}_directions_subtitle",
+	'directions_subtitle',
 	array(
 		'section'           => "{$slug}_directions",
 		'label'             => __( 'Подзаголовок', ACT_THEME_TEXTDOMAIN ),
@@ -80,7 +80,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-	"{$slug}_directions_type",
+	'directions_type',
 	array(
 		'default'           => 'list',
 		'transport'         => 'reset',
@@ -88,7 +88,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	"{$slug}_directions_type",
+	'directions_type',
 	array(
 		'section'           => "{$slug}_directions",
 		'label'             => __( 'Тип содержимого', ACT_THEME_TEXTDOMAIN ),
@@ -102,7 +102,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-    "{$slug}_directions_page_id",
+    'directions_page_id',
     array(
         'default'           => '',
         'transport'         => 'reset',
@@ -110,7 +110,7 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    "{$slug}_directions_page_id",
+    'directions_page_id',
     array(
         'section'           => "{$slug}_directions",
         'label'             => __( 'Выбор страницы с описанием', ACT_THEME_TEXTDOMAIN ),
@@ -121,7 +121,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-	"{$slug}_directions_label",
+	'directions_label',
 	array(
 		'default'           => __( 'Подробней', ACT_THEME_TEXTDOMAIN ),
 		'transport'         => 'reset',
@@ -129,7 +129,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	"{$slug}_directions_label",
+	'directions_label',
 	array(
 		'section'           => "{$slug}_directions",
 		'label'             => __( 'Текст кнопки', ACT_THEME_TEXTDOMAIN ),

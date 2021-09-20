@@ -23,7 +23,7 @@ $wp_customize->add_section(
 
 
 $wp_customize->add_setting(
-	"{$slug}_indicators_flag",
+	'indicators_flag',
 	array(
 		'default'           => false,
 		'transport'         => 'reset',
@@ -31,7 +31,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	"{$slug}_indicators_flag",
+	'indicators_flag',
 	array(
 		'section'           => "{$slug}_indicators",
 		'label'             => __( 'Использовать секцию', ACT_THEME_TEXTDOMAIN ),
@@ -42,7 +42,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-	"{$slug}_indicators_bgi",
+	'indicators_bgi',
 	array(
 		'default'           => ACT_THEME_URL . 'images/indicators.jpg',
 		'transport'         => 'reset',
@@ -52,11 +52,11 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
 	new \WP_Customize_Image_Control(
 		$wp_customize,
-		"{$slug}_indicators_bgi",
+		'indicators_bgi',
 		array(
 			'label'      => __( 'Фон блока', ACT_THEME_TEXTDOMAIN ),
 			'section'    => "{$slug}_indicators",
-			'settings'   => "{$slug}_indicators_bgi",
+			'settings'   => 'indicators_bgi',
 		)
 	)
 );
@@ -64,7 +64,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-	"{$slug}_indicators_text_color",
+	'indicators_text_color',
 	array(
 		'default'           => '#ffffff',
 		'transport'         => 'reset',
@@ -74,10 +74,10 @@ $wp_customize->add_setting(
 $wp_customize->add_control( 
     new \WP_Customize_Color_Control( 
     $wp_customize, 
-    "{$slug}_indicators_text_color", 
+    'indicators_text_color',
     array(
         'label'      => __( 'Цвет текста', ACT_THEME_TEXTDOMAIN ),
         'section'    => "{$slug}_indicators",
-        'settings'   => "{$slug}_indicators_text_color",
+        'settings'   => 'indicators_text_color',
     ) ) 
 );

@@ -8,20 +8,13 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
 $section_name = 'advantages';
-$title = get_theme_mod( ACT_THEME_SLUG . '_advantages_title', __( 'Преимущества обучения на кафедре', ACT_THEME_TEXTDOMAIN ) );
-$subtitle = get_theme_mod( ACT_THEME_SLUG . '_advantages_subtitle', __return_empty_string() );
-$content = __return_empty_string();
-$permalink = __return_empty_string();
-$label = get_theme_mod( ACT_THEME_SLUG . '_advantages_label', __( 'Подробней', ACT_THEME_TEXTDOMAIN ) );
-$page_id = get_translate_id( get_theme_mod( ACT_THEME_SLUG . '_advantages_page_id', '' ), 'page' );
-$page = ( empty( $page_id ) ) ? __return_false() : get_post( $page_id, OBJECT );
-
-
-if ( function_exists( 'pll__' ) ) {
-	$title = pll__( $title );
-	$subtitle = pll__( $subtitle );
-	$label = pll__( $label );
-}
+$title = get_theme_mod( 'advantages_title', __( 'Преимущества обучения на кафедре', ACT_THEME_TEXTDOMAIN ) );
+$subtitle = get_theme_mod( 'advantages_subtitle', '' );
+$content = '';
+$permalink = '';
+$label = get_theme_mod( 'advantages_label', __( 'Подробней', ACT_THEME_TEXTDOMAIN ) );
+$page_id = get_theme_mod( 'advantages_page_id', '' );
+$page = ( empty( $page_id ) ) ? false : get_post( $page_id, OBJECT );
 
 
 if ( $page instanceof \WP_Post ) {
@@ -35,7 +28,7 @@ if ( $page instanceof \WP_Post ) {
 }
 
 
-switch ( get_theme_mod( ACT_THEME_SLUG . '_advantages_type', 'list' ) ) {
+switch ( get_theme_mod( 'advantages_type', 'list' ) ) {
 	case 'content':
 		if ( $page instanceof \WP_Post ) {
 			$parts = get_extended( $page->post_content );

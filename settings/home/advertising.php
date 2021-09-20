@@ -19,7 +19,7 @@ $wp_customize->add_section(
 
 
 $wp_customize->add_setting(
-    "{$slug}_advertising_flag",
+    'advertising_flag',
     array(
         'default'           => false,
         'transport'         => 'reset',
@@ -27,7 +27,7 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    "{$slug}_advertising_flag",
+    'advertising_flag',
     array(
         'section'           => "{$slug}_advertising",
         'label'             => __( 'Использовать секцию', ACT_THEME_TEXTDOMAIN ),
@@ -37,7 +37,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-	"{$slug}_advertising_title",
+	'advertising_title',
 	array(
 		'default'           => get_bloginfo( 'name' ),
 		'transport'         => 'reset',
@@ -45,7 +45,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	"{$slug}_advertising_title",
+	'advertising_title',
 	array(
 		'section'           => "{$slug}_advertising",
 		'label'             => __( 'Заголовок', ACT_THEME_TEXTDOMAIN ),
@@ -55,25 +55,25 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-	"{$slug}_advertising_excerpt",
+	'advertising_excerpt',
 	array(
 		'default'           => get_bloginfo( 'description' ),
 		'transport'         => 'reset',
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'sanitize_textarea_field',
 	)
 );
 $wp_customize->add_control(
-	"{$slug}_advertising_excerpt",
+	'advertising_excerpt',
 	array(
 		'section'           => "{$slug}_advertising",
 		'label'             => __( 'Подзаголовок', ACT_THEME_TEXTDOMAIN ),
-		'type'              => 'text',
+		'type'              => 'textarea',
 	)
 ); /**/
 
 
 $wp_customize->add_setting(
-	"{$slug}_advertising_label",
+	'advertising_label',
 	array(
 		'default'           => __( 'Нажмите, чтобы воспроизвести видео', ACT_THEME_TEXTDOMAIN ),
 		'transport'         => 'reset',
@@ -81,7 +81,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	"{$slug}_advertising_label",
+	'advertising_label',
 	array(
 		'section'           => "{$slug}_advertising",
 		'label'             => __( 'Текст кнопки', ACT_THEME_TEXTDOMAIN ),
@@ -91,7 +91,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-	"{$slug}_advertising_video",
+	'advertising_video',
 	array(
 		'default'           => '',
 		'transport'         => 'reset',
@@ -99,7 +99,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	"{$slug}_advertising_video",
+	'advertising_video',
 	array(
 		'section'           => "{$slug}_advertising",
 		'label'             => __( 'Ссылка на Youtube видео', ACT_THEME_TEXTDOMAIN ),
@@ -109,7 +109,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-	"{$slug}_advertising_bgi",
+	'advertising_bgi',
 		array(
 			'default'           => ACT_THEME_URL . 'images/advertising.jpg',
 			'transport'         => 'reset',
@@ -119,18 +119,18 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
 	new \WP_Customize_Image_Control(
 		$wp_customize,
-		"{$slug}_advertising_bgi",
+		'advertising_bgi',
 		array(
 			'label'      => __( 'Фон', ACT_THEME_TEXTDOMAIN ),
 			'section'    => "{$slug}_advertising",
-			'settings'   => "{$slug}_advertising_bgi",
+			'settings'   => 'advertising_bgi',
 		)
 	)
 ); /**/
 
 
 $wp_customize->add_setting(
-	"{$slug}_advertising_text_color",
+	'advertising_text_color',
 	array(
 		'default'           => '#ffffff',
 		'transport'         => 'reset',
@@ -140,10 +140,10 @@ $wp_customize->add_setting(
 $wp_customize->add_control( 
     new \WP_Customize_Color_Control( 
     $wp_customize, 
-    "{$slug}_advertising_text_color", 
+    'advertising_text_color',
     array(
         'label'      => __( 'Цвет текста и кнопки Play', ACT_THEME_TEXTDOMAIN ),
         'section'    => "{$slug}_advertising",
-        'settings'   => "{$slug}_advertising_text_color",
+        'settings'   => 'advertising_text_color',
     ) ) 
 );

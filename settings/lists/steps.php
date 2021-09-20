@@ -23,7 +23,7 @@ $wp_customize->add_section(
 
 
 $wp_customize->add_setting(
-	"{$slug}_steps_number",
+	'steps_number',
 	array(
 		'default'           => 3,
 		'transport'         => 'reset',
@@ -31,7 +31,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	"{$slug}_steps_number",
+	'steps_number',
 	array(
 		'section'           => "{$slug}_list_steps",
 		'label'             => __( 'Количество записей', ACT_THEME_TEXTDOMAIN ),
@@ -45,9 +45,9 @@ $wp_customize->add_control(
 
 
 
-for ( $i=0; $i < get_theme_mod( "{$slug}_steps_number", 3 ); $i++ ) {
+for ( $i=0; $i < get_theme_mod( 'steps_number', 3 ); $i++ ) {
 	$wp_customize->add_setting(
-		"{$slug}_steps[{$i}][thumbnail]",
+		"steps[{$i}][thumbnail]",
 			array(
 				'default'           => ACT_THEME_URL . 'images/thumbnail.png',
 				'transport'         => 'reset',
@@ -57,16 +57,16 @@ for ( $i=0; $i < get_theme_mod( "{$slug}_steps_number", 3 ); $i++ ) {
 	$wp_customize->add_control(
 		new \WP_Customize_Image_Control(
 			$wp_customize,
-			"{$slug}_steps[{$i}][thumbnail]",
+			"steps[{$i}][thumbnail]",
 			array(
 				'label'      => sprintf( __( 'лого №%d', ACT_THEME_TEXTDOMAIN ), ( $i + 1 ) ),
 				'section'    => "{$slug}_list_steps",
-				'settings'   => "{$slug}_steps[{$i}][thumbnail]",
+				'settings'   => "steps[{$i}][thumbnail]",
 			)
 		)
 	);
 	$wp_customize->add_setting(
-		"{$slug}_steps[{$i}][title]",
+		"steps[{$i}][title]",
 		array(
 			'default'           => '',
 			'transport'         => 'reset',
@@ -74,7 +74,7 @@ for ( $i=0; $i < get_theme_mod( "{$slug}_steps_number", 3 ); $i++ ) {
 		)
 	);
 	$wp_customize->add_control(
-		"{$slug}_steps[{$i}][title]",
+		"steps[{$i}][title]",
 		array(
 			'section'           => "{$slug}_list_steps",
 			'label'             => sprintf( __( 'заголовок №%d', ACT_THEME_TEXTDOMAIN ), ( $i + 1 ) ),
@@ -82,23 +82,23 @@ for ( $i=0; $i < get_theme_mod( "{$slug}_steps_number", 3 ); $i++ ) {
 		)
 	); /**/
 	$wp_customize->add_setting(
-		"{$slug}_steps[{$i}][excerpt]",
+		"steps[{$i}][excerpt]",
 		array(
 			'default'           => '',
 			'transport'         => 'reset',
-			'sanitize_callback' => 'sanitize_text_field',
+			'sanitize_callback' => 'sanitize_textarea_field',
 		)
 	);
 	$wp_customize->add_control(
-		"{$slug}_steps[{$i}][excerpt]",
+		"steps[{$i}][excerpt]",
 		array(
 			'section'           => "{$slug}_list_steps",
 			'label'             => sprintf( __( 'описание №%d', ACT_THEME_TEXTDOMAIN ), ( $i + 1 ) ),
-			'type'              => 'text',
+			'type'              => 'textarea',
 		)
 	); /**/
 	$wp_customize->add_setting(
-		"{$slug}_steps[{$i}][link]",
+		"steps[{$i}][link]",
 		array(
 			'default'           => '',
 			'transport'         => 'reset',
@@ -106,7 +106,7 @@ for ( $i=0; $i < get_theme_mod( "{$slug}_steps_number", 3 ); $i++ ) {
 		)
 	);
 	$wp_customize->add_control(
-		"{$slug}_steps[{$i}][link]",
+		"steps[{$i}][link]",
 		array(
 			'section'           => "{$slug}_list_steps",
 			'label'             => sprintf( __( 'ссылка №%d', ACT_THEME_TEXTDOMAIN ), ( $i + 1 ) ),

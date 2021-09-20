@@ -24,7 +24,7 @@ $wp_customize->add_section(
 
 for ( $i=0; $i < 4; $i++ ) {
 	$wp_customize->add_setting(
-		"{$slug}_indicators[{$i}][logo]",
+		"indicators[{$i}][logo]",
 			array(
 				'default'           => ACT_THEME_URL . 'images/business.png',
 				'transport'         => 'reset',
@@ -34,16 +34,16 @@ for ( $i=0; $i < 4; $i++ ) {
 	$wp_customize->add_control(
 		new \WP_Customize_Image_Control(
 			$wp_customize,
-			"{$slug}_indicators[{$i}][logo]",
+			"indicators[{$i}][logo]",
 			array(
 				'label'      => sprintf( __( 'лого №%d', ACT_THEME_TEXTDOMAIN ), ( $i + 1 ) ),
 				'section'    => "{$slug}_list_indicators",
-				'settings'   => "{$slug}_indicators[{$i}][logo]",
+				'settings'   => "indicators[{$i}][logo]",
 			)
 		)
 	);
 	$wp_customize->add_setting(
-		"{$slug}_indicators[{$i}][label]",
+		"indicators[{$i}][label]",
 		array(
 			'default'           => '',
 			'transport'         => 'reset',
@@ -51,7 +51,7 @@ for ( $i=0; $i < 4; $i++ ) {
 		)
 	);
 	$wp_customize->add_control(
-		"{$slug}_indicators[{$i}][label]",
+		"indicators[{$i}][label]",
 		array(
 			'section'           => "{$slug}_list_indicators",
 			'label'             => sprintf( __( 'описание №%d', ACT_THEME_TEXTDOMAIN ), ( $i + 1 ) ),
@@ -59,7 +59,7 @@ for ( $i=0; $i < 4; $i++ ) {
 		)
 	); /**/
 	$wp_customize->add_setting(
-		"{$slug}_indicators[{$i}][value]",
+		"indicators[{$i}][value]",
 		array(
 			'default'           => '',
 			'transport'         => 'reset',
@@ -67,7 +67,7 @@ for ( $i=0; $i < 4; $i++ ) {
 		)
 	);
 	$wp_customize->add_control(
-		"{$slug}_indicators[{$i}][value]",
+		"indicators[{$i}][value]",
 		array(
 			'section'           => "{$slug}_list_indicators",
 			'label'             => sprintf( __( 'значение №%d', ACT_THEME_TEXTDOMAIN ), ( $i + 1 ) ),

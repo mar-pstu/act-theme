@@ -18,9 +18,14 @@ foreach ( array(
     'advantages',
     'questions',
 ) as $key ) {
-    if ( get_theme_mod( ACT_THEME_SLUG . "_{$key}_flag", false ) ) {
+    if ( get_theme_mod( $key . '_flag', false ) ) {
         get_template_part( "parts/home/$key" );
     }
+}
+
+
+if ( is_active_sidebar( 'basement' ) ) {
+    get_sidebar( 'basement' );
 }
 
 

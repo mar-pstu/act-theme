@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 							if ( $custom_logo_id ) {
 								printf(
 									'<img class="custom-logo" src="%1$s" alt="%2$s">',
-									wp_get_attachment_image_src( $custom_logo_id, 'thumbnail', false ),
+									wp_get_attachment_image_url( $custom_logo_id, 'thumbnail', false ),
 									get_bloginfo( 'name', 'display' )
 								);
 							} else {
@@ -35,7 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 						?>
 					</a>
 					<?php
-						if ( has_nav_menu( 'main' ) )  wp_nav_menu( array(
+						if ( has_nav_menu( 'main' ) ) wp_nav_menu( array(
 							'theme_location'  => 'main',
 							'menu'            => 'main',
 							'container'       => 'nav',
@@ -48,7 +48,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 						) );
 						echo get_languages_list();
 					?>
-					<button class="burger-button" role="button">
+					<button class="burger" id="burger" role="button">
 						<span class="label"><?php _e( 'Меню', ACT_THEME_TEXTDOMAIN ); ?></span>
 						<svg class="icon" x="0px" y="0px" viewBox="0 0 459 459" style="enable-background:new 0 0 459 459;" xml:space="preserve">
 							<path d="M0,382.5h459v-51H0V382.5z M0,255h459v-51H0V255z M0,76.5v51h459v-51H0z" data-original="#000000" data-old_color="#ffffff" fill="#ffffff"></path>

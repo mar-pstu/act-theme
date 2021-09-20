@@ -23,7 +23,7 @@ $wp_customize->add_section(
 
 
 $wp_customize->add_setting(
-	"{$slug}_questions_flag",
+	'questions_flag',
 	array(
 		'default'           => false,
 		'transport'         => 'reset',
@@ -31,7 +31,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	"{$slug}_questions_flag",
+	'questions_flag',
 	array(
 		'section'           => "{$slug}_questions",
 		'label'             => __( 'Использовать секцию', ACT_THEME_TEXTDOMAIN ),
@@ -42,7 +42,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-	"{$slug}_questions_title",
+	'questions_title',
 	array(
 		'default'           => __( 'Остались вопросы?', ACT_THEME_TEXTDOMAIN ),
 		'transport'         => 'reset',
@@ -50,7 +50,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	"{$slug}_questions_title",
+	'questions_title',
 	array(
 		'section'           => "{$slug}_questions",
 		'label'             => __( 'Заголовок', ACT_THEME_TEXTDOMAIN ),
@@ -61,7 +61,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-	"{$slug}_questions_subtitle",
+	'questions_subtitle',
 	array(
 		'default'           => __( 'Напишите нам, мы с Вами обязательно свяжемся.', ACT_THEME_TEXTDOMAIN ),
 		'transport'         => 'reset',
@@ -69,7 +69,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	"{$slug}_questions_subtitle",
+	'questions_subtitle',
 	array(
 		'section'           => "{$slug}_questions",
 		'label'             => __( 'Подзаголовок', ACT_THEME_TEXTDOMAIN ),
@@ -80,7 +80,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-    "{$slug}_questions_type",
+    'questions_type',
     array(
         'default'           => 'shortcode',
         'transport'         => 'reset',
@@ -88,7 +88,7 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    "{$slug}_questions_type",
+    'questions_type',
     array(
         'section'           => "{$slug}_questions",
         'label'             => __( 'Тип контента', ACT_THEME_TEXTDOMAIN ),
@@ -103,7 +103,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-	"{$slug}_questions_shortcode",
+	'questions_shortcode',
 	array(
 		'default'           => '[contacts_form]',
 		'transport'         => 'reset',
@@ -111,7 +111,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	"{$slug}_questions_shortcode",
+	'questions_shortcode',
 	array(
 		'section'           => "{$slug}_questions",
 		'label'             => __( 'Шорткод формы', ACT_THEME_TEXTDOMAIN ),
@@ -122,7 +122,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-    "{$slug}_questions_page_id",
+    'questions_page_id',
     array(
         'default'           => '',
         'transport'         => 'reset',
@@ -130,7 +130,7 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    "{$slug}_questions_page_id",
+    'questions_page_id',
     array(
         'section'           => "{$slug}_questions",
         'label'             => __( 'Выбор страницы', ACT_THEME_TEXTDOMAIN ),
@@ -141,7 +141,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-	"{$slug}_questions_label",
+	'questions_label',
 	array(
 		'default'           => __( 'Подробней', ACT_THEME_TEXTDOMAIN ),
 		'transport'         => 'reset',
@@ -149,7 +149,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	"{$slug}_questions_label",
+	'questions_label',
 	array(
 		'section'           => "{$slug}_questions",
 		'label'             => __( 'Текст кнопки внизу секции', ACT_THEME_TEXTDOMAIN ),

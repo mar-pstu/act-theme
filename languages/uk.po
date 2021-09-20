@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2020-02-10 14:59+0200\n"
-"PO-Revision-Date: 2020-02-10 15:14+0200\n"
+"POT-Creation-Date: 2021-09-17 13:52+0300\n"
+"PO-Revision-Date: 2021-09-17 14:46+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 3.0\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
@@ -30,19 +30,11 @@ msgstr "Сторінка не знайдена"
 msgid "На главную"
 msgstr "На головну"
 
-#: footer.php:26
+#: footer.php:28
 msgid "ЦКТ ПГТУ"
 msgstr "ЦКТ ПДТУ"
 
-#: functions.php:72
-msgid "Главное меню"
-msgstr "Головне меню"
-
-#: functions.php:85
-msgid "Колонка"
-msgstr "Колонка"
-
-#: header.php:52 parts/mobilenav.php:21
+#: header.php:52 includes/sidebars.php:38 parts/mobilenav.php:25
 msgid "Меню"
 msgstr "Меню"
 
@@ -62,6 +54,14 @@ msgstr "Типи сторінок теми"
 msgid "Наверх"
 msgstr "Наверх"
 
+#: includes/menus.php:16
+msgid "Главное меню"
+msgstr "Головне меню"
+
+#: includes/menus.php:17
+msgid "Мобильное меню"
+msgstr "Мобільне меню"
+
 #: includes/register-strings.php:15 parts/home/about.php:19
 #: settings/home/about.php:16 settings/home/about.php:65
 msgid "О нас"
@@ -73,7 +73,7 @@ msgstr "Про нас"
 #: includes/register-strings.php:44 includes/register-strings.php:48
 #: includes/shortcodes.php:89 parts/archive.php:24 parts/home/about.php:20
 #: parts/home/advantages.php:15 parts/home/cources.php:15
-#: parts/home/directions.php:14 parts/home/graduates.php:15
+#: parts/home/directions.php:13 parts/home/graduates.php:15
 #: parts/home/jumbotron.php:12 parts/home/questions.php:13
 #: parts/home/specialties.php:15 parts/home/steps.php:15
 #: parts/home/teachers.php:13 settings/home/about.php:84
@@ -81,7 +81,7 @@ msgstr "Про нас"
 #: settings/home/directions.php:126 settings/home/graduates.php:127
 #: settings/home/jumbotron.php:106 settings/home/questions.php:146
 #: settings/home/specialties.php:125 settings/home/steps.php:127
-#: settings/home/teachers.php:123 views/items/cource.php:26
+#: settings/home/teachers.php:142 views/items/cource.php:26
 msgid "Подробней"
 msgstr "Докладніше"
 
@@ -101,7 +101,7 @@ msgstr "Натисніть, щоб відтворити відео"
 msgid "Курсы"
 msgstr "Курси"
 
-#: includes/register-strings.php:26 parts/home/directions.php:12
+#: includes/register-strings.php:26 parts/home/directions.php:11
 #: settings/home/directions.php:16 settings/home/directions.php:47
 #: settings/lists/directions.php:16
 msgid "Направления работы"
@@ -140,52 +140,52 @@ msgstr "Кроки до вступу"
 msgid "Преподаватели"
 msgstr "Викладачі"
 
-#: includes/register-strings.php:49 parts/home/teachers.php:14
-#: settings/home/teachers.php:142
+#: includes/register-strings.php:49 parts/home/teachers.php:15
+#: settings/home/teachers.php:161
 msgid "Мы в социальных сетях"
 msgstr "Ми в соціальних мережах"
 
-#: includes/shortcodes.php:170
+#: includes/shortcodes.php:171
 msgid "Предыдущий слайд"
 msgstr "Попередній слайд"
 
-#: includes/shortcodes.php:173
+#: includes/shortcodes.php:174
 msgid "Следующий слайд"
 msgstr "Наступний слайд"
 
-#: includes/shortcodes.php:242
+#: includes/shortcodes.php:243
 msgid "Мы на Facebook"
 msgstr "Ми на Facebook"
 
-#: includes/shortcodes.php:243
+#: includes/shortcodes.php:244
 msgid "Мы в LinkedIn"
 msgstr "Ми в LinkedIn"
 
-#: includes/shortcodes.php:244
+#: includes/shortcodes.php:245
 msgid "Мы в Instagram"
 msgstr "Ми в Instagram"
 
-#: includes/shortcodes.php:245
+#: includes/shortcodes.php:246
 msgid "Мы на YouTube"
 msgstr "Ми на YouTube"
 
-#: includes/shortcodes.php:283
+#: includes/shortcodes.php:284
 msgid "Аноним"
 msgstr "Анонім"
 
-#: includes/shortcodes.php:288
+#: includes/shortcodes.php:289
 msgid "Сообщение с сайта"
 msgstr "Повідомлення з сайту"
 
-#: includes/shortcodes.php:299
+#: includes/shortcodes.php:300
 msgid "Сообщение отправлено"
 msgstr "Повідомлення відправлено"
 
-#: includes/shortcodes.php:301
+#: includes/shortcodes.php:302
 msgid "Сообщение не отправлено, попробуйте позже"
 msgstr "Повідомлення не відправлено, спробуйте пізніше"
 
-#: includes/shortcodes.php:304
+#: includes/shortcodes.php:305
 msgid ""
 "Вы в \"черном списке\", сообщение отклонено. Обратитесь к администратору "
 "сайта."
@@ -193,9 +193,25 @@ msgstr ""
 "Ви в \"чорному списку\", повідомлення відхилено. Зверніться до "
 "адміністратора сайту."
 
-#: includes/shortcodes.php:307
+#: includes/shortcodes.php:308
 msgid "Сообщение похоже на спам и отклонено."
 msgstr "Повідомлення схоже на спам і відхилено."
+
+#: includes/sidebars.php:18
+msgid "Колонка"
+msgstr "Колонка"
+
+#: includes/sidebars.php:28
+msgid "Сайдбар подвала"
+msgstr "Сайдбар підвалу"
+
+#: includes/sidebars.php:30
+msgid "Отображается только на главной странице"
+msgstr "Відображається лише на головній сторінці"
+
+#: includes/sidebars.php:40
+msgid "Отображается в мобильном меню"
+msgstr "Відображається в мобільному меню"
 
 #: includes/template-functions.php:55
 msgid "Главная"
@@ -205,13 +221,184 @@ msgstr "Головна"
 msgid "Домашняя страница"
 msgstr "Домашня сторінка"
 
-#: includes/template-functions.php:117
+#: includes/template-functions.php:118
 msgid "Смотреть предыдущий пост"
 msgstr "Дивитися попередній пост"
 
-#: includes/template-functions.php:121
+#: includes/template-functions.php:122
 msgid "Смотреть следующий пост"
 msgstr "Наступне пост"
+
+#: parts/archive.php:35
+msgid "Записи не найдены"
+msgstr "Записи не знайдені"
+
+#: parts/mobilenav.php:19
+msgid "Закрыть меню"
+msgstr "Закрити меню"
+
+#: scripts/gutenberg.js:8
+msgid "Аккордеон"
+msgstr "Акордеон"
+
+#: scripts/gutenberg.js:9
+msgid "PSTU Текстовый блок аналог Boootstrap блока \"well\"."
+msgstr ""
+
+#: scripts/gutenberg.js:11 scripts/gutenberg.js:120
+msgid "ПГТУ"
+msgstr "ПДТУ"
+
+#: scripts/gutenberg.js:12
+msgid "аккордеон"
+msgstr ""
+
+#: scripts/gutenberg.js:13 settings/home/advantages.php:97
+#: settings/home/cources.php:97 settings/home/directions.php:97
+#: settings/home/graduates.php:97 settings/home/specialties.php:96
+#: settings/home/steps.php:97
+msgid "список"
+msgstr "список"
+
+#: scripts/gutenberg.js:14
+#, fuzzy
+#| msgid "контент"
+msgid "контейнер"
+msgstr "контент"
+
+#: scripts/gutenberg.js:37
+msgid "Стандартный"
+msgstr ""
+
+#: scripts/gutenberg.js:42
+msgid "Primary"
+msgstr ""
+
+#: scripts/gutenberg.js:47
+msgid "Success"
+msgstr ""
+
+#: scripts/gutenberg.js:52
+msgid "Warning"
+msgstr ""
+
+#: scripts/gutenberg.js:57
+msgid "Danger"
+msgstr ""
+
+#: scripts/gutenberg.js:62
+msgid "Info"
+msgstr ""
+
+#: scripts/gutenberg.js:72
+#, fuzzy
+#| msgid "Подзаголовок"
+msgid "Уровень заголовка"
+msgstr "Підзаголовок"
+
+#: scripts/gutenberg.js:78
+#, fuzzy
+#| msgid "Заголовок"
+msgid "Заголовок 2"
+msgstr "Заголовок"
+
+#: scripts/gutenberg.js:79
+#, fuzzy
+#| msgid "Заголовок"
+msgid "Заголовок 3"
+msgstr "Заголовок"
+
+#: scripts/gutenberg.js:80
+#, fuzzy
+#| msgid "Заголовок"
+msgid "Заголовок 4"
+msgstr "Заголовок"
+
+#: scripts/gutenberg.js:117
+msgid "PSTU Clearfix"
+msgstr ""
+
+#: scripts/gutenberg.js:118
+msgid ""
+"Используется для решения проблем, возникающих при содержании «плавающих» "
+"элементов в рамках блока контейнера или обтекания элементов"
+msgstr ""
+
+#: scripts/gutenberg.js:121
+msgid "очистка"
+msgstr ""
+
+#: scripts/gutenberg.js:122
+msgid "ластик"
+msgstr ""
+
+#: scripts/gutenberg.js:123
+#, fuzzy
+#| msgid "описание №%d"
+msgid "обтекание"
+msgstr "опис №%d"
+
+#: scripts/gutenberg.js:124
+#, fuzzy
+#| msgid "Сообщение"
+msgid "изображение"
+msgstr "Повідомлення"
+
+#: scripts/gutenberg.js:125
+msgid "выравнивание"
+msgstr ""
+
+#: scripts/gutenberg.js:175
+msgid "Text Primary"
+msgstr ""
+
+#: scripts/gutenberg.js:180
+msgid "Text Success"
+msgstr ""
+
+#: scripts/gutenberg.js:185
+msgid "Text Info"
+msgstr ""
+
+#: scripts/gutenberg.js:190
+msgid "Text Warning"
+msgstr ""
+
+#: scripts/gutenberg.js:195
+msgid "Text Danger"
+msgstr ""
+
+#: scripts/gutenberg.js:203
+msgid "Table Default"
+msgstr ""
+
+#: scripts/gutenberg.js:208
+msgid "Table Primary"
+msgstr ""
+
+#: scripts/gutenberg.js:213
+msgid "Table Success"
+msgstr ""
+
+#: scripts/gutenberg.js:218
+msgid "Table Warning"
+msgstr ""
+
+#: scripts/gutenberg.js:223
+msgid "Table Danger"
+msgstr ""
+
+#: scripts/gutenberg.js:228
+msgid "Table Info"
+msgstr ""
+
+#: scripts/gutenberg.js:255
+msgid "Уменьшенный размер шрифта"
+msgstr ""
+
+#: scripts/gutenberg.js:263
+msgid "Увеличеный размер шрифта"
+msgstr ""
 
 #: settings/home/about.php:18
 msgid "Вторая секция главной страницы. Якорь #about"
@@ -227,7 +414,7 @@ msgid "Использовать секцию"
 msgstr "Використовувати секцію"
 
 #: settings/home/about.php:55 settings/home/directions.php:116
-#: settings/home/teachers.php:113
+#: settings/home/teachers.php:132
 msgid "Выбор страницы с описанием"
 msgstr "Вибір сторінки з описом"
 
@@ -243,7 +430,7 @@ msgstr "Заголовок"
 #: settings/home/about.php:93 settings/home/advertising.php:87
 #: settings/home/directions.php:135 settings/home/jumbotron.php:115
 #: settings/home/specialties.php:134 settings/home/steps.php:136
-#: settings/home/teachers.php:132
+#: settings/home/teachers.php:151
 msgid "Текст кнопки"
 msgstr "Текст кнопки"
 
@@ -273,12 +460,6 @@ msgstr "Підзаголовок"
 #: settings/home/steps.php:94
 msgid "Тип контента"
 msgstr "Тип контенту"
-
-#: settings/home/advantages.php:97 settings/home/cources.php:97
-#: settings/home/directions.php:97 settings/home/graduates.php:97
-#: settings/home/specialties.php:96 settings/home/steps.php:97
-msgid "список"
-msgstr "список"
 
 #: settings/home/advantages.php:98 settings/home/cources.php:98
 #: settings/home/directions.php:98 settings/home/graduates.php:98
@@ -310,7 +491,7 @@ msgstr "Секція головної сторінки. Якір #advertising"
 msgid "Ссылка на Youtube видео"
 msgstr "Посилання на Youtube відео"
 
-#: settings/home/advertising.php:124
+#: settings/home/advertising.php:124 settings/home/jumbotron.php:153
 msgid "Фон"
 msgstr "Фон"
 
@@ -409,10 +590,16 @@ msgid "Шестая секция главной страницы. Якорь #te
 msgstr "Шоста секція головної сторінки. Якір #teachers"
 
 #: settings/home/teachers.php:94
-msgid "Заголовок более расширеного описания"
+#, fuzzy
+#| msgid "Заголовок более расширеного описания"
+msgid "Заголовок более расширенного описания"
 msgstr "Тема більш розширеного опису"
 
-#: settings/home/teachers.php:151
+#: settings/home/teachers.php:112
+msgid "Описание расширенное"
+msgstr ""
+
+#: settings/home/teachers.php:170
 msgid "Заголовок блока со ссылками на социальные сети"
 msgstr "Тема блоку з посиланнями на соціальні мережі"
 

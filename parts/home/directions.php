@@ -8,20 +8,14 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
 $section_name = 'directions';
-$title = get_theme_mod( ACT_THEME_SLUG . '_directions_title', __( 'Направления работы', ACT_THEME_TEXTDOMAIN ) );
-$subtitle = get_theme_mod( ACT_THEME_SLUG . '_directions_subtitle', __return_empty_string() );
-$label = get_theme_mod( ACT_THEME_SLUG . '_directions_label', __( 'Подробней', ACT_THEME_TEXTDOMAIN ) );
-$content = __return_empty_string();
-$permalink = __return_empty_string();
-$page_id = get_translate_id( get_theme_mod( ACT_THEME_SLUG . '_directions_page_id', '' ), 'page' );
+$title = get_theme_mod( 'directions_title', __( 'Направления работы', ACT_THEME_TEXTDOMAIN ) );
+$subtitle = get_theme_mod( 'directions_subtitle', '' );
+$label = get_theme_mod( 'directions_label', __( 'Подробней', ACT_THEME_TEXTDOMAIN ) );
+$content = '';
+$permalink = '';
+$page_id = get_theme_mod( 'directions_page_id', '' );
 $page = ( empty( $page_id ) ) ? __return_false() : get_post( $page_id, OBJECT );
 
-
-if ( function_exists( 'pll__' ) ) {
-	$title = pll__( $title );
-	$subtitle = pll__( $subtitle );
-	$label = pll__( $label );
-}
 
 if ( $page instanceof \WP_Post ) {
 	$permalink = get_permalink( $page, false );
@@ -33,7 +27,7 @@ if ( $page instanceof \WP_Post ) {
 	}
 }
 
-switch ( get_theme_mod( ACT_THEME_SLUG . '_directions_type', 'list' ) ) {
+switch ( get_theme_mod( 'directions_type', 'list' ) ) {
 	case 'content':
 		if ( $page instanceof \WP_Post ) {
 			$parts = get_extended( $page->post_content );

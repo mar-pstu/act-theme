@@ -82,7 +82,8 @@ function the_breadcrumb() {
 
 
 function get_translate_id( $id, $type = 'post' ) {
-	$result = '';
+	$result = 0;
+	$translate = 0;
 	if ( $id && ! empty( $id ) ) {
 		if ( defined( 'POLYLANG_FILE' ) ) {
 			switch ( $type ) {
@@ -131,7 +132,7 @@ function the_pager() {
 	$content = ob_get_contents();
 	ob_end_clean();
 	if ( ! empty( $content ) ) {
-			echo '<nav class="pager">' . $content . '</nav>';
+			echo '<nav class="pager clearfix">' . $content . '</nav>';
 	}
 }
 
@@ -199,11 +200,11 @@ function render_default_list_of_items( $name, $template_name, $number, $fields, 
 	$args = wp_parse_args( $args, array(
 		'section' => true,
 	) );
-	$result = __return_empty_string();
-	$items = get_theme_mod( ACT_THEME_SLUG . '_' . $name, __return_empty_array() );
+	$result = '';
+	$items = get_theme_mod( $name, [] );
 	if ( is_array( $items ) ) {
 		ob_start();
-		for ( $i = 0; $i < get_theme_mod( ACT_THEME_SLUG . '_' . $name . '_number', $number ); $i++ ) {
+		for ( $i = 0; $i < get_theme_mod( $name . '_number', $number ); $i++ ) {
 			if ( isset( $items[ $i ] ) && is_array( $items[ $i ] ) ) {
 				$validate_flag = __return_true();
 				foreach ( $fields as $field ) {
@@ -240,4 +241,45 @@ function render_default_list_of_items( $name, $template_name, $number, $fields, 
 		}
 	}
 	return $result;
+}
+
+
+
+/**
+ * Проверяет является ли переданная строка валидным URL
+ * @param  string  $url исходная строка
+ * @return boolean      результат проверки
+ */
+function is_url( $url = '' ) {
+	$result = false;
+	if ( is_string( $url ) ) {
+		$path = parse_url( $url, PHP_URL_PATH );
+		$encoded_path = array_map( 'urlencode', explode( '/', $path ) );
+		$url = str_replace( $path, implode( '/', $encoded_path ), $url );
+		$result = filter_var( $url, FILTER_VALIDATE_URL) ? true : false;
+	}
+	return $result;
+}
+
+
+/**
+ *  Определяет есть ли дочернее меню у переданного пункта
+ */
+function is_nav_has_sub_menu( $item_id, $items ) {
+	foreach ( $items as $item ) {
+		if ( $item->menu_item_parent && $item->menu_item_parent == $item_id ) {
+			return true;
+		}
+	}
+	return false;
+}
+
+
+/**
+ * Удаление размера изображения из url вложения
+ * @param    string   $url   url изображения, который нужно очистить
+ * @return   string          очищенный url
+ * */
+function removing_image_size_from_url( $url = '' ) {
+	return preg_replace( '~-[0-9]+x[0-9]+(?=\..{2,6})~', '', $url );
 }

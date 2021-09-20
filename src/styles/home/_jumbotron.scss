@@ -1,20 +1,43 @@
 .jumbotron {
 
-	background-color: #43444b;
 	text-align: center;
 	min-height: 85vh;
-	padding: 15em 0 5em 0;
+	padding: 5em 0;
 	box-sizing: border-box;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	position: relative;
+
+	.bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		overflow: hidden;
+		background-color: #43444b;
+		z-index: -1;
+	}
+
+	.bg img {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate( -50%, -50% );
+		min-width: 100%;
+		min-height: 100%;
+		width: auto;
+		height: auto;
+	}
 
 	.title {
 		margin: 0;
 		max-width: 25em;
 		margin-left: auto;
 		margin-right: auto;
+		text-shadow: .1em .1em .25em rgba( 0, 0, 0, .75 );
 	}
 
 	.description {
@@ -22,6 +45,7 @@
 		max-width: 35em;
 		margin-left: auto;
 		margin-right: auto;
+		text-shadow: .1em .1em .25em rgba( 0, 0, 0, .75 );
 	}
 
 	.permalink {
@@ -32,5 +56,8 @@
 		margin-bottom: 1em;
 	}
 
+	.section.features {
+		padding: 0;
+	}
 
 }

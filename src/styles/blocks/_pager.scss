@@ -4,12 +4,12 @@
 
 .pager {
 
-	margin: 25px 0px;
+	margin: 2em 0;
 
 	.item {
 		@include td ( none, none );
 		display: flex;
-		align-items: flex-start;
+		align-items: center;
 		justify-content: flex-start;
 		width: 100%;
 		margin: 1em 0;

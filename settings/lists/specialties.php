@@ -23,7 +23,7 @@ $wp_customize->add_section(
 
 
 $wp_customize->add_setting(
-	"{$slug}_specialties_number",
+	'specialties_number',
 	array(
 		'default'           => 4,
 		'transport'         => 'reset',
@@ -31,7 +31,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	"{$slug}_specialties_number",
+	'specialties_number',
 	array(
 		'section'           => "{$slug}_list_specialties",
 		'label'             => __( 'Количество записей', ACT_THEME_TEXTDOMAIN ),
@@ -45,9 +45,9 @@ $wp_customize->add_control(
 
 
 
-for ( $i=0; $i < get_theme_mod( "{$slug}_specialties_number", 3 ); $i++ ) {
+for ( $i=0; $i < get_theme_mod( 'specialties_number', 3 ); $i++ ) {
 	$wp_customize->add_setting(
-		"{$slug}_specialties[{$i}][thumbnail]",
+		"specialties[{$i}][thumbnail]",
 			array(
 				'default'           => ACT_THEME_URL . 'images/thumbnail.png',
 				'transport'         => 'reset',
@@ -57,16 +57,16 @@ for ( $i=0; $i < get_theme_mod( "{$slug}_specialties_number", 3 ); $i++ ) {
 	$wp_customize->add_control(
 		new \WP_Customize_Image_Control(
 			$wp_customize,
-			"{$slug}_specialties[{$i}][thumbnail]",
+			"specialties[{$i}][thumbnail]",
 			array(
 				'label'      => sprintf( __( 'лого №%d', ACT_THEME_TEXTDOMAIN ), ( $i + 1 ) ),
 				'section'    => "{$slug}_list_specialties",
-				'settings'   => "{$slug}_specialties[{$i}][thumbnail]",
+				'settings'   => "specialties[{$i}][thumbnail]",
 			)
 		)
 	);
 	$wp_customize->add_setting(
-		"{$slug}_specialties[{$i}][title]",
+		"specialties[{$i}][title]",
 		array(
 			'default'           => '',
 			'transport'         => 'reset',
@@ -74,7 +74,7 @@ for ( $i=0; $i < get_theme_mod( "{$slug}_specialties_number", 3 ); $i++ ) {
 		)
 	);
 	$wp_customize->add_control(
-		"{$slug}_specialties[{$i}][title]",
+		"specialties[{$i}][title]",
 		array(
 			'section'           => "{$slug}_list_specialties",
 			'label'             => sprintf( __( 'заголовок №%d', ACT_THEME_TEXTDOMAIN ), ( $i + 1 ) ),
@@ -82,7 +82,7 @@ for ( $i=0; $i < get_theme_mod( "{$slug}_specialties_number", 3 ); $i++ ) {
 		)
 	); /**/
 	$wp_customize->add_setting(
-		"{$slug}_specialties[{$i}][link]",
+		"specialties[{$i}][link]",
 		array(
 			'default'           => '',
 			'transport'         => 'reset',
@@ -90,7 +90,7 @@ for ( $i=0; $i < get_theme_mod( "{$slug}_specialties_number", 3 ); $i++ ) {
 		)
 	);
 	$wp_customize->add_control(
-		"{$slug}_specialties[{$i}][link]",
+		"specialties[{$i}][link]",
 		array(
 			'section'           => "{$slug}_list_specialties",
 			'label'             => sprintf( __( 'ссылка №%d', ACT_THEME_TEXTDOMAIN ), ( $i + 1 ) ),

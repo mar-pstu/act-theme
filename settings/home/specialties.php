@@ -23,7 +23,7 @@ $wp_customize->add_section(
 
 
 $wp_customize->add_setting(
-    "{$slug}_specialties_flag",
+    'specialties_flag',
     array(
         'default'           => false,
         'transport'         => 'reset',
@@ -31,7 +31,7 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    "{$slug}_specialties_flag",
+    'specialties_flag',
     array(
         'section'           => "{$slug}_specialties",
         'label'             => __( 'Использовать секцию', ACT_THEME_TEXTDOMAIN ),
@@ -42,7 +42,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-    "{$slug}_specialties_title",
+    'specialties_title',
     array(
         'default'           => __( 'Специальности', ACT_THEME_TEXTDOMAIN ),
         'transport'         => 'reset',
@@ -50,7 +50,7 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    "{$slug}_specialties_title",
+    'specialties_title',
     array(
         'section'           => "{$slug}_specialties",
         'label'             => __( 'Заголовок', ACT_THEME_TEXTDOMAIN ),
@@ -61,7 +61,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-    "{$slug}_specialties_subtitle",
+    'specialties_subtitle',
     array(
         'default'           => '',
         'transport'         => 'reset',
@@ -69,7 +69,7 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    "{$slug}_specialties_subtitle",
+    'specialties_subtitle',
     array(
         'section'           => "{$slug}_specialties",
         'label'             => __( 'Подзаголовок', ACT_THEME_TEXTDOMAIN ),
@@ -79,7 +79,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-    "{$slug}_specialties_type",
+    'specialties_type',
     array(
         'default'           => 'list',
         'transport'         => 'reset',
@@ -87,7 +87,7 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    "{$slug}_specialties_type",
+    'specialties_type',
     array(
         'section'           => "{$slug}_specialties",
         'label'             => __( 'Тип содержимого', ACT_THEME_TEXTDOMAIN ),
@@ -101,7 +101,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-    "{$slug}_specialties_page_id",
+    'specialties_page_id',
     array(
         'default'           => '',
         'transport'         => 'reset',
@@ -109,7 +109,7 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    "{$slug}_specialties_page_id",
+    'specialties_page_id',
     array(
         'section'           => "{$slug}_specialties",
         'label'             => __( 'Выбор страницы', ACT_THEME_TEXTDOMAIN ),
@@ -120,7 +120,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-    "{$slug}_specialties_label",
+    'specialties_label',
     array(
         'default'           => __( 'Подробней', ACT_THEME_TEXTDOMAIN ),
         'transport'         => 'reset',
@@ -128,7 +128,7 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    "{$slug}_specialties_label",
+    'specialties_label',
     array(
         'section'           => "{$slug}_specialties",
         'label'             => __( 'Текст кнопки', ACT_THEME_TEXTDOMAIN ),

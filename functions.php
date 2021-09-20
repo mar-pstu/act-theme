@@ -19,7 +19,8 @@ get_template_part( 'includes/template-functions' );
 get_template_part( 'includes/shortcodes' );
 get_template_part( 'includes/gutenberg' );
 get_template_part( 'includes/brand' );
-
+get_template_part( 'includes/menus' );
+get_template_part( 'includes/sidebars' );
 
 
 
@@ -36,6 +37,7 @@ if ( function_exists( 'pll_register_string' ) ) {
  * Регистрация настроек кастомайзера
  */
 if ( is_customize_preview() ) {
+	include get_theme_file_path( 'includes/wp-customize-control-tinymce-editor.php' );
 	include get_theme_file_path( 'includes/customizer.php' );
 }
 
@@ -61,38 +63,6 @@ function act_theme_load_textdomain() {
 	load_theme_textdomain( ACT_THEME_TEXTDOMAIN, ACT_THEME_DIR . 'languages/' );
 }
 add_action( 'after_setup_theme', 'act_theme_load_textdomain' );
-
-
-
-/**
- * Регистрация меню
- */
-function act_theme_register_nav_menus() {
-	register_nav_menus( array(
-		'main'      => __( 'Главное меню', ACT_THEME_TEXTDOMAIN ),
-	) );
-}
-add_action( 'after_setup_theme', 'act_theme_register_nav_menus' );
-
-
-
-
-/**
- * Регистрация "сайдбаров"
- */
-function act_theme_register_sidebars() {
-	register_sidebar( array(
-		'name'             => __( 'Колонка', ACT_THEME_TEXTDOMAIN ),
-		'id'               => 'column',
-		'description'      => '',
-		'class'            => '',
-		'before_widget'    => '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><div id="%1$s" class="widget %2$s">',
-		'after_widget'     => '</div></div>',
-		'before_title'     => '<h3 class="widget__title">',
-		'after_title'      => '</h3>',
-	) );
-}
-add_action( 'widgets_init', 'act_theme_register_sidebars' );
 
 
 

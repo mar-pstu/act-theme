@@ -8,20 +8,14 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
 $section_name = 'graduates';
-$title = get_theme_mod( ACT_THEME_SLUG . '_graduates_title', __( 'Преподаватели', ACT_THEME_TEXTDOMAIN ) );
-$subtitle = get_theme_mod( ACT_THEME_SLUG . '_graduates_subtitle', '' );
-$content = __return_empty_string();
-$permalink = __return_empty_string();
-$label = get_theme_mod( ACT_THEME_SLUG . '_graduates_label', __( 'Подробней', ACT_THEME_TEXTDOMAIN ) );
-$page_id = get_translate_id( get_theme_mod( ACT_THEME_SLUG . '_graduates_page_id', '' ), 'page' );
-$page = ( empty( $page_id ) ) ? __return_false() : get_post( $page_id, OBJECT );
+$title = get_theme_mod( 'graduates_title', __( 'Преподаватели', ACT_THEME_TEXTDOMAIN ) );
+$subtitle = get_theme_mod( 'graduates_subtitle', '' );
+$content = '';
+$permalink = '';
+$label = get_theme_mod( 'graduates_label', __( 'Подробней', ACT_THEME_TEXTDOMAIN ) );
+$page_id = get_theme_mod( 'graduates_page_id', '' );
+$page = ( empty( $page_id ) ) ? false : get_post( $page_id, OBJECT );
 
-
-if ( function_exists( 'pll__' ) ) {
-	$title = pll__( $title );
-	$subtitle = pll__( $subtitle );
-	$label = pll__( $label );
-}
 
 if ( $page instanceof \WP_Post ) {
 	$permalink = get_permalink( $page, false );
@@ -34,7 +28,7 @@ if ( $page instanceof \WP_Post ) {
 }
 
 
-switch ( get_theme_mod( ACT_THEME_SLUG . '_graduates_type', 'list' ) ) {
+switch ( get_theme_mod( 'graduates_type', 'list' ) ) {
 	case 'content':
 		if ( $page instanceof \WP_Post ) {
 			$parts = get_extended( $page->post_content );
@@ -48,8 +42,6 @@ switch ( get_theme_mod( ACT_THEME_SLUG . '_graduates_type', 'list' ) ) {
 		) );
 		break;
 }
-
-
 
 
 include get_theme_file_path( 'views/home/section.php' );

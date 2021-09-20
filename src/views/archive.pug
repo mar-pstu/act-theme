@@ -20,7 +20,7 @@ mixin archive_entry( args )
 block main
 	.container: .row
 		.col-xs-12.col-sm-12.col-md-8.col-lg-8
-			h1 #{page.title}
+			h1.mt-2.mb-2 #{page.title}
 			include blocks/_breadcrumb
 			+archive_entry( { thumbnail: src.img+'thumbnail.png', title: 'Заголовок поста 1' } )
 			+archive_entry( { thumbnail: src.img+'thumbnail.png', title: 'Заголовок поста 2' } )

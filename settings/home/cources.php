@@ -23,7 +23,7 @@ $wp_customize->add_section(
 
 
 $wp_customize->add_setting(
-    "{$slug}_cources_flag",
+    'cources_flag',
     array(
         'default'           => false,
         'transport'         => 'reset',
@@ -31,7 +31,7 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    "{$slug}_cources_flag",
+    'cources_flag',
     array(
         'section'           => "{$slug}_cources",
         'label'             => __( 'Использовать секцию', ACT_THEME_TEXTDOMAIN ),
@@ -42,7 +42,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-    "{$slug}_cources_title",
+    'cources_title',
     array(
         'default'           => __( 'Курсы', ACT_THEME_TEXTDOMAIN ),
         'transport'         => 'reset',
@@ -50,7 +50,7 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    "{$slug}_cources_title",
+    'cources_title',
     array(
         'section'           => "{$slug}_cources",
         'label'             => __( 'Заголовок', ACT_THEME_TEXTDOMAIN ),
@@ -61,26 +61,26 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-    "{$slug}_cources_subtitle",
+    'cources_subtitle',
     array(
         'default'           => '',
         'transport'         => 'reset',
-        'sanitize_callback' => 'sanitize_text_field',
+        'sanitize_callback' => 'sanitize_textarea_field',
     )
 );
 $wp_customize->add_control(
-    "{$slug}_cources_subtitle",
+    'cources_subtitle',
     array(
         'section'           => "{$slug}_cources",
         'label'             => __( 'Подзаголовок', ACT_THEME_TEXTDOMAIN ),
-        'type'              => 'text',
+        'type'              => 'textarea',
     )
 ); /**/
 
 
 
 $wp_customize->add_setting(
-    "{$slug}_cources_type",
+    'cources_type',
     array(
         'default'           => 'list',
         'transport'         => 'reset',
@@ -88,7 +88,7 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    "{$slug}_cources_type",
+    'cources_type',
     array(
         'section'           => "{$slug}_cources",
         'label'             => __( 'Тип контента', ACT_THEME_TEXTDOMAIN ),
@@ -103,7 +103,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-    "{$slug}_cources_page_id",
+    'cources_page_id',
     array(
         'default'           => '',
         'transport'         => 'reset',
@@ -111,7 +111,7 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    "{$slug}_cources_page_id",
+    'cources_page_id',
     array(
         'section'           => "{$slug}_cources",
         'label'             => __( 'Выбор страницы', ACT_THEME_TEXTDOMAIN ),
@@ -122,7 +122,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-    "{$slug}_cources_label",
+    'cources_label',
     array(
         'default'           => __( 'Подробней', ACT_THEME_TEXTDOMAIN ),
         'transport'         => 'reset',
@@ -130,7 +130,7 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    "{$slug}_cources_label",
+    'cources_label',
     array(
         'section'           => "{$slug}_cources",
         'label'             => __( 'Текст кнопки внизу секции', ACT_THEME_TEXTDOMAIN ),

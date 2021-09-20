@@ -1,8 +1,22 @@
 
-
 .mobilenav#mobilenav
-	.bg
+	.bg#bg
 	.overlay
+		button.close#close #[span.sr-only Закрыть меню]
 		.text-right: include ../navs/_languages
 		h3 Меню
-		#mobilenav-list
+		ul
+			li: a( href="#" ) Обо мне
+			li: a( href="#" ) Образование
+			li: a( href="#" ) Опыт работы
+			li: a( href="#" ) Скилы
+			li: a( href="#" ) Портфолио
+			li: a( href="#" ) Контакты
+
+
+//- .mobilenav#mobilenav
+//- 	.bg
+//- 	.overlay
+//- 		.text-right: include ../navs/_languages
+//- 		h3 Меню
+//- 		#mobilenav-list

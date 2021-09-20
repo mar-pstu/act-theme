@@ -23,7 +23,7 @@ $wp_customize->add_section(
 
 
 $wp_customize->add_setting(
-	"{$slug}_jumbotron_flag",
+	'jumbotron_flag',
 	array(
 		'default'           => false,
 		'transport'         => 'reset',
@@ -31,7 +31,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	"{$slug}_jumbotron_flag",
+	'jumbotron_flag',
 	array(
 		'section'           => "{$slug}_jumbotron",
 		'label'             => __( 'Использовать секцию', ACT_THEME_TEXTDOMAIN ),
@@ -42,7 +42,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-	"{$slug}_jumbotron_title",
+	'jumbotron_title',
 	array(
 		'default'           => get_bloginfo( 'name' ),
 		'transport'         => 'reset',
@@ -50,7 +50,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	"{$slug}_jumbotron_title",
+	'jumbotron_title',
 	array(
 		'section'           => "{$slug}_jumbotron",
 		'label'             => __( 'Заголовок', ACT_THEME_TEXTDOMAIN ),
@@ -61,7 +61,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-	"{$slug}_jumbotron_description",
+	'jumbotron_description',
 	array(
 		'default'           => get_bloginfo( 'description' ),
 		'transport'         => 'reset',
@@ -69,7 +69,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	"{$slug}_jumbotron_description",
+	'jumbotron_description',
 	array(
 		'section'           => "{$slug}_jumbotron",
 		'label'             => __( 'Подзаголовок', ACT_THEME_TEXTDOMAIN ),
@@ -80,7 +80,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-	"{$slug}_jumbotron_text_color",
+	'jumbotron_text_color',
 	array(
 		'default'           => '#ffffff',
 		'transport'         => 'reset',
@@ -90,18 +90,18 @@ $wp_customize->add_setting(
 $wp_customize->add_control( 
     new \WP_Customize_Color_Control( 
     $wp_customize, 
-    "{$slug}_jumbotron_text_color", 
+    'jumbotron_text_color',
     array(
         'label'      => __( 'Цвет текста', ACT_THEME_TEXTDOMAIN ),
         'section'    => "{$slug}_jumbotron",
-        'settings'   => "{$slug}_jumbotron_text_color",
+        'settings'   => 'jumbotron_text_color',
     ) ) 
 );
 
 
 
 $wp_customize->add_setting(
-	"{$slug}_jumbotron_label",
+	'jumbotron_label',
 	array(
 		'default'           => __( 'Подробней', ACT_THEME_TEXTDOMAIN ),
 		'transport'         => 'reset',
@@ -109,7 +109,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	"{$slug}_jumbotron_label",
+	'jumbotron_label',
 	array(
 		'section'           => "{$slug}_jumbotron",
 		'label'             => __( 'Текст кнопки', ACT_THEME_TEXTDOMAIN ),
@@ -120,18 +120,39 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-	"{$slug}_jumbotron_permalink",
+	'jumbotron_permalink',
 	array(
 		'default'           => '',
 		'transport'         => 'reset',
-		'sanitize_callback' => 'sanitize_url',
+		'sanitize_callback' => 'esc_url_raw',
 	)
 );
 $wp_customize->add_control(
-	"{$slug}_jumbotron_permalink",
+	'jumbotron_permalink',
 	array(
 		'section'           => "{$slug}_jumbotron",
 		'label'             => __( 'Ссылка', ACT_THEME_TEXTDOMAIN ),
 		'type'              => 'text',
+	)
+); /**/
+
+
+$wp_customize->add_setting(
+	'jumbotronbgisrc',
+		array(
+			'default'           => '',
+			'transport'         => 'reset',
+			'sanitize_callback' => 'esc_url_raw',
+		)
+	);
+$wp_customize->add_control(
+	new \WP_Customize_Image_Control(
+		$wp_customize,
+		'jumbotronbgisrc',
+		array(
+			'label'      => __( 'Фон', ACT_THEME_TEXTDOMAIN ),
+			'section'    => "{$slug}_jumbotron",
+			'settings'   => 'jumbotronbgisrc',
+		)
 	)
 ); /**/

@@ -12,7 +12,9 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 ?>
 
+
 			</main>
+
 			<footer class="wrapper__item wrapper__item--footer footer">
 				<div class="container">
 					<div class="row middle-xs">

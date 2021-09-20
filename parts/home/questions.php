@@ -8,20 +8,13 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
 $section_name = 'questions';
-$title = get_theme_mod( ACT_THEME_SLUG . '_questions_title', __( 'Остались вопросы?', ACT_THEME_TEXTDOMAIN ) );
-$subtitle = get_theme_mod( ACT_THEME_SLUG . '_questions_subtitle', __( 'Напишите нам, мы с Вами обязательно свяжемся.', ACT_THEME_TEXTDOMAIN ) );
-$label = get_theme_mod( ACT_THEME_SLUG . '_questions_label', __( 'Подробней', ACT_THEME_TEXTDOMAIN ) );
-$permalink = __return_empty_string();
-$page_id = get_translate_id( get_theme_mod( ACT_THEME_SLUG . '_questions_page_id', '' ), 'page' );
-$shortcode = get_theme_mod( ACT_THEME_SLUG . '_questions_shortcode', '[contacts_form]' );
-$content = __return_empty_string();
-
-
-if ( function_exists( 'pll__' ) ) {
-	$title = pll__( $title );
-	$subtitle = pll__( $subtitle );
-	$label = pll__( $label );
-}
+$title = get_theme_mod( 'questions_title', __( 'Остались вопросы?', ACT_THEME_TEXTDOMAIN ) );
+$subtitle = get_theme_mod( 'questions_subtitle', __( 'Напишите нам, мы с Вами обязательно свяжемся.', ACT_THEME_TEXTDOMAIN ) );
+$label = get_theme_mod( 'questions_label', __( 'Подробней', ACT_THEME_TEXTDOMAIN ) );
+$permalink = '';
+$page_id = get_theme_mod( 'questions_page_id', '' );
+$shortcode = get_theme_mod( 'questions_shortcode', '[contacts_form]' );
+$content = '';
 
 
 if ( ! empty( $page_id ) ) {
@@ -45,7 +38,7 @@ if ( ! empty( $page_id ) ) {
 }
 
 
-switch ( get_theme_mod( ACT_THEME_SLUG . '_questions_type', 'shortcode' ) ) {
+switch ( get_theme_mod( 'questions_type', 'shortcode' ) ) {
 
 	case 'content':
 		if ( $page instanceof \WP_Post ) {

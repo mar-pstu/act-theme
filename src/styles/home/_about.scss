@@ -24,7 +24,6 @@
 		align-items: flex-start;
 		position: relative;
 		@include min-width( $screen-lg ) {
-			padding: 3em;
 			margin-left: -10em;
 			padding: 1em;
 			background-color: #f2f2f2;

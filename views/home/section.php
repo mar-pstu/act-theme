@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 		<div class="content">
 			<?php echo $content; ?>
 		</div>
-		<?php if ( ! empty( $permalink ) ) : ?>
+		<?php if ( ! empty( $permalink ) && ! empty( $label ) ) : ?>
 			<p class="text-center">
 				<br>
 				<br>

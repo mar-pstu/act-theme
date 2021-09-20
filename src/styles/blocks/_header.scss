@@ -7,24 +7,24 @@
 
 .header {
 
-	&--fixed {
-		background-color: #fff;
-		position: fixed;
-		top: 0;
-		left: 0;
-		right: 0;
-		z-index: 999;
-		box-shadow: 0 0 1em rgba( 0, 0, 0, .5 );
-	}
+	// &--fixed {
+	// 	background-color: #fff;
+	// 	position: fixed;
+	// 	top: 0;
+	// 	left: 0;
+	// 	right: 0;
+	// 	z-index: 999;
+	// 	box-shadow: 0 0 1em rgba( 0, 0, 0, .5 );
+	// }
 
-	&.header--stick .custom-logo-link {
-		width: 3em;
-		height: 3em;
-	}
+	// &.header--stick .custom-logo-link {
+	// 	width: 3em;
+	// 	height: 3em;
+	// }
 
-	&.header--stick .burger-button {
-		padding: 0 1em;
-	}
+	// &.header--stick .burger-button {
+	// 	padding: 0 1em;
+	// }
 
 	.container {
 		display: flex;
@@ -35,7 +35,7 @@
 	.custom-logo-link {
 		margin-right: auto;
 		max-width: 5em;
-		transition: width .2s, height .2s;
+		transition: all .2s;
 	}
 
 	.custom-logo {
@@ -64,23 +64,24 @@
 	}
 
 
-	.burger-button {
+	.burger {
 		background-color: transparent;
 		margin-left: auto;
 		border: none;
+		transition: all .2s;
 		@include min-width( $screen-lg ) { display: none; }
 	}
 
-	.burger-button .label {
+	.burger .label {
 		display: inline-block;
 		vertical-align: middle;
 	}
 
-	.burger-button.active .icon {
+	.burger.active .icon {
 		transform: rotate( -90deg );
 	}
 
-	.burger-button .icon {
+	.burger .icon {
 		@extend %xy-center;
 		display: inline-flex;
 		vertical-align: middle;

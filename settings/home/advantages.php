@@ -23,7 +23,7 @@ $wp_customize->add_section(
 
 
 $wp_customize->add_setting(
-    "{$slug}_advantages_flag",
+    'advantages_flag',
     array(
         'default'           => false,
         'transport'         => 'reset',
@@ -31,7 +31,7 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    "{$slug}_advantages_flag",
+    'advantages_flag',
     array(
         'section'           => "{$slug}_advantages",
         'label'             => __( 'Использовать секцию', ACT_THEME_TEXTDOMAIN ),
@@ -42,7 +42,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-    "{$slug}_advantages_title",
+    'advantages_title',
     array(
         'default'           => __( 'Преимущества обучения на кафедре', ACT_THEME_TEXTDOMAIN ),
         'transport'         => 'reset',
@@ -50,7 +50,7 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    "{$slug}_advantages_title",
+    'advantages_title',
     array(
         'section'           => "{$slug}_advantages",
         'label'             => __( 'Заголовок', ACT_THEME_TEXTDOMAIN ),
@@ -61,7 +61,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-    "{$slug}_advantages_subtitle",
+    'advantages_subtitle',
     array(
         'default'           => '',
         'transport'         => 'reset',
@@ -69,7 +69,7 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    "{$slug}_advantages_subtitle",
+    'advantages_subtitle',
     array(
         'section'           => "{$slug}_advantages",
         'label'             => __( 'Подзаголовок', ACT_THEME_TEXTDOMAIN ),
@@ -80,7 +80,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-    "{$slug}_advantages_type",
+    'advantages_type',
     array(
         'default'           => 'list',
         'transport'         => 'reset',
@@ -88,7 +88,7 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    "{$slug}_advantages_type",
+    'advantages_type',
     array(
         'section'           => "{$slug}_advantages",
         'label'             => __( 'Тип контента', ACT_THEME_TEXTDOMAIN ),
@@ -103,7 +103,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-    "{$slug}_advantages_page_id",
+    'advantages_page_id',
     array(
         'default'           => '',
         'transport'         => 'reset',
@@ -111,7 +111,7 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    "{$slug}_advantages_page_id",
+    'advantages_page_id',
     array(
         'section'           => "{$slug}_advantages",
         'label'             => __( 'Выбор страницы', ACT_THEME_TEXTDOMAIN ),
@@ -122,7 +122,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-    "{$slug}_advantages_label",
+    'advantages_label',
     array(
         'default'           => __( 'Подробней', ACT_THEME_TEXTDOMAIN ),
         'transport'         => 'reset',
@@ -130,7 +130,7 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    "{$slug}_advantages_label",
+    'advantages_label',
     array(
         'section'           => "{$slug}_advantages",
         'label'             => __( 'Текст кнопки внизу секции', ACT_THEME_TEXTDOMAIN ),

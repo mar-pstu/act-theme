@@ -14,7 +14,7 @@ if ( have_posts() ) {
 		the_post();
 
 		echo '<article id="post-' . get_the_ID() . '" class="' . implode( ' ', get_post_class( '', get_the_ID() ) ) . '">';
-		the_title( '<h1>', '</h1>', true );
+		the_title( '<h1 class="mt-2 mb-2">', '</h1>', true );
 		the_breadcrumb();
 		echo '<div class="content">';
 		the_content();

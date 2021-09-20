@@ -23,7 +23,7 @@ $wp_customize->add_section(
 
 
 $wp_customize->add_setting(
-    "{$slug}_steps_flag",
+    'steps_flag',
     array(
         'default'           => false,
         'transport'         => 'reset',
@@ -31,7 +31,7 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    "{$slug}_steps_flag",
+    'steps_flag',
     array(
         'section'           => "{$slug}_steps",
         'label'             => __( 'Использовать секцию', ACT_THEME_TEXTDOMAIN ),
@@ -42,7 +42,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-    "{$slug}_steps_title",
+    'steps_title',
     array(
         'default'           => __( 'Шаги к поступлению', ACT_THEME_TEXTDOMAIN ),
         'transport'         => 'reset',
@@ -50,7 +50,7 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    "{$slug}_steps_title",
+    'steps_title',
     array(
         'section'           => "{$slug}_steps",
         'label'             => __( 'Заголовок', ACT_THEME_TEXTDOMAIN ),
@@ -61,7 +61,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-    "{$slug}_steps_subtitle",
+    'steps_subtitle',
     array(
         'default'           => '',
         'transport'         => 'reset',
@@ -69,7 +69,7 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    "{$slug}_steps_subtitle",
+    'steps_subtitle',
     array(
         'section'           => "{$slug}_steps",
         'label'             => __( 'Подзаголовок', ACT_THEME_TEXTDOMAIN ),
@@ -80,7 +80,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-    "{$slug}_steps_type",
+    'steps_type',
     array(
         'default'           => 'list',
         'transport'         => 'reset',
@@ -88,7 +88,7 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    "{$slug}_steps_type",
+    'steps_type',
     array(
         'section'           => "{$slug}_steps",
         'label'             => __( 'Тип контента', ACT_THEME_TEXTDOMAIN ),
@@ -103,7 +103,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-    "{$slug}_steps_page_id",
+    'steps_page_id',
     array(
         'default'           => '',
         'transport'         => 'reset',
@@ -111,7 +111,7 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    "{$slug}_steps_page_id",
+    'steps_page_id',
     array(
         'section'           => "{$slug}_steps",
         'label'             => __( 'Выбор страницы', ACT_THEME_TEXTDOMAIN ),
@@ -122,7 +122,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-    "{$slug}_steps_label",
+    'steps_label',
     array(
         'default'           => __( 'Подробней', ACT_THEME_TEXTDOMAIN ),
         'transport'         => 'reset',
@@ -130,7 +130,7 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    "{$slug}_steps_label",
+    'steps_label',
     array(
         'section'           => "{$slug}_steps",
         'label'             => __( 'Текст кнопки', ACT_THEME_TEXTDOMAIN ),

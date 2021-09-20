@@ -23,7 +23,7 @@ $wp_customize->add_section(
 
 
 $wp_customize->add_setting(
-    "{$slug}_about_flag",
+    'about_flag',
     array(
         'default'           => false,
         'transport'         => 'reset',
@@ -31,7 +31,7 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    "{$slug}_about_flag",
+    'about_flag',
     array(
         'section'           => "{$slug}_about",
         'label'             => __( 'Использовать секцию', ACT_THEME_TEXTDOMAIN ),
@@ -41,7 +41,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-    "{$slug}_about_page_id",
+    'about_page_id',
     array(
         'default'           => '',
         'transport'         => 'reset',
@@ -49,7 +49,7 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    "{$slug}_about_page_id",
+    'about_page_id',
     array(
         'section'           => "{$slug}_about",
         'label'             => __( 'Выбор страницы с описанием', ACT_THEME_TEXTDOMAIN ),
@@ -60,7 +60,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-    "{$slug}_about_title",
+    'about_title',
     array(
         'default'           => __( 'О нас', ACT_THEME_TEXTDOMAIN ),
         'transport'         => 'reset',
@@ -68,7 +68,7 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    "{$slug}_about_title",
+    'about_title',
     array(
         'section'           => "{$slug}_about",
         'label'             => __( 'Заголовок', ACT_THEME_TEXTDOMAIN ),
@@ -79,7 +79,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-    "{$slug}_about_label",
+    'about_label',
     array(
         'default'           => __( 'Подробней', ACT_THEME_TEXTDOMAIN ),
         'transport'         => 'reset',
@@ -87,7 +87,7 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    "{$slug}_about_label",
+    'about_label',
     array(
         'section'           => "{$slug}_about",
         'label'             => __( 'Текст кнопки', ACT_THEME_TEXTDOMAIN ),
@@ -98,7 +98,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-    "{$slug}_about_thumbnail",
+    'about_thumbnail',
     array(
         'default'           => '',
         'transport'         => 'reset',
@@ -108,11 +108,11 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
    new \WP_Customize_Image_Control(
        $wp_customize,
-       "{$slug}_about_thumbnail",
+       'about_thumbnail',
        array(
            'label'      => __( 'Превью', ACT_THEME_TEXTDOMAIN ),
            'section'    => "{$slug}_about",
-           'settings'   => "{$slug}_about_thumbnail",
+           'settings'   => 'about_thumbnail',
        )
    )
 );

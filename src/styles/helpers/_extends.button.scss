@@ -6,7 +6,8 @@
 	padding: 1em 3em;
 	color: #fff;
 	text-transform: uppercase;
-	border-radius: 2em;
+	// border-radius: 2em;
+	border-radius: $border-radius;
 	box-shadow: 0 .5em 1em rgba( 0, 0, 0, .2 );
 	transition: box-shadow .2s;
 	&:hover {
@@ -40,7 +41,7 @@
 
 %button-small {
 	padding: .25em 1em;
-	border-radius: .2em;
+	// border-radius: .2em;
 	font-size: 85%;
 }
 
@@ -48,5 +49,5 @@
 
 %button-large {
 	padding: 1.5em 5em;
-	border-radius: 2.5em;
+	// border-radius: 2.5em;
 }

@@ -87,7 +87,7 @@ function shortcode_steps( $args ) {
 		array( 'name' => 'excerpt', 'default' => '', 'translate' => true, 'required' => true ),
 		array( 'name' => 'link', 'default' => '', 'translate' => true, 'required'  => false ),
 		array( 'name' => 'label', 'default' => __( 'Подробней', ACT_THEME_TEXTDOMAIN ), 'translate' => true, 'required' => false ),
-	), $args );
+	), $args, '<div>' );
 }
 
 add_shortcode( 'steps', 'act_theme\shortcode_steps' );
@@ -105,7 +105,7 @@ function shortcode_advantages( $args = array() ) {
 	), $args );
 }
 
-add_shortcode( 'steps', 'act_theme\shortcode_advantages' );
+add_shortcode( 'advantages', 'act_theme\shortcode_advantages' );
 
 
 
@@ -131,12 +131,13 @@ function shortcode_teachers( $args ) {
 	$args = wp_parse_args( $args, array(
 		'section' => true,
 	) );
-	$slides = __return_empty_string();
-	$result = __return_empty_string();
-	$items = get_theme_mod( ACT_THEME_SLUG . '_teachers', __return_empty_array() );
+	$slides = '';
+	$result = '';
+	$items = get_theme_mod( 'teachers', [] );
+	// echo "<pre>"; var_dump( $items ); echo "</pre>";
 	if ( is_array( $items ) ) {
 		ob_start();
-		for ( $i = 0; $i < get_theme_mod( ACT_THEME_SLUG . '_teachers_number', 4 ); $i++ ) {
+		for ( $i = 0; $i < get_theme_mod( 'teachers_number', 4 ); $i++ ) {
 			if ( isset( $items[ $i ] ) && is_array( $items[ $i ] ) ) {
 				$items[ $i ] = array_merge( array(
 					'foto'    => ACT_THEME_URL . 'images/teacher.png',
@@ -235,8 +236,8 @@ add_shortcode( 'teachers', 'act_theme\shortcode_teachers' );
  * выводит список ссылок на социальные сети
  **/
 function shortcode_socials_list() {
-	$result = __return_empty_array();
-	$items = get_theme_mod( ACT_THEME_SLUG . '_socials', __return_empty_array() );
+	$result = [];
+	$items = get_theme_mod( 'socials', __return_empty_array() );
 	if ( is_array( $items ) && ! empty( $items ) ) {
 		foreach ( array(
 			'facebook'  => __( 'Мы на Facebook', ACT_THEME_TEXTDOMAIN ),
@@ -392,4 +393,4 @@ function shortcode_graduates( $args ) {
 	return $result;
 }
 
-add_shortcode( 'teachers', 'act_theme\shortcode_graduates' );
+add_shortcode( 'graduates', 'act_theme\shortcode_graduates' );

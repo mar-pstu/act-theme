@@ -23,7 +23,7 @@ $wp_customize->add_section(
 
 
 $wp_customize->add_setting(
-    "{$slug}_graduates_number",
+    'graduates_number',
     array(
         'default'           => 3,
         'transport'         => 'reset',
@@ -31,7 +31,7 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    "{$slug}_graduates_number",
+    'graduates_number',
     array(
         'section'           => "{$slug}_list_graduates",
         'label'             => __( 'Количество записей', ACT_THEME_TEXTDOMAIN ),
@@ -45,9 +45,9 @@ $wp_customize->add_control(
 
 
 
-for ( $i=0; $i < get_theme_mod( "{$slug}_graduates_number", 3 ); $i++ ) {
+for ( $i=0; $i < get_theme_mod( 'graduates_number', 3 ); $i++ ) {
     $wp_customize->add_setting(
-        "{$slug}_graduates[{$i}][foto]",
+        "graduates[{$i}][foto]",
             array(
                 'default'           => ACT_THEME_URL . 'images/user.png',
                 'transport'         => 'reset',
@@ -57,16 +57,16 @@ for ( $i=0; $i < get_theme_mod( "{$slug}_graduates_number", 3 ); $i++ ) {
     $wp_customize->add_control(
         new \WP_Customize_Image_Control(
             $wp_customize,
-            "{$slug}_graduates[{$i}][foto]",
+            "graduates[{$i}][foto]",
             array(
                 'label'      => sprintf( __( 'фото №%d', ACT_THEME_TEXTDOMAIN ), ( $i + 1 ) ),
                 'section'    => "{$slug}_list_graduates",
-                'settings'   => "{$slug}_graduates[{$i}][foto]",
+                'settings'   => "graduates[{$i}][foto]",
             )
         )
     ); /**/
     $wp_customize->add_setting(
-        "{$slug}_graduates[{$i}][name]",
+        "graduates[{$i}][name]",
         array(
             'default'           => '',
             'transport'         => 'reset',
@@ -74,7 +74,7 @@ for ( $i=0; $i < get_theme_mod( "{$slug}_graduates_number", 3 ); $i++ ) {
         )
     );
     $wp_customize->add_control(
-        "{$slug}_graduates[{$i}][name]",
+        "graduates[{$i}][name]",
         array(
             'section'           => "{$slug}_list_graduates",
             'label'             => sprintf( __( 'имя №%d', ACT_THEME_TEXTDOMAIN ), ( $i + 1 ) ),
@@ -82,7 +82,7 @@ for ( $i=0; $i < get_theme_mod( "{$slug}_graduates_number", 3 ); $i++ ) {
         )
     ); /**/
     $wp_customize->add_setting(
-        "{$slug}_graduates[{$i}][specialty]",
+        "graduates[{$i}][specialty]",
         array(
             'default'           => '',
             'transport'         => 'reset',
@@ -90,7 +90,7 @@ for ( $i=0; $i < get_theme_mod( "{$slug}_graduates_number", 3 ); $i++ ) {
         )
     );
     $wp_customize->add_control(
-        "{$slug}_graduates[{$i}][specialty]",
+        "graduates[{$i}][specialty]",
         array(
             'section'           => "{$slug}_list_graduates",
             'label'             => sprintf( __( 'специальность №%d', ACT_THEME_TEXTDOMAIN ), ( $i + 1 ) ),
@@ -98,7 +98,7 @@ for ( $i=0; $i < get_theme_mod( "{$slug}_graduates_number", 3 ); $i++ ) {
         )
     ); /**/
     $wp_customize->add_setting(
-        "{$slug}_graduates[{$i}][excerpt]",
+        "graduates[{$i}][excerpt]",
         array(
             'default'           => '',
             'transport'         => 'reset',
@@ -106,7 +106,7 @@ for ( $i=0; $i < get_theme_mod( "{$slug}_graduates_number", 3 ); $i++ ) {
         )
     );
     $wp_customize->add_control(
-        "{$slug}_graduates[{$i}][excerpt]",
+        "graduates[{$i}][excerpt]",
         array(
             'section'           => "{$slug}_list_graduates",
             'label'             => sprintf( __( 'описание №%d', ACT_THEME_TEXTDOMAIN ), ( $i + 1 ) ),
