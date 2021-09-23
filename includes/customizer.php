@@ -10,33 +10,6 @@ function act_theme_customizer( $wp_customize ) {
 	
 	$slug = ACT_THEME_SLUG;
 
-	// подключение настроек домашней страницы
-	$wp_customize->add_panel(
-		"{$slug}_home",
-		array(
-			'capability'      => 'edit_theme_options',
-			'title'           => __( 'Блоки главной страницы', ACT_THEME_TEXTDOMAIN ),
-			'priority'        => 200
-		)
-	);
-
-	foreach ( array(
-		'jumbotron',     // первый экран
-		'about',         // о нас
-		'directions',    // направления работы
-		'advertising',   // рекламное видео
-		'specialties',   // специальности
-		'teachers',      // преподватели
-		'indicators',    // показатели работы
-		'steps',         // шаги к поступлению
-		'cources',       // курсы
-		'graduates',     // выпускники
-		'advantages',    // преимущества обучения на кафедре
-		'questions',     // контактная форма 
-	) as $file_name ) {
-		include get_theme_file_path( "settings/home/{$file_name}.php" );
-	}
-
 	// подключение списков
 	$wp_customize->add_panel(
 		"{$slug}_lists",

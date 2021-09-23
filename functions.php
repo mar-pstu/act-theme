@@ -80,3 +80,21 @@ function act_theme_single_result(){
 	}  
 }
 add_action( 'template_redirect', 'act_theme_single_result' );
+
+
+
+if ( is_customize_preview() ) {
+	get_template_part( 'customizer/register-panels' );
+	get_template_part( 'customizer/home', 'jumbotron' );
+	get_template_part( 'customizer/home', 'about' );
+	get_template_part( 'customizer/home', 'directions' );
+	get_template_part( 'customizer/home', 'advertising' );
+	get_template_part( 'customizer/home', 'specialties' );
+	get_template_part( 'customizer/home', 'teachers' );
+	get_template_part( 'customizer/home', 'indicators' );
+	get_template_part( 'customizer/home', 'steps' );
+	get_template_part( 'customizer/home', 'cources' );
+	get_template_part( 'customizer/home', 'graduates' );
+	get_template_part( 'customizer/home', 'advantages' );
+	get_template_part( 'customizer/home', 'questions' );
+}
