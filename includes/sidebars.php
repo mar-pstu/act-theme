@@ -1,13 +1,10 @@
 <?php
 
 
-
 namespace act_theme;
 
 
-
 if ( ! defined( 'ABSPATH' ) ) { exit; };
-
 
 
 /**
@@ -45,4 +42,5 @@ function register_sidebars() {
 		'after_title'      => '</h3>',
 	) );
 }
+
 add_action( 'widgets_init', 'act_theme\register_sidebars' );

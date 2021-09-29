@@ -9,22 +9,12 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 function customizer_register_list_advantages( $wp_customize ) {
 
-	// $wp_customize->add_section(
-	// 	ACT_THEME_SLUG . '_list_advantages',
-	// 	array(
-	// 		'title'            => __( 'Преимущества', ACT_THEME_TEXTDOMAIN ),
-	// 		'priority'         => 100,
-	// 		'description'      => __( 'Преимущества обучения на кафедре, выводится на главной странице.', ACT_THEME_TEXTDOMAIN ),
-	// 		'panel'            => 'template_lists',
-	// 	)
-	// ); /**/
-
 	$wp_customize->add_section(
 		ACT_THEME_SLUG . '_list_advantages',
 		array(
-			'title'            => sprintf( '%s - %s', __( 'Главная страница', ACT_THEME_TEXTDOMAIN ), __( 'Контактная форма', ACT_THEME_TEXTDOMAIN ) ),
-			'priority'         => 120,
-			'description'      => __( 'Секция главной страницы. Якорь #questions. Если шорткод формы не установлен, то используется стандартная форма темы, письмо с которой приходит на почту администратора сайта.', ACT_THEME_TEXTDOMAIN ),
+			'title'            => __( 'Преимущества', ACT_THEME_TEXTDOMAIN ),
+			'priority'         => 100,
+			'description'      => __( 'Преимущества обучения на кафедре, выводится на главной странице.', ACT_THEME_TEXTDOMAIN ),
 			'panel'            => 'template_lists',
 		)
 	); /**/
