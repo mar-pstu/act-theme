@@ -37,8 +37,7 @@ if ( function_exists( 'pll_register_string' ) ) {
  * Регистрация настроек кастомайзера
  */
 if ( is_customize_preview() ) {
-	include get_theme_file_path( 'includes/wp-customize-control-tinymce-editor.php' );
-	include get_theme_file_path( 'includes/customizer.php' );
+	
 }
 
 
@@ -84,7 +83,8 @@ add_action( 'template_redirect', 'act_theme_single_result' );
 
 
 if ( is_customize_preview() ) {
-	get_template_part( 'customizer/register-panels' );
+	get_template_part( 'customizer/control', 'tinymce-editor' );
+	get_template_part( 'customizer/panels' );
 	get_template_part( 'customizer/home', 'jumbotron' );
 	get_template_part( 'customizer/home', 'about' );
 	get_template_part( 'customizer/home', 'directions' );
@@ -97,4 +97,14 @@ if ( is_customize_preview() ) {
 	get_template_part( 'customizer/home', 'graduates' );
 	get_template_part( 'customizer/home', 'advantages' );
 	get_template_part( 'customizer/home', 'questions' );
+	get_template_part( 'customizer/list', 'directions' );
+	get_template_part( 'customizer/list', 'specialties' );
+	get_template_part( 'customizer/list', 'teachers' );
+	get_template_part( 'customizer/list', 'socials' );
+	get_template_part( 'customizer/list', 'indicators' );
+	get_template_part( 'customizer/list', 'steps' );
+	get_template_part( 'customizer/list', 'cources' );
+	get_template_part( 'customizer/list', 'graduates' );
+	get_template_part( 'customizer/list', 'advantages' );
+	get_template_part( 'customizer/pages', '404' );
 }

@@ -3,6 +3,8 @@
 
 namespace act_theme;
 
+use WP_Customize_Control;
+
 
 if ( ! defined( 'ABSPATH' ) ) { exit; };
 
@@ -10,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 if ( class_exists( 'WP_Customize_Control' ) ) :
 
 
-	class WP_Customize_Control_Tinymce_Editor extends \WP_Customize_Control {
+	class WP_Customize_Control_Tinymce_Editor extends WP_Customize_Control {
 
 		/**
 		 * The type of control being rendered

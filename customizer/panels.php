@@ -21,6 +21,17 @@ function customizer_register_panels( $wp_customize ) {
 	);
 
 	/**
+	 * Настройки списки темы
+	 **/
+	$wp_customize->add_panel(
+		'template_lists',
+		[
+			'capability'      => 'edit_theme_options',
+			'title'           => __( 'Списки темы', ACT_THEME_TEXTDOMAIN ),
+		]
+	);
+
+	/**
 	 * Настройки шаблонов страниц
 	 **/
 	$wp_customize->add_panel(
@@ -28,17 +39,6 @@ function customizer_register_panels( $wp_customize ) {
 		[
 			'capability'      => 'edit_theme_options',
 			'title'           => __( 'Шаблоны страниц', ACT_THEME_TEXTDOMAIN ),
-		]
-	);
-
-	/**
-	 * Настройки списки темы
-	 **/
-	$wp_customize->add_panel(
-		'template_lists ',
-		[
-			'capability'      => 'edit_theme_options',
-			'title'           => __( 'Списки темы', ACT_THEME_TEXTDOMAIN ),
 		]
 	);
 
