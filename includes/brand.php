@@ -70,4 +70,4 @@ add_filter( 'login_headerurl', 'get_home_url' );
 /**
  *  убираем title в логотипе "сайт работает на wordpress"
  * */
-add_filter( 'login_headertitle', '__return_false' );
+add_filter( 'login_headertext', '__return_false' );

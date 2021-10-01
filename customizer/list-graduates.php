@@ -20,95 +20,56 @@ function customizer_register_list_graduates( $wp_customize ) {
 	); /**/
 
 	$wp_customize->add_setting(
-		'graduates_number',
-		array(
-			'default'           => 3,
-			'transport'         => 'reset',
-			'sanitize_callback' => 'sanitize_text_field',
-		)
+		'graduates',
+		[
+			'transport'         => 'postMessage',
+			'sanitize_callback' => function ( $data ) {
+				$result = array_filter( array_map( function ( $value ) {
+					return parse_only_allowed_args(
+						[ 'usedby' => '', 'title' => '', 'foto' => [], 'page_id' => '' ],
+						$value,
+						[ 'act_theme\sanitize_checkbox', 'sanitize_text_field', 'act_theme\sanitize_attachment_data', 'sanitize_text_field', 'sanitize_textarea_field' ]
+					);
+				}, json_decode( $data, true ) ) );
+				return ( is_array( $result ) ) ? wp_json_encode( $result, JSON_UNESCAPED_UNICODE ) : '[]';
+			},
+		]
 	);
 	$wp_customize->add_control(
-		'graduates_number',
-		array(
-			'section'           => ACT_THEME_SLUG . '_list_graduates',
-			'label'             => __( 'Количество записей', ACT_THEME_TEXTDOMAIN ),
-			'type'              => 'number',
-			'input_attrs'       => array(
-				'min'             => '1',
-				'min'             => '10',
-			),
+		new WP_Customize_Control_list(
+			$wp_customize,
+			'graduates',
+			[
+				'label'      => __( 'Список', ACT_THEME_TEXTDOMAIN ),
+				'section'    => ACT_THEME_SLUG . '_list_graduates',
+				'type'       => 'list',
+				'controls'   => [
+					'foto'      => [
+						'type'     => 'image',
+						'label'    => __( 'Фото с соотношением сторон 3:4', ACT_THEME_TEXTDOMAIN ),
+					],
+					'specialty' => [
+						'type'     => 'text',
+						'label'    => __( 'Специальность', ACT_THEME_TEXTDOMAIN ),
+						'post_type' => 'pages',
+					],
+					'excerpt' => [
+						'type'     => 'textarea',
+						'label'    => __( 'Описание', ACT_THEME_TEXTDOMAIN ),
+						'post_type' => 'pages',
+					],
+				],
+			]
 		)
-	); /**/
-
-	for ( $i=0; $i < get_theme_mod( 'graduates_number', 3 ); $i++ ) {
-		$wp_customize->add_setting(
-			"graduates[{$i}][foto]",
-				array(
-					'default'           => ACT_THEME_URL . 'images/user.png',
-					'transport'         => 'reset',
-					'sanitize_callback' => 'sanitize_url',
-				)
-			);
-		$wp_customize->add_control(
-			new \WP_Customize_Image_Control(
-				$wp_customize,
-				"graduates[{$i}][foto]",
-				array(
-					'label'      => sprintf( __( 'фото №%d', ACT_THEME_TEXTDOMAIN ), ( $i + 1 ) ),
-					'section'    => ACT_THEME_SLUG . '_list_graduates',
-					'settings'   => "graduates[{$i}][foto]",
-				)
-			)
-		); /**/
-		$wp_customize->add_setting(
-			"graduates[{$i}][name]",
-			array(
-				'default'           => '',
-				'transport'         => 'reset',
-				'sanitize_callback' => 'sanitize_text_field',
-			)
-		);
-		$wp_customize->add_control(
-			"graduates[{$i}][name]",
-			array(
-				'section'           => ACT_THEME_SLUG . '_list_graduates',
-				'label'             => sprintf( __( 'имя №%d', ACT_THEME_TEXTDOMAIN ), ( $i + 1 ) ),
-				'type'              => 'text',
-			)
-		); /**/
-		$wp_customize->add_setting(
-			"graduates[{$i}][specialty]",
-			array(
-				'default'           => '',
-				'transport'         => 'reset',
-				'sanitize_callback' => 'sanitize_text_field',
-			)
-		);
-		$wp_customize->add_control(
-			"graduates[{$i}][specialty]",
-			array(
-				'section'           => ACT_THEME_SLUG . '_list_graduates',
-				'label'             => sprintf( __( 'специальность №%d', ACT_THEME_TEXTDOMAIN ), ( $i + 1 ) ),
-				'type'              => 'text',
-			)
-		); /**/
-		$wp_customize->add_setting(
-			"graduates[{$i}][excerpt]",
-			array(
-				'default'           => '',
-				'transport'         => 'reset',
-				'sanitize_callback' => 'sanitize_textarea_field',
-			)
-		);
-		$wp_customize->add_control(
-			"graduates[{$i}][excerpt]",
-			array(
-				'section'           => ACT_THEME_SLUG . '_list_graduates',
-				'label'             => sprintf( __( 'описание №%d', ACT_THEME_TEXTDOMAIN ), ( $i + 1 ) ),
-				'type'              => 'textarea',
-			)
-		); /**/
-	}
+	);
+	$wp_customize->selective_refresh->add_partial( 'graduates', [
+		'selector'         => '#graduates-list',
+		'render_callback'  => function () {
+			return customizer_render_parts_element_by_id( 'parts/home', 'graduates', [], 'graduates-list' );
+		},
+		'container_inclusive' => true,
+		'fallback_refresh' => true,
+	] ); /**/
 
 }
 

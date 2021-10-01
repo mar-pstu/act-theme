@@ -43,6 +43,15 @@ function get_languages_list( $args = array() ) {
 
 
 
+/**
+ * Проверяет данные поля чекбокс
+ * @return   bool
+ * */
+function sanitize_checkbox( $checked = false ) {
+	return ( ( isset( $checked ) && true == $checked ) ? true : false );
+}
+
+
 
 function the_breadcrumb() {
 	ob_start();
@@ -137,7 +146,6 @@ function the_pager() {
 }
 
 
-
 /**
  * Конвертер ассоциативного массива в css правила
  **/
@@ -167,7 +175,6 @@ function css_array_to_css( $rules, $args = array() ) {
 }
 
 
-
 /**
  * Получает IP юзверя
  **/
@@ -183,8 +190,6 @@ function get_the_user_ip() {
 }
 
 
-
-
 /**
  * Функция формирует "стандартный" список темы
  * 
@@ -195,7 +200,6 @@ function get_the_user_ip() {
  * @param array $args параметры шорткода
  * @return string возвращает html-код
  **/
-
 function render_default_list_of_items( $name, $template_name, $number, $fields, $args = array(), $before = '<div class="row center-xs stratch-xs" role="list">', $after = '</div>' ) {
 	$args = wp_parse_args( $args, array(
 		'section' => true,
@@ -244,7 +248,6 @@ function render_default_list_of_items( $name, $template_name, $number, $fields, 
 }
 
 
-
 /**
  * Проверяет является ли переданная строка валидным URL
  * @param  string  $url исходная строка
@@ -282,4 +285,89 @@ function is_nav_has_sub_menu( $item_id, $items ) {
  * */
 function removing_image_size_from_url( $url = '' ) {
 	return preg_replace( '~-[0-9]+x[0-9]+(?=\..{2,6})~', '', $url );
+}
+
+
+/**
+ * Функция для очистки массива параметров
+ * @param  array $default           расзерённые парметры и стандартные значения
+ * @param  array $args              неочищенные параметры
+ * @param  array $sanitize_callback одномерный массив с именами функция, с помощью поторых нужно очистить параметры
+ * @param  array $required          обязательные параметры
+ * @param  array $not_empty         параметры которые не могут быть пустыми
+ * @return array                    возвращает ощиченный массив разрешённых параметров
+ * */
+function parse_only_allowed_args( $default, $args, $sanitize_callback = [], $required = [], $not_empty = [] ) {
+	$args = ( array ) $args;
+	$result = [];
+	$count = 0;
+	while ( ( $value = current( $default ) ) !== false ) {
+		$key = key( $default );
+		if ( array_key_exists( $key, $args ) ) {
+			$result[ $key ] = $args[ $key ];
+			if ( isset( $sanitize_callback[ $count ] ) && ! empty( $sanitize_callback[ $count ] ) ) {
+				$result[ $key ] = $sanitize_callback[ $count ]( $result[ $key ] );
+			}
+		} elseif ( in_array( $key, $required ) ) {
+			return null;
+		} else {
+			$result[ $key ] = $value;
+		}
+		if ( empty( $result[ $key ] ) && in_array( $key, $not_empty ) ) {
+			return null;
+		}
+		$count = $count + 1;
+		next( $default );
+	}
+	return $result;
+}
+
+
+/**
+ * Очищает массив с данные вложения
+ * @param  array      исходные данные вложения (id, url)
+ * @return array      очищенный результат
+ */
+function sanitize_attachment_data( $data = [] ) {
+	return ( is_array( $data ) ) ? parse_only_allowed_args( [ 'id' => '', 'url' => '' ], $data, [ 'absint', 'esc_url_raw' ], [ 'id', 'url' ] ) : [];
+}
+
+
+/**
+ * Возвращает и очищает текстовую настройку для использования в превью Customizer API
+ * */
+function customizer_get_text_theme_mod( $setting_name ) {
+	$result = nl2br( trim( esc_html( get_theme_mod( $setting_name ) ) ) );
+	return ( empty( $result ) ) ? false : $result;
+}
+
+/**
+ * Возвращает и очищает html настройку для использования в превью Customizer API
+ * */
+function customizer_get_editor_theme_mod( $setting_name ) {
+	$result = nl2br( trim( force_balance_tags( wp_kses_post( get_theme_mod( $setting_name ) ) ) ) );
+	return ( empty( $result ) ) ? false : $result;
+}
+
+
+/**
+ * Возвращает html-код блоков темы по их идентификатору
+ * @param    string    $slug         идентификатор блока темы для ф-ции get_template_part
+ * @param    string    $name         имя блока темы для ф-ции get_template_part
+ * @param    string    $args         дополнительные параметры для ф-ции get_template_part
+ * @param    string    $element_id   идентификатор DOM елемента, который нужно найти
+ * @return   string|bool             HTML-код или FALSE если ничего не удалось сформировать
+ * */
+function customizer_render_parts_element_by_id( $slug, $name = null, $args = [], $element_id = '' ) {
+	ob_start();
+	get_template_part( $slug, $name, $args );
+	$result = ob_get_contents();
+	ob_end_clean();
+	if ( ! empty( $element_id ) ) {
+		$DOM = new \DOMDocument();
+		$DOM->loadHTML( '<?xml encoding="' . get_bloginfo( 'charset' ) . '" ?>' . $result );
+		$element = $DOM->getElementById( $element_id );
+		$result = $element ? $DOM->saveHTML( $element ) : '';
+	}
+	return ( empty( $result ) ) ? false : $result;
 }

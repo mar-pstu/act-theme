@@ -327,29 +327,16 @@ function shortcode_graduates( $args ) {
 	$args = wp_parse_args( $args, array(
 		'section' => true,
 	) );
-	$slides = __return_empty_string();
-	$result = __return_empty_string();
-	$items = get_theme_mod( ACT_THEME_SLUG . '_graduates', __return_empty_array() );
-	if ( is_array( $items ) ) {
+	$slides = '';
+	$result = '';
+	$entries = get_theme_mod( 'graduates', [] );
+	if ( is_string( $entries ) ) {
+		$entries = json_decode( $entries, true );
+	}
+	if ( is_array( $entries ) ) {
 		ob_start();
-		for ( $i = 0; $i < get_theme_mod( ACT_THEME_SLUG . '_graduates_number', 3 ); $i++ ) {
-			if ( isset( $items[ $i ] ) && is_array( $items[ $i ] ) ) {
-				$items[ $i ] = array_merge( array(
-					'foto'      => ACT_THEME_URL . 'images/user.png',
-					'name'      => '',
-					'specialty' => '',
-					'excerpt'   => '',
-				), $items[ $i ] );
-				if ( ! empty( $items[ $i ][ 'name' ] ) && ! empty( $items[ $i ][ 'foto' ] ) ) {
-					if ( function_exists( 'pll__' ) ) {
-						$items[ $i ][ 'name' ] = pll__( $items[ $i ][ 'name' ] );
-						$items[ $i ][ 'specialty' ] = pll__( $items[ $i ][ 'specialty' ] );
-						$items[ $i ][ 'excerpt' ] = pll__( $items[ $i ][ 'excerpt' ] );
-					}
-					extract( $items[ $i ] );
-					include get_theme_file_path( 'views/items/graduate.php' );
-				}
-			}
+		foreach ( $entries as $entry ) {
+			include get_theme_file_path( 'views/items/graduate.php' );
 		}
 		$slides = ob_get_contents();
 		ob_end_clean();

@@ -4,13 +4,16 @@
 namespace act_theme;
 
 
+use WP_Customize_Control;
+
+
 if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
 if ( class_exists( 'WP_Customize_Control' ) ) :
 
 
-	class WP_Customize_Control_list extends \WP_Customize_Control {
+	class WP_Customize_Control_list extends WP_Customize_Control {
 
 		
 		public $type = 'list';

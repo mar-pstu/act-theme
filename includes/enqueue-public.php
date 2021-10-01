@@ -83,7 +83,7 @@ function styles() {
 	], [ 'container' => false ] ) );
 	wp_enqueue_style( 'act-theme-font', 'https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i&display=swap&subset=cyrillic,cyrillic-ext', [], '14', 'all' );
 	wp_enqueue_style( 'fancybox', get_theme_file_uri( "styles/fancybox{$suffix}.css" ), [], '3.3.5', 'all' );
-	wp_register_style( 'slick', get_theme_file_uri( "styles/slick{$suffix}.css" ), [], '1.8.0', 'all' );
+	wp_enqueue_style( 'slick', get_theme_file_uri( "styles/slick{$suffix}.css" ), [], '1.8.0', 'all' );
 	wp_enqueue_style( 'contact-form-7' );
 	wp_enqueue_style( 'wp-block-library' );
 	wp_enqueue_style( 'wpdiscuz-font-awesome' );

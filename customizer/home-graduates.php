@@ -23,7 +23,7 @@ function customizer_register_home_graduates( $wp_customize ) {
 		'graduates_flag',
 		array(
 			'default'           => false,
-			'transport'         => 'reset',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
@@ -34,13 +34,17 @@ function customizer_register_home_graduates( $wp_customize ) {
 			'label'             => __( 'Использовать секцию', ACT_THEME_TEXTDOMAIN ),
 			'type'              => 'checkbox',
 		)
-	); /**/
+	);
+	$wp_customize->selective_refresh->add_partial( 'graduates_flag', [
+		'render_callback'  => '__return_false',
+		'fallback_refresh' => true,
+	] ); /**/
 
 	$wp_customize->add_setting(
 		'graduates_title',
 		array(
 			'default'           => __( 'Выпускники', ACT_THEME_TEXTDOMAIN ),
-			'transport'         => 'reset',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
@@ -51,14 +55,19 @@ function customizer_register_home_graduates( $wp_customize ) {
 			'label'             => __( 'Заголовок', ACT_THEME_TEXTDOMAIN ),
 			'type'              => 'text',
 		)
-	); /**/
+	);
+	$wp_customize->selective_refresh->add_partial( 'graduates_title', [
+		'selector'         => '#graduates-title',
+		'render_callback'  => function () { return customizer_get_text_theme_mod( 'graduates_title' ); },
+		'fallback_refresh' => true,
+	] ); /**/
 
 	$wp_customize->add_setting(
 		'graduates_subtitle',
 		array(
 			'default'           => '',
-			'transport'         => 'reset',
-			'sanitize_callback' => 'sanitize_text_field',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_textarea_field',
 		)
 	);
 	$wp_customize->add_control(
@@ -66,15 +75,20 @@ function customizer_register_home_graduates( $wp_customize ) {
 		array(
 			'section'           => ACT_THEME_SLUG . '_graduates',
 			'label'             => __( 'Подзаголовок', ACT_THEME_TEXTDOMAIN ),
-			'type'              => 'text',
+			'type'              => 'textarea',
 		)
-	); /**/
+	);
+	$wp_customize->selective_refresh->add_partial( 'graduates_subtitle', [
+		'selector'         => '#graduates-subtitle',
+		'render_callback'  => function () { return customizer_get_text_theme_mod( 'graduates_subtitle' ); },
+		'fallback_refresh' => true,
+	] ); /**/
 
 	$wp_customize->add_setting(
 		'graduates_type',
 		array(
 			'default'           => 'list',
-			'transport'         => 'reset',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
@@ -89,13 +103,17 @@ function customizer_register_home_graduates( $wp_customize ) {
 				'content'         => __( 'контент', ACT_THEME_TEXTDOMAIN ),
 			),
 		)
-	); /**/
+	);
+	$wp_customize->selective_refresh->add_partial( 'graduates_type', [
+		'render_callback'  => '__return_false',
+		'fallback_refresh' => true,
+	] ); /**/
 
 	$wp_customize->add_setting(
 		'graduates_page_id',
 		array(
 			'default'           => '',
-			'transport'         => 'reset',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'absint',
 		)
 	);
@@ -106,13 +124,17 @@ function customizer_register_home_graduates( $wp_customize ) {
 			'label'             => __( 'Выбор страницы', ACT_THEME_TEXTDOMAIN ),
 			'type'              => 'dropdown-pages',
 		)
-	); /**/
+	);
+	$wp_customize->selective_refresh->add_partial( 'graduates_page_id', [
+		'render_callback'  => '__return_false',
+		'fallback_refresh' => true,
+	] ); /**/
 
 	$wp_customize->add_setting(
 		'graduates_label',
 		array(
 			'default'           => __( 'Подробней', ACT_THEME_TEXTDOMAIN ),
-			'transport'         => 'reset',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
@@ -123,7 +145,12 @@ function customizer_register_home_graduates( $wp_customize ) {
 			'label'             => __( 'Текст кнопки внизу секции', ACT_THEME_TEXTDOMAIN ),
 			'type'              => 'text',
 		)
-	); /**/
+	);
+	$wp_customize->selective_refresh->add_partial( 'graduates_label', [
+		'selector'         => '#graduates-permalink',
+		'render_callback'  => function () { return customizer_get_text_theme_mod( 'graduates_label' ); },
+		'fallback_refresh' => true,
+	] ); /**/
 
 }
 
