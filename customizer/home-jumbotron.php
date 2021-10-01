@@ -23,7 +23,7 @@ function customizer_register_home_jumbotron( $wp_customize ) {
 		'jumbotron_flag',
 		array(
 			'default'           => false,
-			'transport'         => 'reset',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
@@ -34,13 +34,17 @@ function customizer_register_home_jumbotron( $wp_customize ) {
 			'label'             => __( 'Использовать секцию', ACT_THEME_TEXTDOMAIN ),
 			'type'              => 'checkbox',
 		)
-	); /**/
+	);
+	$wp_customize->selective_refresh->add_partial( 'jumbotron_flag', [
+		'render_callback'  => '__return_false',
+		'fallback_refresh' => true,
+	] ); /**/
 
 	$wp_customize->add_setting(
 		'jumbotron_title',
 		array(
 			'default'           => get_bloginfo( 'name' ),
-			'transport'         => 'reset',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
@@ -51,13 +55,18 @@ function customizer_register_home_jumbotron( $wp_customize ) {
 			'label'             => __( 'Заголовок', ACT_THEME_TEXTDOMAIN ),
 			'type'              => 'text',
 		)
-	); /**/
+	);
+	$wp_customize->selective_refresh->add_partial( 'jumbotron_title', [
+		'selector'         => '#jumbotron-title',
+		'render_callback'  => function () { return customizer_get_text_theme_mod( 'jumbotron_title' ); },
+		'fallback_refresh' => true,
+	] ); /**/
 
 	$wp_customize->add_setting(
 		'jumbotron_description',
 		array(
 			'default'           => get_bloginfo( 'description' ),
-			'transport'         => 'reset',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
@@ -68,13 +77,18 @@ function customizer_register_home_jumbotron( $wp_customize ) {
 			'label'             => __( 'Подзаголовок', ACT_THEME_TEXTDOMAIN ),
 			'type'              => 'text',
 		)
-	); /**/
+	);
+	$wp_customize->selective_refresh->add_partial( 'jumbotron_description', [
+		'selector'         => '#jumbotron-description',
+		'render_callback'  => function () { return customizer_get_text_theme_mod( 'jumbotron_description' ); },
+		'fallback_refresh' => true,
+	] ); /**/
 
 	$wp_customize->add_setting(
 		'jumbotron_text_color',
 		array(
 			'default'           => '#ffffff',
-			'transport'         => 'reset',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_hex_color',
 		)
 	);
@@ -88,12 +102,16 @@ function customizer_register_home_jumbotron( $wp_customize ) {
 			'settings'          => 'jumbotron_text_color',
 		) ) 
 	);
+	$wp_customize->selective_refresh->add_partial( 'jumbotron_text_color', [
+		'render_callback'  => '__return_false',
+		'fallback_refresh' => true,
+	] ); /**/
 
 	$wp_customize->add_setting(
 		'jumbotron_label',
 		array(
 			'default'           => __( 'Подробней', ACT_THEME_TEXTDOMAIN ),
-			'transport'         => 'reset',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
@@ -104,13 +122,18 @@ function customizer_register_home_jumbotron( $wp_customize ) {
 			'label'             => __( 'Текст кнопки', ACT_THEME_TEXTDOMAIN ),
 			'type'              => 'text',
 		)
-	); /**/
+	);
+	$wp_customize->selective_refresh->add_partial( 'jumbotron_label', [
+		'selector'         => '#jumbotron-permalink',
+		'render_callback'  => function () { return customizer_get_text_theme_mod( 'jumbotron_label' ); },
+		'fallback_refresh' => true,
+	] ); /**/
 
 	$wp_customize->add_setting(
 		'jumbotron_permalink',
 		array(
 			'default'           => '',
-			'transport'         => 'reset',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'esc_url_raw',
 		)
 	);
@@ -121,13 +144,17 @@ function customizer_register_home_jumbotron( $wp_customize ) {
 			'label'             => __( 'Ссылка', ACT_THEME_TEXTDOMAIN ),
 			'type'              => 'text',
 		)
-	); /**/
+	);
+	$wp_customize->selective_refresh->add_partial( 'jumbotron_permalink', [
+		'render_callback'  => '__return_false',
+		'fallback_refresh' => true,
+	] ); /**/
 
 	$wp_customize->add_setting(
 		'jumbotronbgisrc',
 			array(
 				'default'           => '',
-				'transport'         => 'reset',
+				'transport'         => 'postMessage',
 				'sanitize_callback' => 'esc_url_raw',
 			)
 		);
@@ -141,7 +168,11 @@ function customizer_register_home_jumbotron( $wp_customize ) {
 				'settings'   => 'jumbotronbgisrc',
 			)
 		)
-	); /**/
+	);
+	$wp_customize->selective_refresh->add_partial( 'jumbotronbgisrc', [
+		'render_callback'  => '__return_false',
+		'fallback_refresh' => true,
+	] ); /**/
 
 }
 
