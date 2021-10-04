@@ -348,26 +348,3 @@ function customizer_get_editor_theme_mod( $setting_name ) {
 	$result = nl2br( trim( force_balance_tags( wp_kses_post( get_theme_mod( $setting_name ) ) ) ) );
 	return ( empty( $result ) ) ? false : $result;
 }
-
-
-/**
- * Возвращает html-код блоков темы по их идентификатору
- * @param    string    $slug         идентификатор блока темы для ф-ции get_template_part
- * @param    string    $name         имя блока темы для ф-ции get_template_part
- * @param    string    $args         дополнительные параметры для ф-ции get_template_part
- * @param    string    $element_id   идентификатор DOM елемента, который нужно найти
- * @return   string|bool             HTML-код или FALSE если ничего не удалось сформировать
- * */
-function customizer_render_parts_element_by_id( $slug, $name = null, $args = [], $element_id = '' ) {
-	ob_start();
-	get_template_part( $slug, $name, $args );
-	$result = ob_get_contents();
-	ob_end_clean();
-	if ( ! empty( $element_id ) ) {
-		$DOM = new \DOMDocument();
-		$DOM->loadHTML( '<?xml encoding="' . get_bloginfo( 'charset' ) . '" ?>' . $result );
-		$element = $DOM->getElementById( $element_id );
-		$result = $element ? $DOM->saveHTML( $element ) : '';
-	}
-	return ( empty( $result ) ) ? false : $result;
-}

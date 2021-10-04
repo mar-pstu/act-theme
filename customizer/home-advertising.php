@@ -23,7 +23,7 @@ function customizer_register_home_advertising( $wp_customize ) {
 		'advertising_flag',
 		array(
 			'default'           => false,
-			'transport'         => 'reset',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
@@ -34,13 +34,17 @@ function customizer_register_home_advertising( $wp_customize ) {
 			'label'             => __( 'Использовать секцию', ACT_THEME_TEXTDOMAIN ),
 			'type'              => 'checkbox',
 		)
-	); /**/
+	);
+	$wp_customize->selective_refresh->add_partial( 'advertising_flag', [
+		'render_callback'  => '__return_false',
+		'fallback_refresh' => true,
+	] ); /**/
 
 	$wp_customize->add_setting(
 		'advertising_title',
 		array(
 			'default'           => get_bloginfo( 'name' ),
-			'transport'         => 'reset',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
@@ -51,13 +55,18 @@ function customizer_register_home_advertising( $wp_customize ) {
 			'label'             => __( 'Заголовок', ACT_THEME_TEXTDOMAIN ),
 			'type'              => 'text',
 		)
-	); /**/
+	);
+	$wp_customize->selective_refresh->add_partial( 'advertising_title', [
+		'selector'         => '#advertising-title',
+		'render_callback'  => function () { return customizer_get_text_theme_mod( 'advertising_title' ); },
+		'fallback_refresh' => true,
+	] ); /**/
 
 	$wp_customize->add_setting(
 		'advertising_excerpt',
 		array(
 			'default'           => get_bloginfo( 'description' ),
-			'transport'         => 'reset',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_textarea_field',
 		)
 	);
@@ -68,13 +77,18 @@ function customizer_register_home_advertising( $wp_customize ) {
 			'label'             => __( 'Подзаголовок', ACT_THEME_TEXTDOMAIN ),
 			'type'              => 'textarea',
 		)
-	); /**/
+	);
+	$wp_customize->selective_refresh->add_partial( 'advertising_excerpt', [
+		'selector'         => '#advertising-excerpt',
+		'render_callback'  => function () { return customizer_get_text_theme_mod( 'advertising_excerpt' ); },
+		'fallback_refresh' => true,
+	] ); /**/
 
 	$wp_customize->add_setting(
 		'advertising_label',
 		array(
 			'default'           => __( 'Нажмите, чтобы воспроизвести видео', ACT_THEME_TEXTDOMAIN ),
-			'transport'         => 'reset',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
@@ -85,14 +99,19 @@ function customizer_register_home_advertising( $wp_customize ) {
 			'label'             => __( 'Текст кнопки', ACT_THEME_TEXTDOMAIN ),
 			'type'              => 'text',
 		)
-	); /**/
+	);
+	$wp_customize->selective_refresh->add_partial( 'advertising_label', [
+		'selector'         => '#advertising-video-label',
+		'render_callback'  => function () { return customizer_get_text_theme_mod( 'advertising_label' ); },
+		'fallback_refresh' => true,
+	] ); /**/
 
 	$wp_customize->add_setting(
 		'advertising_video',
 		array(
 			'default'           => '',
-			'transport'         => 'reset',
-			'sanitize_callback' => 'sanitize_url',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'esc_url_raw',
 		)
 	);
 	$wp_customize->add_control(
@@ -102,14 +121,18 @@ function customizer_register_home_advertising( $wp_customize ) {
 			'label'             => __( 'Ссылка на Youtube видео', ACT_THEME_TEXTDOMAIN ),
 			'type'              => 'text',
 		)
-	); /**/
+	);
+	$wp_customize->selective_refresh->add_partial( 'advertising_video', [
+		'render_callback'  => '__return_false',
+		'fallback_refresh' => true,
+	] ); /**/
 
 	$wp_customize->add_setting(
 		'advertising_bgi',
 			array(
 				'default'           => ACT_THEME_URL . 'images/advertising.jpg',
-				'transport'         => 'reset',
-				'sanitize_callback' => 'sanitize_url',
+				'transport'         => 'postMessage',
+				'sanitize_callback' => 'esc_url_raw',
 			)
 		);
 	$wp_customize->add_control(
@@ -122,7 +145,11 @@ function customizer_register_home_advertising( $wp_customize ) {
 				'settings'   => 'advertising_bgi',
 			)
 		)
-	); /**/
+	);
+	$wp_customize->selective_refresh->add_partial( 'advertising_bgi', [
+		'render_callback'  => '__return_false',
+		'fallback_refresh' => true,
+	] ); /**/
 
 	$wp_customize->add_setting(
 		'advertising_text_color',
@@ -138,10 +165,15 @@ function customizer_register_home_advertising( $wp_customize ) {
 		'advertising_text_color',
 		array(
 			'label'      => __( 'Цвет текста и кнопки Play', ACT_THEME_TEXTDOMAIN ),
+			'description' => __( 'для предварительного просмотра необходима перезагрузка', ACT_THEME_TEXTDOMAIN ),
 			'section'    => ACT_THEME_SLUG . '_advertising',
 			'settings'   => 'advertising_text_color',
 		) ) 
 	);
+	$wp_customize->selective_refresh->add_partial( 'advertising_text_color', [
+		'render_callback'  => '__return_false',
+		'fallback_refresh' => true,
+	] ); /**/
 
 }
 

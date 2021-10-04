@@ -46,7 +46,7 @@ function customizer_register_list_teachers( $wp_customize ) {
 				array(
 					'default'           => ACT_THEME_URL . 'images/teacher.png',
 					'transport'         => 'reset',
-					'sanitize_callback' => 'sanitize_url',
+					'sanitize_callback' => 'esc_url_raw',
 				)
 			);
 		$wp_customize->add_control(

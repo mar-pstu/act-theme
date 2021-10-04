@@ -26,7 +26,7 @@ function customizer_register_list_features( $wp_customize ) {
 				array(
 					'default'           => ACT_THEME_URL . 'images/business.png',
 					'transport'         => 'reset',
-					'sanitize_callback' => 'sanitize_url',
+					'sanitize_callback' => 'esc_url_raw',
 				)
 			);
 		$wp_customize->add_control(

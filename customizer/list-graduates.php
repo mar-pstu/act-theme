@@ -64,10 +64,7 @@ function customizer_register_list_graduates( $wp_customize ) {
 	);
 	$wp_customize->selective_refresh->add_partial( 'graduates', [
 		'selector'         => '#graduates-list',
-		'render_callback'  => function () {
-			return customizer_render_parts_element_by_id( 'parts/home', 'graduates', [], 'graduates-list' );
-		},
-		'container_inclusive' => true,
+		'render_callback'  => '__return_false',
 		'fallback_refresh' => true,
 	] ); /**/
 

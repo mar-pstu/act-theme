@@ -46,7 +46,7 @@ function customizer_register_list_steps( $wp_customize ) {
 				array(
 					'default'           => ACT_THEME_URL . 'images/thumbnail.png',
 					'transport'         => 'reset',
-					'sanitize_callback' => 'sanitize_url',
+					'sanitize_callback' => 'esc_url_raw',
 				)
 			);
 		$wp_customize->add_control(
@@ -97,7 +97,7 @@ function customizer_register_list_steps( $wp_customize ) {
 			array(
 				'default'           => '',
 				'transport'         => 'reset',
-				'sanitize_callback' => 'sanitize_url',
+				'sanitize_callback' => 'esc_url_raw',
 			)
 		);
 		$wp_customize->add_control(
