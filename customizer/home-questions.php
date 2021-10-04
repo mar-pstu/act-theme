@@ -23,7 +23,7 @@ function customizer_register_home_questions( $wp_customize ) {
 		'questions_flag',
 		array(
 			'default'           => false,
-			'transport'         => 'reset',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
@@ -34,13 +34,17 @@ function customizer_register_home_questions( $wp_customize ) {
 			'label'             => __( 'Использовать секцию', ACT_THEME_TEXTDOMAIN ),
 			'type'              => 'checkbox',
 		)
-	); /**/
+	);
+	$wp_customize->selective_refresh->add_partial( 'questions_flag', [
+		'render_callback'  => '__return_false',
+		'fallback_refresh' => true,
+	] ); /**/
 
 	$wp_customize->add_setting(
 		'questions_title',
 		array(
 			'default'           => __( 'Остались вопросы?', ACT_THEME_TEXTDOMAIN ),
-			'transport'         => 'reset',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
@@ -51,13 +55,18 @@ function customizer_register_home_questions( $wp_customize ) {
 			'label'             => __( 'Заголовок', ACT_THEME_TEXTDOMAIN ),
 			'type'              => 'text',
 		)
-	); /**/
+	);
+	$wp_customize->selective_refresh->add_partial( 'questions_title', [
+		'selector'         => '#questions-title',
+		'render_callback'  => function () { return customizer_get_text_theme_mod( 'questions_title' ); },
+		'fallback_refresh' => true,
+	] ); /**/
 
 	$wp_customize->add_setting(
 		'questions_subtitle',
 		array(
 			'default'           => __( 'Напишите нам, мы с Вами обязательно свяжемся.', ACT_THEME_TEXTDOMAIN ),
-			'transport'         => 'reset',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_textarea_field',
 		)
 	);
@@ -68,13 +77,18 @@ function customizer_register_home_questions( $wp_customize ) {
 			'label'             => __( 'Подзаголовок', ACT_THEME_TEXTDOMAIN ),
 			'type'              => 'textarea',
 		)
-	); /**/
+	);
+	$wp_customize->selective_refresh->add_partial( 'questions_subtitle', [
+		'selector'         => '#questions-subtitle',
+		'render_callback'  => function () { return customizer_get_text_theme_mod( 'questions_subtitle' ); },
+		'fallback_refresh' => true,
+	] ); /**/
 
 	$wp_customize->add_setting(
 		'questions_type',
 		array(
 			'default'           => 'shortcode',
-			'transport'         => 'reset',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
@@ -89,13 +103,18 @@ function customizer_register_home_questions( $wp_customize ) {
 				'content'         => __( 'контент', ACT_THEME_TEXTDOMAIN ),
 			),
 		)
-	); /**/
+	);
+	$wp_customize->selective_refresh->add_partial( 'questions_type', [
+		'selector'         => '#questions-content',
+		'render_callback'  => '__return_false',
+		'fallback_refresh' => true,
+	] ); /**/
 
 	$wp_customize->add_setting(
 		'questions_shortcode',
 		array(
 			'default'           => '[contacts_form]',
-			'transport'         => 'reset',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
@@ -106,13 +125,18 @@ function customizer_register_home_questions( $wp_customize ) {
 			'label'             => __( 'Шорткод формы', ACT_THEME_TEXTDOMAIN ),
 			'type'              => 'text',
 		)
-	); /**/
+	);
+	$wp_customize->selective_refresh->add_partial( 'questions_shortcode', [
+		'selector'         => '#questions-content',
+		'render_callback'  => '__return_false',
+		'fallback_refresh' => true,
+	] ); /**/
 
 	$wp_customize->add_setting(
 		'questions_page_id',
 		array(
 			'default'           => '',
-			'transport'         => 'reset',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'absint',
 		)
 	);
@@ -123,13 +147,18 @@ function customizer_register_home_questions( $wp_customize ) {
 			'label'             => __( 'Выбор страницы', ACT_THEME_TEXTDOMAIN ),
 			'type'              => 'dropdown-pages',
 		)
-	); /**/
+	);
+	$wp_customize->selective_refresh->add_partial( 'questions_page_id', [
+		'selector'         => '#questions-content',
+		'render_callback'  => '__return_false',
+		'fallback_refresh' => true,
+	] ); /**/
 
 	$wp_customize->add_setting(
 		'questions_label',
 		array(
 			'default'           => __( 'Подробней', ACT_THEME_TEXTDOMAIN ),
-			'transport'         => 'reset',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
@@ -140,7 +169,12 @@ function customizer_register_home_questions( $wp_customize ) {
 			'label'             => __( 'Текст кнопки внизу секции', ACT_THEME_TEXTDOMAIN ),
 			'type'              => 'text',
 		)
-	); /**/
+	);
+	$wp_customize->selective_refresh->add_partial( 'questions_label', [
+		'selector'         => '#questions-permalink',
+		'render_callback'  => function () { return customizer_get_text_theme_mod( 'questions_label' ); },
+		'fallback_refresh' => true,
+	] ); /**/
 
 }
 

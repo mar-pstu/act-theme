@@ -23,7 +23,7 @@ function customizer_register_home_advantages( $wp_customize ) {
 		'advantages_flag',
 		array(
 			'default'           => false,
-			'transport'         => 'reset',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
@@ -34,13 +34,17 @@ function customizer_register_home_advantages( $wp_customize ) {
 			'label'             => __( 'Использовать секцию', ACT_THEME_TEXTDOMAIN ),
 			'type'              => 'checkbox',
 		)
-	); /**/
+	);
+	$wp_customize->selective_refresh->add_partial( 'advantages_flag', [
+		'render_callback'  => '__return_false',
+		'fallback_refresh' => true,
+	] ); /**/
 
 	$wp_customize->add_setting(
 		'advantages_title',
 		array(
 			'default'           => __( 'Преимущества обучения на кафедре', ACT_THEME_TEXTDOMAIN ),
-			'transport'         => 'reset',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
@@ -51,14 +55,19 @@ function customizer_register_home_advantages( $wp_customize ) {
 			'label'             => __( 'Заголовок', ACT_THEME_TEXTDOMAIN ),
 			'type'              => 'text',
 		)
-	); /**/
+	);
+	$wp_customize->selective_refresh->add_partial( 'advantages_title', [
+		'selector'         => '#advantages-title',
+		'render_callback'  => function () { return customizer_get_text_theme_mod( 'advantages_title' ); },
+		'fallback_refresh' => true,
+	] ); /**/
 
 	$wp_customize->add_setting(
 		'advantages_subtitle',
 		array(
 			'default'           => '',
-			'transport'         => 'reset',
-			'sanitize_callback' => 'sanitize_text_field',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_textarea_field',
 		)
 	);
 	$wp_customize->add_control(
@@ -66,15 +75,20 @@ function customizer_register_home_advantages( $wp_customize ) {
 		array(
 			'section'           => ACT_THEME_SLUG . '_advantages',
 			'label'             => __( 'Подзаголовок', ACT_THEME_TEXTDOMAIN ),
-			'type'              => 'text',
+			'type'              => 'textarea',
 		)
-	); /**/
+	);
+	$wp_customize->selective_refresh->add_partial( 'advantages_subtitle', [
+		'selector'         => '#advantages-subtitle',
+		'render_callback'  => function () { return customizer_get_text_theme_mod( 'advantages_subtitle' ); },
+		'fallback_refresh' => true,
+	] ); /**/
 
 	$wp_customize->add_setting(
 		'advantages_type',
 		array(
 			'default'           => 'list',
-			'transport'         => 'reset',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
@@ -89,13 +103,18 @@ function customizer_register_home_advantages( $wp_customize ) {
 				'content'         => __( 'контент', ACT_THEME_TEXTDOMAIN ),
 			),
 		)
-	); /**/
+	);
+	$wp_customize->selective_refresh->add_partial( 'advantages_type', [
+		'selector'         => '#advantages-content',
+		'render_callback'  => '__return_false',
+		'fallback_refresh' => true,
+	] ); /**/
 
 	$wp_customize->add_setting(
 		'advantages_page_id',
 		array(
 			'default'           => '',
-			'transport'         => 'reset',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'absint',
 		)
 	);
@@ -106,13 +125,18 @@ function customizer_register_home_advantages( $wp_customize ) {
 			'label'             => __( 'Выбор страницы', ACT_THEME_TEXTDOMAIN ),
 			'type'              => 'dropdown-pages',
 		)
-	); /**/
+	);
+	$wp_customize->selective_refresh->add_partial( 'advantages_page_id', [
+		'selector'         => '#advantages-content',
+		'render_callback'  => '__return_false',
+		'fallback_refresh' => true,
+	] ); /**/
 
 	$wp_customize->add_setting(
 		'advantages_label',
 		array(
 			'default'           => __( 'Подробней', ACT_THEME_TEXTDOMAIN ),
-			'transport'         => 'reset',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
@@ -123,7 +147,12 @@ function customizer_register_home_advantages( $wp_customize ) {
 			'label'             => __( 'Текст кнопки внизу секции', ACT_THEME_TEXTDOMAIN ),
 			'type'              => 'text',
 		)
-	); /**/
+	);
+	$wp_customize->selective_refresh->add_partial( 'advantages_label', [
+		'selector'         => '#advantages-permalink',
+		'render_callback'  => function () { return customizer_get_text_theme_mod( 'advantages_label' ); },
+		'fallback_refresh' => true,
+	] ); /**/
 
 }
 

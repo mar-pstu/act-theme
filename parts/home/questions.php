@@ -4,6 +4,9 @@
 namespace act_theme;
 
 
+use WP_Post;
+
+
 if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
@@ -15,13 +18,14 @@ $permalink = '';
 $page_id = get_theme_mod( 'questions_page_id', '' );
 $shortcode = get_theme_mod( 'questions_shortcode', '[contacts_form]' );
 $content = '';
+$page = ( empty( $page_id ) ) ? false : get_post( $page_id, OBJECT );
 
 
 if ( ! empty( $page_id ) ) {
 
 	$page = get_post( $page_id, OBJECT, 'raw' );
 
-	if ( $page instanceof \WP_Post ) {
+	if ( $page instanceof WP_Post ) {
 
 		$permalink = get_permalink( $page->ID, false );
 
@@ -41,7 +45,7 @@ if ( ! empty( $page_id ) ) {
 switch ( get_theme_mod( 'questions_type', 'shortcode' ) ) {
 
 	case 'content':
-		if ( $page instanceof \WP_Post ) {
+		if ( $page instanceof WP_Post ) {
 			$parts = get_extended( $page->post_content );
 			$content = do_shortcode( $parts[ 'main' ], false );
 		}
