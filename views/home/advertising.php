@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 <div class="advertising" id="advertising">
 
 	<?php if ( ! empty( $bgi ) ) : ?>	
-		<div class="bg lazy" data-src="<?php echo esc_attr( $bgi ); ?>"></div>
+		<div id="advertising-bg" class="bg lazy" data-src="<?php echo esc_attr( $bgi ); ?>"></div>
 	<?php endif; ?>
 
 	<div class="container">

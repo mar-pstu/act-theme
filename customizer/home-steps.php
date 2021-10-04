@@ -36,6 +36,7 @@ function customizer_register_home_steps( $wp_customize ) {
 		)
 	);
 	$wp_customize->selective_refresh->add_partial( 'steps_flag', [
+		'selector'         => '#steps',
 		'render_callback'  => '__return_false',
 		'fallback_refresh' => true,
 	] ); /**/

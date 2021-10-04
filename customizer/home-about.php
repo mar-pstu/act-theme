@@ -4,6 +4,9 @@
 namespace act_theme;
 
 
+use WP_Customize_Image_Control;
+
+
 if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
@@ -23,7 +26,7 @@ function customizer_register_home_about( $wp_customize ) {
 		'about_flag',
 		array(
 			'default'           => false,
-			'transport'         => 'reset',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
@@ -34,13 +37,18 @@ function customizer_register_home_about( $wp_customize ) {
 			'label'             => __( 'Использовать секцию', ACT_THEME_TEXTDOMAIN ),
 			'type'              => 'checkbox',
 		)
-	); /**/
+	);
+	$wp_customize->selective_refresh->add_partial( 'about_flag', [
+		'selector'         => '#about',
+		'render_callback'  => '__return_false',
+		'fallback_refresh' => true,
+	] ); /**/
 
 	$wp_customize->add_setting(
 		'about_page_id',
 		array(
 			'default'           => '',
-			'transport'         => 'reset',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'absint',
 		)
 	);
@@ -51,13 +59,18 @@ function customizer_register_home_about( $wp_customize ) {
 			'label'             => __( 'Выбор страницы с описанием', ACT_THEME_TEXTDOMAIN ),
 			'type'              => 'dropdown-pages',
 		)
-	); /**/
+	);
+	$wp_customize->selective_refresh->add_partial( 'about_page_id', [
+		'selector'         => '#about-content',
+		'render_callback'  => '__return_false',
+		'fallback_refresh' => true,
+	] ); /**/
 
 	$wp_customize->add_setting(
 		'about_title',
 		array(
 			'default'           => __( 'О нас', ACT_THEME_TEXTDOMAIN ),
-			'transport'         => 'reset',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
@@ -68,13 +81,18 @@ function customizer_register_home_about( $wp_customize ) {
 			'label'             => __( 'Заголовок', ACT_THEME_TEXTDOMAIN ),
 			'type'              => 'text',
 		)
-	); /**/
+	);
+	$wp_customize->selective_refresh->add_partial( 'about_title', [
+		'selector'         => '#about-title',
+		'render_callback'  => function () { return customizer_get_text_theme_mod( 'about_title' ); },
+		'fallback_refresh' => true,
+	] ); /**/
 
 	$wp_customize->add_setting(
 		'about_label',
 		array(
 			'default'           => __( 'Подробней', ACT_THEME_TEXTDOMAIN ),
-			'transport'         => 'reset',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
@@ -85,18 +103,23 @@ function customizer_register_home_about( $wp_customize ) {
 			'label'             => __( 'Текст кнопки', ACT_THEME_TEXTDOMAIN ),
 			'type'              => 'text',
 		)
-	); /**/
+	);
+	$wp_customize->selective_refresh->add_partial( 'about_label', [
+		'selector'         => '#about-permalink',
+		'render_callback'  => function () { return customizer_get_text_theme_mod( 'about_label' ); },
+		'fallback_refresh' => true,
+	] ); /**/
 
 	$wp_customize->add_setting(
 		'about_thumbnail',
 		array(
 			'default'           => '',
-			'transport'         => 'reset',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'esc_url_raw',
 		)
 	);
 	$wp_customize->add_control(
-	   new \WP_Customize_Image_Control(
+	   new WP_Customize_Image_Control(
 		   $wp_customize,
 		   'about_thumbnail',
 		   array(
@@ -106,6 +129,11 @@ function customizer_register_home_about( $wp_customize ) {
 		   )
 	   )
 	);
+	$wp_customize->selective_refresh->add_partial( 'about_thumbnail', [
+		'selector'         => '#about-thumbnail-wrap',
+		'render_callback'  => '__return_false',
+		'fallback_refresh' => true,
+	] ); /**/
 
 }
 
