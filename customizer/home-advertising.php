@@ -4,6 +4,10 @@
 namespace act_theme;
 
 
+use WP_Customize_Image_Control;
+use WP_Customize_Color_Control;
+
+
 if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
@@ -137,7 +141,7 @@ function customizer_register_home_advertising( $wp_customize ) {
 			)
 		);
 	$wp_customize->add_control(
-		new \WP_Customize_Image_Control(
+		new WP_Customize_Image_Control(
 			$wp_customize,
 			'advertising_bgi',
 			array(
@@ -162,7 +166,7 @@ function customizer_register_home_advertising( $wp_customize ) {
 		)
 	);
 	$wp_customize->add_control( 
-		new \WP_Customize_Color_Control( 
+		new WP_Customize_Color_Control( 
 		$wp_customize, 
 		'advertising_text_color',
 		array(

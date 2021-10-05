@@ -20,7 +20,7 @@ function customizer_register_pages_404( $wp_customize ) {
 	); /**/
 
 	$wp_customize->add_setting(
-		ACT_THEME_SLUG . '_error404_title',
+		'error404_title',
 		array(
 			'default'           => __( 'Ошибка 404', ACT_THEME_TEXTDOMAIN ),
 			'transport'         => 'reset',
@@ -28,7 +28,7 @@ function customizer_register_pages_404( $wp_customize ) {
 		)
 	);
 	$wp_customize->add_control(
-		ACT_THEME_SLUG . '_error404_title',
+		'error404_title',
 		array(
 			'section'           => ACT_THEME_SLUG . '_pages_404',
 			'label'             => __( 'Заголовок', ACT_THEME_TEXTDOMAIN ),
@@ -36,10 +36,8 @@ function customizer_register_pages_404( $wp_customize ) {
 		)
 	); /**/
 
-
-
 	$wp_customize->add_setting(
-		ACT_THEME_SLUG . '_error404_description',
+		'error404_description',
 		array(
 			'default'           => '',
 			'transport'         => 'reset',
@@ -47,7 +45,7 @@ function customizer_register_pages_404( $wp_customize ) {
 		)
 	);
 	$wp_customize->add_control(
-		ACT_THEME_SLUG . '_error404_description',
+		'error404_description',
 		array(
 			'section'           => ACT_THEME_SLUG . '_pages_404',
 			'label'             => __( 'Подзаголовок', ACT_THEME_TEXTDOMAIN ),

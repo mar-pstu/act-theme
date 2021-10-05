@@ -4,6 +4,9 @@
 namespace act_theme;
 
 
+use WP_Customize_Color_Control;
+
+
 if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
@@ -94,7 +97,7 @@ function customizer_register_home_jumbotron( $wp_customize ) {
 		)
 	);
 	$wp_customize->add_control( 
-		new \WP_Customize_Color_Control( 
+		new WP_Customize_Color_Control( 
 		$wp_customize, 
 		'jumbotron_text_color',
 		array(

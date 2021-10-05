@@ -26,6 +26,12 @@ if ( ! is_admin() ) {
 }
 
 
+if ( in_array( 'polylang/polylang.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+	get_template_part( 'pll/register-strings' );
+	! is_customize_preview() get_template_part( 'pll/translation-mods' );
+}
+
+
 if ( is_customize_preview() ) {
 	get_template_part( 'customizer/control', 'tinymce-editor' );
 	get_template_part( 'customizer/control', 'list' );
