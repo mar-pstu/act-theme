@@ -36,6 +36,7 @@ function customizer_register_home_questions( $wp_customize ) {
 		)
 	);
 	$wp_customize->selective_refresh->add_partial( 'questions_flag', [
+		'selector'         => '#questions',
 		'render_callback'  => '__return_false',
 		'fallback_refresh' => true,
 	] ); /**/

@@ -36,6 +36,7 @@ function customizer_register_home_directions( $wp_customize ) {
 		)
 	);
 	$wp_customize->selective_refresh->add_partial( 'directions_flag', [
+		'selector'         => '#directions',
 		'render_callback'  => '__return_false',
 		'fallback_refresh' => true,
 	] ); /**/

@@ -36,6 +36,7 @@ function customizer_register_home_advantages( $wp_customize ) {
 		)
 	);
 	$wp_customize->selective_refresh->add_partial( 'advantages_flag', [
+		'selector'         => '#advantages',
 		'render_callback'  => '__return_false',
 		'fallback_refresh' => true,
 	] ); /**/

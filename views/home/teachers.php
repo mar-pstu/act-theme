@@ -14,34 +14,51 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 	<div class="container">
 
 		<?php if ( ! empty( $title ) ) : ?>
-			<h2><?php echo $title ?></h2>
+			<h2 id="teachers-title"><?php echo $title ?></h2>
 		<?php endif; ?>
 
 		<?php if ( ! empty( $excerpt ) ) : ?>
-			<p><?php echo $excerpt; ?></p>
+			<p id="teachers-excerpt"><?php echo $excerpt; ?></p>
 		<?php endif; ?>
 
-		<?php echo $teachers; ?>
+		<?php if ( isset( $content ) && ! empty( $content ) ) : ?>
+			<div id="teachers-description">
+				<?php echo $content; ?> 
+			</div>
+		<?php endif; ?>
 
 		<div class="box">
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md">
-					<?php if ( ! empty( $subtitle ) ) : ?>
-						<h3><?php echo $subtitle; ?></h3>
+					
+					<?php if ( isset( $subtitle ) && ! empty( $subtitle ) ) : ?>
+						<h3 id="teachers-subtitle"><?php echo $subtitle; ?></h3>
 					<?php endif; ?>
-					<?php echo $content; ?>
+
+					<?php if ( isset( $description ) && ! empty( $description ) ) : ?>
+						<div id="teachers-description">
+							<?php echo $description; ?>
+						</div>
+					<?php endif; ?>
+
 					<?php if ( ! empty( $permalink ) ) : ?>
-						<p>
-							<a class="btn btn-success" href="<?php echo esc_attr( $permalink ); ?>"><?php echo $label; ?></a>
-						</p>
+						<p><a id="teachers-permalink" class="btn btn-success" href="<?php echo esc_attr( $permalink ); ?>"><?php echo $label; ?></a></p>
 					<?php endif; ?>
+
 				</div>
-				<?php if ( ! empty( $socials_list ) ) : ?>
+
+				<?php if ( isset( $socials_list ) && ! empty( $socials_list ) ) : ?>
 					<div class="col-xs-12 col-sm-11 col-md-4">
-						<h3><?php echo $socials_title; ?></h3>
+						
+						<?php if ( isset( $socials_title ) && ! empty( $socials_title ) ) : ?>
+							<h3 id="teachers-socials-title"><?php echo $socials_title; ?></h3>
+						<?php endif; ?>
+
 						<?php echo $socials_list; ?>
+
 					</div>
 				<?php endif; ?>
+
 			</div>
 		</div>
 

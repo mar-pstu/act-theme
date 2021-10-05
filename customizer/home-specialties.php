@@ -36,6 +36,7 @@ function customizer_register_home_specialties( $wp_customize ) {
 		)
 	);
 	$wp_customize->selective_refresh->add_partial( 'specialties_flag', [
+		'selector'         => '#specialties',
 		'render_callback'  => '__return_false',
 		'fallback_refresh' => true,
 	] ); /**/

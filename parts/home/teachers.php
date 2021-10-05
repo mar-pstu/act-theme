@@ -14,11 +14,11 @@ $label = trim( get_theme_mod( 'teachers_label', __( 'Подробней', ACT_TH
 $permalink = '';
 $socials_title = trim( get_theme_mod( 'teachers_socials', __( 'Мы в социальных сетях', ACT_THEME_TEXTDOMAIN ) ) );
 $page_id = get_theme_mod( 'teachers_page_id', '' );
-$teachers = shortcode_teachers( array(
+$content = shortcode_teachers( array(
 	'section' => false,
 ) );
 $socials_list = shortcode_socials_list();
-$content = trim( get_theme_mod( 'hometeachersdescription', '' ) );
+$description = trim( get_theme_mod( 'hometeachersdescription', '' ) );
 
 
 if ( ! empty( $page_id ) ) {

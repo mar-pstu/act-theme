@@ -36,6 +36,7 @@ function customizer_register_home_jumbotron( $wp_customize ) {
 		)
 	);
 	$wp_customize->selective_refresh->add_partial( 'jumbotron_flag', [
+		'selector'         => '#jumbotron',
 		'render_callback'  => '__return_false',
 		'fallback_refresh' => true,
 	] ); /**/

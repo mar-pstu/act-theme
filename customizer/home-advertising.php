@@ -36,6 +36,7 @@ function customizer_register_home_advertising( $wp_customize ) {
 		)
 	);
 	$wp_customize->selective_refresh->add_partial( 'advertising_flag', [
+		'selector'         => '#advertising',
 		'render_callback'  => '__return_false',
 		'fallback_refresh' => true,
 	] ); /**/
