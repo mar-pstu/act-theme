@@ -4,6 +4,9 @@
 namespace act_theme;
 
 
+use WP_Post;
+
+
 if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
@@ -14,40 +17,29 @@ $label = trim( get_theme_mod( 'teachers_label', __( 'Подробней', ACT_TH
 $permalink = '';
 $socials_title = trim( get_theme_mod( 'teachers_socials', __( 'Мы в социальных сетях', ACT_THEME_TEXTDOMAIN ) ) );
 $page_id = get_theme_mod( 'teachers_page_id', '' );
-$content = shortcode_teachers( array(
-	'section' => false,
-) );
+$content = '';
 $socials_list = shortcode_socials_list();
 $description = trim( get_theme_mod( 'hometeachersdescription', '' ) );
 
-
 if ( ! empty( $page_id ) ) {
-
 	$permalink = get_permalink( $page_id );
-
-	if ( empty( $content ) ) {
-
-		$page = get_post( $page_id, OBJECT, 'raw' );
-
-		if ( $page instanceof \WP_Post ) {
-
-			if ( empty( $title ) ) {
-				$title = apply_filters( 'the_title', $page->post_title, $page->ID );
-			}
-
-			if ( empty( $subtitle ) ) {
-				$subtitle = $page->post_excerpt;
-			}
-
-			$parts = get_extended( $page->post_content );
-			$content = do_shortcode( $parts[ 'main' ], false );
-
-		}
-
-	}
-
 }
 
+switch ( get_theme_mod( 'teachers_type', 'list' ) ) {
+	case 'content':
+		$page = get_post( $page_id, OBJECT, 'raw' );
+		if ( $page instanceof WP_Post ) {
+			$parts = get_extended( $page->post_content );
+			$content = do_shortcode( $parts[ 'main' ], false );
+		}
+		break;
+	case 'list':
+	default:
+		$content = shortcode_teachers( array(
+			'section' => false,
+		) );
+		break;
+}
 
 
 include get_theme_file_path( 'views/home/teachers.php' );

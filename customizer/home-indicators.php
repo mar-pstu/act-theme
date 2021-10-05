@@ -14,7 +14,7 @@ function customizer_register_home_indicators( $wp_customize ) {
 		array(
 			'title'            => sprintf( '%s - %s', __( 'Главная страница', ACT_THEME_TEXTDOMAIN ), __( 'Показатели работы', ACT_THEME_TEXTDOMAIN ) ),
 			'priority'         => 70,
-			'description'      => __( 'Секция главной страницы. Якорь #indicators. В секции выводится список показателей работы, перечень которых настраивается отдельно.', ACT_THEME_TEXTDOMAIN ),
+			'description'      => __( 'Секция главной страницы. Якорь #indicators. В секции выводится список показателей работы, перечень которых настраивается отдельно. Для показа секции обязательно нужно заполнить спсок показтелей.', ACT_THEME_TEXTDOMAIN ),
 			'panel'            => 'template_parts',
 		)
 	); /**/
@@ -23,7 +23,7 @@ function customizer_register_home_indicators( $wp_customize ) {
 		'indicators_flag',
 		array(
 			'default'           => false,
-			'transport'         => 'reset',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
@@ -34,13 +34,18 @@ function customizer_register_home_indicators( $wp_customize ) {
 			'label'             => __( 'Использовать секцию', ACT_THEME_TEXTDOMAIN ),
 			'type'              => 'checkbox',
 		)
-	); /**/
+	);
+	$wp_customize->selective_refresh->add_partial( 'indicators_flag', [
+		'selector'         => '#indicators',
+		'render_callback'  => '__return_false',
+		'fallback_refresh' => true,
+	] ); /**/
 
 	$wp_customize->add_setting(
 		'indicators_bgi',
 		array(
 			'default'           => ACT_THEME_URL . 'images/indicators.jpg',
-			'transport'         => 'reset',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'esc_url_raw',
 		)
 	);
@@ -55,6 +60,11 @@ function customizer_register_home_indicators( $wp_customize ) {
 			)
 		)
 	);
+	$wp_customize->selective_refresh->add_partial( 'indicators_bgi', [
+		'selector'         => '#indicators',
+		'render_callback'  => '__return_false',
+		'fallback_refresh' => true,
+	] ); /**/
 
 	$wp_customize->add_setting(
 		'indicators_text_color',
@@ -70,6 +80,7 @@ function customizer_register_home_indicators( $wp_customize ) {
 		'indicators_text_color',
 		array(
 			'label'      => __( 'Цвет текста', ACT_THEME_TEXTDOMAIN ),
+			'description' => __( 'просмотр изменений только при перезагрузке', ACT_THEME_TEXTDOMAIN ),
 			'section'    => ACT_THEME_SLUG . '_indicators',
 			'settings'   => 'indicators_text_color',
 		) ) 

@@ -4,6 +4,9 @@
 namespace act_theme;
 
 
+use WP_Post;
+
+
 if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
@@ -14,23 +17,15 @@ $content = '';
 $permalink = '';
 $label = trim( get_theme_mod( 'cources_label', __( 'Подробней', ACT_THEME_TEXTDOMAIN ) ) );
 $page_id = get_theme_mod( 'cources_page_id', '' );
-$page = ( empty( $page_id ) ) ? false : get_post( $page_id, OBJECT );
 
-
-if ( $page instanceof \WP_Post ) {
-	$permalink = get_permalink( $page, false );
-	if ( empty( $title ) ) {
-		$title = apply_filters( 'the_title', $page->post_title, $page->ID );
-	}
-	if ( empty( $subtitle ) ) {
-		$subtitle = $page->post_excerpt;
-	}
+if ( $page_id ) {
+	$permalink = get_permalink( $page_id, false );
 }
-
 
 switch ( get_theme_mod( 'cources_type', 'list' ) ) {
 	case 'content':
-		if ( $page instanceof \WP_Post ) {
+		$page = empty( $page_id ) ? false : get_post( $page_id, OBJECT );
+		if ( $page instanceof WP_Post ) {
 			$parts = get_extended( $page->post_content );
 			$content = do_shortcode( $parts[ 'main' ], false );
 		}

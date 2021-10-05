@@ -23,7 +23,7 @@ function customizer_register_home_cources( $wp_customize ) {
 		'cources_flag',
 		array(
 			'default'           => false,
-			'transport'         => 'reset',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
@@ -34,13 +34,18 @@ function customizer_register_home_cources( $wp_customize ) {
 			'label'             => __( 'Использовать секцию', ACT_THEME_TEXTDOMAIN ),
 			'type'              => 'checkbox',
 		)
-	); /**/
+	);
+	$wp_customize->selective_refresh->add_partial( 'cources_flag', [
+		'selector'         => '#cources',
+		'render_callback'  => '__return_false',
+		'fallback_refresh' => true,
+	] ); /**/
 
 	$wp_customize->add_setting(
 		'cources_title',
 		array(
 			'default'           => __( 'Курсы', ACT_THEME_TEXTDOMAIN ),
-			'transport'         => 'reset',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
@@ -51,13 +56,18 @@ function customizer_register_home_cources( $wp_customize ) {
 			'label'             => __( 'Заголовок', ACT_THEME_TEXTDOMAIN ),
 			'type'              => 'text',
 		)
-	); /**/
+	);
+	$wp_customize->selective_refresh->add_partial( 'cources_title', [
+		'selector'         => '#cources-title',
+		'render_callback'  => function () { return customizer_get_text_theme_mod( 'cources_title' ); },
+		'fallback_refresh' => true,
+	] ); /**/
 
 	$wp_customize->add_setting(
 		'cources_subtitle',
 		array(
 			'default'           => '',
-			'transport'         => 'reset',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_textarea_field',
 		)
 	);
@@ -68,13 +78,18 @@ function customizer_register_home_cources( $wp_customize ) {
 			'label'             => __( 'Подзаголовок', ACT_THEME_TEXTDOMAIN ),
 			'type'              => 'textarea',
 		)
-	); /**/
+	);
+	$wp_customize->selective_refresh->add_partial( 'cources_subtitle', [
+		'selector'         => '#cources-subtitle',
+		'render_callback'  => function () { return customizer_get_text_theme_mod( 'cources_subtitle' ); },
+		'fallback_refresh' => true,
+	] ); /**/
 
 	$wp_customize->add_setting(
 		'cources_type',
 		array(
 			'default'           => 'list',
-			'transport'         => 'reset',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
@@ -89,13 +104,18 @@ function customizer_register_home_cources( $wp_customize ) {
 				'content'         => __( 'контент', ACT_THEME_TEXTDOMAIN ),
 			),
 		)
-	); /**/
+	);
+	$wp_customize->selective_refresh->add_partial( 'cources_type', [
+		'selector'         => '#cources-content',
+		'render_callback'  => '__return_false',
+		'fallback_refresh' => true,
+	] ); /**/
 
 	$wp_customize->add_setting(
 		'cources_page_id',
 		array(
 			'default'           => '',
-			'transport'         => 'reset',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'absint',
 		)
 	);
@@ -106,13 +126,18 @@ function customizer_register_home_cources( $wp_customize ) {
 			'label'             => __( 'Выбор страницы', ACT_THEME_TEXTDOMAIN ),
 			'type'              => 'dropdown-pages',
 		)
-	); /**/
+	);
+	$wp_customize->selective_refresh->add_partial( 'cources_page_id', [
+		'selector'         => '#cources-content',
+		'render_callback'  => '__return_false',
+		'fallback_refresh' => true,
+	] ); /**/
 
 	$wp_customize->add_setting(
 		'cources_label',
 		array(
 			'default'           => __( 'Подробней', ACT_THEME_TEXTDOMAIN ),
-			'transport'         => 'reset',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
@@ -123,7 +148,12 @@ function customizer_register_home_cources( $wp_customize ) {
 			'label'             => __( 'Текст кнопки внизу секции', ACT_THEME_TEXTDOMAIN ),
 			'type'              => 'text',
 		)
-	); /**/
+	);
+	$wp_customize->selective_refresh->add_partial( 'cources_label', [
+		'selector'         => '#cources-permalink',
+		'render_callback'  => function () { return customizer_get_text_theme_mod( 'cources_label' ); },
+		'fallback_refresh' => true,
+	] ); /**/
 
 }
 
