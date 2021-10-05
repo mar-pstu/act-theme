@@ -14,7 +14,7 @@ $label = get_theme_mod( 'directions_label', __( 'Подробней', ACT_THEME_
 $content = '';
 $permalink = '';
 $page_id = get_theme_mod( 'directions_page_id', '' );
-$page = ( empty( $page_id ) ) ? __return_false() : get_post( $page_id, OBJECT );
+$page = empty( $page_id ) ? false : get_post( $page_id, OBJECT );
 
 
 if ( $page instanceof \WP_Post ) {
